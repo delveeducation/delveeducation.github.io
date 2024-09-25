@@ -10174,6 +10174,10 @@ header.masthead {
   background-image: url("../assets/img/post_images/large_language_models.png");
 }
 
+.masthead.page-deep-learning {
+  background-image: url("../assets/img/post_images/prev_deep_learning.png");
+}
+
 header.masthead::before {
   content: "";
   position: absolute;
