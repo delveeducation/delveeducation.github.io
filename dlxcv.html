@@ -165,18 +165,92 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="index.html">delve</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
+                <a class="navbar-brand js-scroll-trigger" href="index.html">delve</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-               
-                        
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pllms.html">Practical LARGE LANGUAGE MODELS</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#" id="pllms-link">CURSOS</a>
+                            <ul class="submenu" id="submenu" style="display: none;">
+                                <li><a href="dlxcv.html">Deep Learning para Computer Vision</a></li>
+                                <li><a href="cva.html">Computer Vision Avanzado</a></li>
+                                <li><a href="pllms.html">Practical Large Language Models</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://www.facebook.com/delveeducacion">Comunidad</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://b.link/DelveEducacionFAQ">Contacto</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+        
+        <script>
+            // Obtener el enlace y el menú
+            const pllmsLink = document.getElementById('pllms-link');
+            const submenu = document.getElementById('submenu');
+        
+            // Mostrar el submenú al hacer clic en "Practical LARGE LANGUAGE MODELS"
+            pllmsLink.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+                submenu.style.display = submenu.style.display === "block" ? "none" : "block"; // Alternar el submenú
+            });
+        
+            // Mostrar el submenú al pasar el ratón
+            pllmsLink.addEventListener('mouseover', function() {
+                submenu.style.display = "block"; // Mostrar el submenú al pasar el ratón
+            });
+        
+            // Mantener el submenú visible cuando el cursor está sobre él
+            submenu.addEventListener('mouseover', function() {
+                submenu.style.display = "block"; // Mantener el submenú visible
+            });
+        
+            // Ocultar el submenú al salir de él
+            submenu.addEventListener('mouseleave', function() {
+                submenu.style.display = "none"; // Ocultar el submenú
+            });
+            
+            // Ocultar el submenú al salir del enlace principal
+            pllmsLink.addEventListener('mouseleave', function() {
+                submenu.style.display = "none"; // Ocultar el submenú al salir del enlace
+            });
+            
+            
+        </script>
+        
+        <style>
+            .submenu {
+                list-style: none; /* Eliminar el estilo de lista */
+                padding: 0; /* Eliminar el relleno */
+                margin: 0; /* Eliminar el margen */
+                position: absolute; /* Posiciona el submenú de forma absoluta */
+                background-color: #343a40; /* Fondo oscuro */
+                z-index: 1000; /* Asegura que esté por encima de otros elementos */
+            }
+            .submenu li {
+                padding: 5px 10px; /* Espaciado interno */
+            }
+            .submenu li a {
+                color: white; /* Color del texto */
+                font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                font-size: 0.95rem;
+                color: #fff;
+                letter-spacing: 0.0625em;
+                text-decoration: none; /* Sin subrayado */
+            }
+            .submenu li a:hover {
+                text-decoration: underline; /* Subrayar en hover */
+            }
+        </style>
+        
+
+
+
+
+
+
+
+
         <!-- Masthead-->
         <header class="masthead page-dlxcv">
             <div class="container">
@@ -186,7 +260,7 @@
                 <div class="masthead-subheading-2">¡Aprende con nosotros! </div>
                 <div class="masthead-subheading-2">Curso en vivo y en español. </div>
                 <br>
-                <div class="masthead-subheading-2">Inicio: XX de Noviembre </div>
+                <div class="masthead-subheading-2">Inicio: 19 de Noviembre </div>
                 <br>
 
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#inscripciones">Inscribirme</a>
@@ -203,7 +277,7 @@
                 </div>
                 <div class="text-center">
                 <p>
-                    Sumérgete en el mundo de la Inteligencia Artificial Generativa con este curso práctico usando Gemini y OpenAI. Aprenderás a generar diversos tipos de contenido, desde poemas, recetas de comidas, resúmenes y código utilizando técnicas innovadoras como prompts multimodales. Explora la integración de LLMs con Langchain para construir aplicaciones AI complejas, domina la creación de embeddings y almacenamiento en Firestore, y descubre el fascinante concepto de LLM Reflection. Este curso te brindará las herramientas y conocimientos necesarios para aprovechar al máximo el poder de los LLMs y crear aplicaciones AI revolucionarias.    
+                    Este curso te llevará a un emocionante viaje a través de las tecnologías que están revolucionando el procesamiento de imágenes. Comenzando con los fundamentos de la visión por computadora y el aprendizaje automático, avanzarás hacia el dominio de redes neuronales básicas y convolucionales. Aprenderás a implementar arquitecturas avanzadas y a aplicar técnicas de transfer learning para resolver problemas complejos en clasificación, detección de objetos y segmentación de imágenes. A través de una metodología práctica que combina teoría con ejercicios guiados en Python, adquirirás habilidades esenciales que te permitirán desarrollar proyectos innovadores en el campo de la inteligencia artificial y la visión por computadora. Este curso es ideal para quienes buscan entender y aplicar tecnologías de vanguardia en un entorno en constante evolución.    
                 </p></div>
 
                 <br>
@@ -213,17 +287,16 @@
                     <div style="flex: 2; min-width: 300px;">
                       <div style="margin-bottom: 20px; border: 1px solid #ddd; padding: 15px;">
                         <h2>¿A quién nos dirigimos?</h2>
-                        <p>Este curso es adecuado para cualquier persona interesada en la Inteligencia Artificial Generativa. Te enseñará a crear contenido variado, como textos e imágenes, utilizando herramientas prácticas. A lo largo del curso, adquirirás habilidades útiles para implementar tecnologías emergentes en tus proyectos, lo que es ideal para estudiantes o profesionales que buscan mejorar su capacidad de trabajo y adquirir competencias técnicas relevantes en el ámbito digital.</p>
+                        <p>Este curso está diseñado para estudiantes, profesionales y entusiastas que buscan adentrarse en el fascinante mundo de la visión por computadora y el aprendizaje profundo. No es necesario que tengas experiencia avanzada en inteligencia artificial, pero sí que cuentes con una comprensión básica de programación, especialmente en Python, y un interés por explorar aplicaciones innovadoras en el procesamiento de imágenes. Este curso es ideal para aquellos que desean desarrollar habilidades prácticas en uno de los campos más activos y relevantes de la tecnología actual.</p>
                       </div>
                       <div style="border: 1px solid #ddd; padding: 15px;">
                         <h2>¿Qué aprenderás de este curso?</h2>
-                        <p>Te convertirás en un creador de contenido innovador, aprenderás a utilizar LLMs para desarrollar aplicaciones prácticas, y dominarás la generación de texto, imágenes y más. Saldrás con habilidades concretas para diseñar proyectos que impacten en el mundo real, dándote una ventaja competitiva en tu carrera.</p>
+                        <p>Al finalizar el curso, habrás adquirido una sólida comprensión de los conceptos fundamentales en visión por computadora, desde técnicas básicas de clasificación de imágenes hasta redes neuronales avanzadas y arquitecturas convolucionales. Aprenderás a aplicar modelos de deep learning como las CNNs y a implementar estrategias de optimización y regularización para mejorar la precisión de los modelos. También explorarás el uso de modelos preentrenados mediante transfer learning y aprenderás a manejar tareas más complejas, como detección de objetos y segmentación de imágenes. Cada lección práctica está diseñada para que obtengas experiencia real implementando estos modelos en proyectos de visión por computadora.</p>
                       </div>
                     </div>
                     <div style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px;">
                       <h2>Metodología</h2>
-                      <p>Durante la primera mitad del curso, aprenderás los fundamentos mediante teoría y práctica, recibiendo orientación de mentores especializados.</p> 
-                      <p>En la segunda mitad, aplicarás lo aprendido en un proyecto que resuelva problemas específicos.</p>
+                      <p>Este curso combina teoría y práctica, con un enfoque centrado en la implementación de modelos. Cada clase comienza con conceptos teóricos clave, seguidos por ejercicios prácticos guiados en Python, utilizando PyTorch. La estructura de cada sesión se orienta al aprendizaje aplicado, permitiéndote ver cómo cada técnica se implementa en la práctica. Durante el curso, tendrás acceso a recursos adicionales y podrás realizar consultas a los instructores, quienes estarán disponibles para apoyar tu aprendizaje y resolver dudas en tiempo real.</p>
                     </div>
                 </div>
 
@@ -279,40 +352,40 @@
 
                                 <div class="col-md-4">
                                     <span></span>
-                                    <h4 class="my-3">Introducción a la <br>Visión por Computadora y <br> Fundamentos de <br>Machine Learning</h4>
-                                    <img src="assets/gifs/gradient_1.gif" id="circle">
+                                    <h4 class="my-3">Introducción <br>a Visión por Computadora y<br> Machine Learning</h4>
+                                    <img src="assets/gifs/machinelearning.gif" id="circle">
                                     <br>
                                     <br>
-                                    <p class="text-justify">Exploración inicial de la IA generativa, incluyendo historia, conceptos clave, y una introducción a los modelos LLM actuales.
+                                    <p class="text-justify">Explora las bases de la visión por computadora y el machine learning, abordando sus aplicaciones en la clasificación y detección de imágenes. La clase incluye una demostración con KNN y regresión logística para aprender a clasificar imágenes.
                                     </p>
                                         </span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <span></span>
-                                    <h4 class="my-3">Redes Neuronales <br>Básicas y el <br>Perceptrón <br>Multicapa<br></h4>
-                                    <img src="assets/gifs/gradient_2.gif" id="circle">
+                                    <h4 class="my-3">Redes <br>Neuronales <br>y Perceptrón Multicapa</h4>
+                                    <img src="assets/gifs/neuralnetworks.gif" id="circle">
                                     <br><br>
-                                    <p class="text-justify">Uso de LLMs en Python, creación de prompts efectivos, prompts multimodales (imágenes, audios, videos, PDFs) y técnicas de context caching.</p>
+                                    <p class="text-justify">Descubre el funcionamiento de redes neuronales y el perceptrón multicapa, su inspiración biológica y arquitectura básica. Practica la implementación de una red MLP en PyTorch usando un dataset de imágenes.</p>
                                         </span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <span></span>
-                                    <h4 class="my-3">Redes <br>Neuronales<br>Convolucionales <br>(CNNs)</h4>
-                                    <img src="assets/gifs/gradient_3.gif" id="circle">
+                                    <h4 class="my-3">Convolutional <br>Neural <br>Networks(CNNs)</h4>
+                                    <img src="assets/gifs/cnn1.gif" id="circle">
                                     <br><br>
-                                    <p class="text-justify">Estrategias avanzadas de prompting: instrucciones de sistema, ejemplos de Few-shots, reflexión, diseño de prompts y consideraciones de seguridad.</p>
+                                    <p class="text-justify">Aprende sobre convoluciones y pooling, esenciales en redes para procesar imágenes, y sigue una guía para implementar una CNN en PyTorch o Keras. La clase incluye el desarrollo de una CNN para la clasificación de imágenes.</p>
                                         </span>
                                 </div>
 
 
                                 <div class="col-md-4">
                                     <span></span>
-                                    <h4 class="my-3">Arquitecturas <br>Avanzadas de CNNs <br>y Transfer <br>Learning</h4>
-                                    <img src="assets/gifs/gradient_4.gif" id="circle">
+                                    <h4 class="my-3">Arquitecturas <br>Avanzadas <br>y Transfer Learning</h4>
+                                    <img src="assets/gifs/neuralnetworks2.gif" id="circle">
                                     <br><br>
-                                    <p class="text-justify">Creación de embeddings y representaciones vectoriales para tareas como búsqueda de similitudes y recuperación de información.
+                                    <p class="text-justify">Examina arquitecturas avanzadas como ResNet y VGG y el uso de transfer learning en modelos preentrenados. La práctica abarca la aplicación de un modelo transferido a un nuevo dataset para ver sus ventajas.
                                     </p>
                                         </span>
                                 </div>
@@ -321,20 +394,20 @@
 
                                 <div class="col-md-4">
                                     <span></span>
-                                    <h4 class="my-3">Optimización <br>y Regularización <br>en Redes Neuronales para <br>Visión por Computadora</h4>
-                                    <img src="assets/gifs/gradient_5.gif" id="circle">
+                                    <h4 class="my-3">Optimización <br>y Regularización <br>en CNNs</h4>
+                                    <img src="assets/gifs/optimization.gif" id="circle">
                                     <br><br>
-                                    <p class="text-justify">Conceptos de embeddings multimodales para texto, imágenes y videos, incluyendo la creación de un RAG (Retrieval-Augmented Generation).</p>
+                                    <p class="text-justify">Entiende cómo evitar el overfitting y mejorar el rendimiento mediante regularización y optimización. La clase culmina con un ejercicio práctico de regularización y ajuste de optimización en una CNN.</p>
                                         </span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <span></span>
-                                    <h4 class="my-3">Detección <br>de Objetos <br>y Segmentación de <br>Imágenes</h4>
-                                    <img src="assets/gifs/gradient_6.gif" id="circle">
+                                    <h4 class="my-3">Detección <br>de Objetos y Segmentación <br>de Imágenes</h4>
+                                    <img src="assets/gifs/segmentaton.gif" id="circle">
                                     <br>
                                     <br>
-                                    <p class="text-justify">Implementación de Langchain en proyectos de IA generativa.</p>
+                                    <p class="text-justify">Aborda la diferencia entre clasificación, detección y segmentación de imágenes, explorando algoritmos como YOLO y Mask R-CNN. La práctica incluye aplicar modelos de detección o segmentación en un dataset de imágenes.</p>
                                         </span>
                                 </div>
 
@@ -343,7 +416,7 @@
                                     <h4 class="my-3">Proyectos <br> Finales</h4>
                                     <img src="assets/gifs/gradient_8.gif" id="circle">
                                     <br><br>
-                                    <p class="text-justify">Presentación y revisión de proyectos realizados por los participantes utilizando IA generativa</p>
+                                    <p class="text-justify">Presentación y revisión de proyectos realizados por los participantes utilizando Deep Learning para Computer Vision.</p>
                                         </span>
                                 </div>
 
@@ -534,54 +607,55 @@
                             </div>
 
                             
+
+                            <!--
                             <div class="container">
 
                                 <div style="display: flex; flex-wrap: wrap; gap: 20px; width: 100%;">
-                                    <!-- Perfil 1 -->
+                                   
                                     <div style="flex: 1; min-width: 200px; border: 1px solid #ddd; padding: 15px; display: flex; flex-direction: column; align-items: center;">
-                                        <!-- Foto circular -->
+                                       
                                         <img src="assets/img/speakers/adrian-arnaiz.png" alt="Foto de Fernando Silva" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
                                         
-                                        <!-- Nombre -->
+                                       
                                         <div style="font-size: 1.2em; font-weight: bold;">
                                             Fernando Silva
                                         </div>
                                         
-                                        <!-- Biografía -->
+                                    
                                         <p style="text-align: center;">Fernando Silva es un apasionado del desarrollo de software con experiencia en diseño y construcción de soluciones innovadoras.</p>
                                     </div>
                                 
-                                    <!-- Perfil 2 -->
+                             
                                     <div style="flex: 1; min-width: 200px; border: 1px solid #ddd; padding: 15px; display: flex; flex-direction: column; align-items: center;">
-                                        <!-- Foto circular -->
+                                   
                                         <img src="assets/img/speakers/danae-sanchez.png" alt="Foto de Maria Gonzalez" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
-                                        
-                                        <!-- Nombre -->
+                                       
                                         <div style="font-size: 1.2em; font-weight: bold;">
                                             Maria Gonzalez
                                         </div>
                                         
-                                        <!-- Biografía -->
                                         <p style="text-align: center;">Maria Gonzalez es diseñadora gráfica con una pasión por crear experiencias visuales impactantes.</p>
                                     </div>
                                 
-                                    <!-- Perfil 3 -->
+                                 
                                     <div style="flex: 1; min-width: 200px; border: 1px solid #ddd; padding: 15px; display: flex; flex-direction: column; align-items: center;">
-                                        <!-- Foto circular -->
+                                  
                                         <img src="assets/img/speakers/felipe-san-martin.png" alt="Foto de Juan Perez" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
                                         
-                                        <!-- Nombre -->
                                         <div style="font-size: 1.2em; font-weight: bold;">
                                             Juan Perez
                                         </div>
-                                        
-                                        <!-- Biografía -->
                                         <p style="text-align: center;">Juan Perez es un ingeniero de datos especializado en análisis de big data y machine learning.</p>
                                     </div>
                                 </div>
                                 
 
                             </div>
+
+                        -->
+
+                        Muy pronto más información de los mentores...
                            <!-- <div class="container">
                                 
 
