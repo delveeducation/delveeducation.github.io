@@ -1,61 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Delve</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet" />
 
-        <style>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Delve</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <style>
         section {
             display: flex;
             flex-flow: column;
             align-items: center;
         }
+
         div.container {
             transition: all .3s ease;
         }
+
         h1 {
             margin: 15px 0 0 0;
         }
+
         h3 {
             margin: 0 0 25px 0;
         }
+
         @media (max-width: 992px) {
             section {
                 padding: 0 20px 0 20px;
             }
         }
+
         section.slide-option {
             margin: 0 0 50px 0;
         }
+
         .no-marg {
             margin: 0 0 0 0;
         }
+
         div.highway-slider {
             display: flex;
             justify-content: center;
             width: 100%;
-            height: 250px; /* Increased height */
+            height: 250px;
+            /* Increased height */
         }
+
         div.highway-barrier {
             overflow: hidden;
             position: relative;
         }
+
         ul.highway-lane {
             display: flex;
             height: 100%;
         }
+
         li.highway-car {
-            width: 220px; /* Increased width */
+            width: 220px;
+            /* Increased width */
             display: flex;
             flex-flow: column;
             justify-content: center;
@@ -64,43 +78,64 @@
             color: black;
             text-align: center;
         }
+
         li.highway-car img {
-            width: 120px; /* Increased size */
-            height: 120px; /* Increased size */
+            width: 120px;
+            /* Increased size */
+            height: 120px;
+            /* Increased size */
             border-radius: 50%;
         }
+
         @keyframes translateinfinite {
-            100% { transform: translateX(calc(-220px * 12)); } /* Adjusted for new width */
+            100% {
+                transform: translateX(calc(-220px * 12));
+            }
+
+            /* Adjusted for new width */
         }
+
         #infinite div.highway-barrier {
             background: #fff;
         }
+
         #infinite div.highway-barrier::before,
         #infinite div.highway-barrier::after {
             content: " ";
             position: absolute;
             z-index: 9;
-            width: 220px; /* Adjusted for new width */
+            width: 220px;
+            /* Adjusted for new width */
             height: 100%;
         }
+
         #infinite div.highway-barrier::before {
-            top: 0; left: 0;
-            background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+            top: 0;
+            left: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
         }
+
         #infinite div.highway-barrier::after {
-            top: 0; right: 0;
-            background: linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+            top: 0;
+            right: 0;
+            background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
         }
+
         #infinite div.highway-barrier ul.highway-lane {
-            width: calc(220px * 24); /* Adjusted for new width */
+            width: calc(220px * 24);
+            /* Adjusted for new width */
         }
+
         #infinite div.highway-barrier ul.highway-lane li.highway-car {
             animation: translateinfinite 50s linear infinite;
         }
-        .name, .text {
+
+        .name,
+        .text {
             margin-top: 5px;
             font-size: 16px;
         }
+
         #estructura {
             background-color: white;
         }
@@ -113,132 +148,172 @@
             background-color: white;
         }
 
-        #inscripciones {
+       
+        #cdu {
             background-color: whitesmoke;
         }
-
-        #faq {
+        #inscripciones {
             background-color: white;
+        }
+        #faq {
+            background-color: whitesmoke;
         }
 
 
         .hashtag1 {
-            background-color: #fee1e1; /* Fondo azul claro */
-            color: #f2211d;           /* Texto azul */
+            background-color: #fee1e1;
+            /* Fondo azul claro */
+            color: #f2211d;
+            /* Texto azul */
             font-weight: bold;
-            padding: 4px 8px;         /* Espaciado interno */
-            border-radius: 12px;      /* Bordes redondeados */
-            display: inline-block; 
+            padding: 4px 8px;
+            /* Espaciado interno */
+            border-radius: 12px;
+            /* Bordes redondeados */
+            display: inline-block;
         }
 
         .hashtag2 {
-            background-color: #E1F5FE; /* Fondo azul claro */
-            color: #1DA1F2;           /* Texto azul */
+            background-color: #E1F5FE;
+            /* Fondo azul claro */
+            color: #1DA1F2;
+            /* Texto azul */
             font-weight: bold;
-            padding: 4px 8px;         /* Espaciado interno */
-            border-radius: 12px;      /* Bordes redondeados */
-            display: inline-block; 
+            padding: 4px 8px;
+            /* Espaciado interno */
+            border-radius: 12px;
+            /* Bordes redondeados */
+            display: inline-block;
         }
 
         .hashtag3 {
-            background-color: #e7fee1; /* Fondo azul claro */
-            color: #13a10f;           /* Texto azul */
+            background-color: #e7fee1;
+            /* Fondo azul claro */
+            color: #13a10f;
+            /* Texto azul */
             font-weight: bold;
-            padding: 4px 8px;         /* Espaciado interno */
-            border-radius: 12px;      /* Bordes redondeados */
-            display: inline-block; 
+            padding: 4px 8px;
+            /* Espaciado interno */
+            border-radius: 12px;
+            /* Bordes redondeados */
+            display: inline-block;
         }
+
         .emoji {
             width: 1em;
             height: 1em;
-            vertical-align: middle; /* Alineación con el texto */
+            vertical-align: middle;
+            /* Alineación con el texto */
         }
-        </style>
-    </head>
 
-    
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="index.html">delve</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#" id="pllms-link">CURSOS</a>
-                            <ul class="submenu" id="submenu" style="display: none;">
-                                <li><a href="dlxcv.html">Deep Learning para Computer Vision</a></li>
-                                <li><a href="cva.html">Computer Vision Avanzado</a></li>
-                                <li><a href="pllms.html">Practical Large Language Models</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://www.facebook.com/delveeducacion">Comunidad</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://b.link/DelveEducacionFAQ">Contacto</a></li>
-                    </ul>
-                </div>
+        .emojizoom {
+            width: 2.5em;
+            height: 0.7em;
+            vertical-align: middle;
+            /* Alineación con el texto */
+        }
+    </style>
+</head>
+
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.html">delve</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#" id="pllms-link">CURSOS</a>
+                        <ul class="submenu" id="submenu" style="display: none;">
+                            <li><a href="dlxcv.html">Deep Learning para Computer Vision</a></li>
+                            <li><a href="cva.html">Computer Vision Avanzado</a></li>
+                            <li><a href="pllms.html">Practical Large Language Models</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger"
+                            href="https://www.facebook.com/delveeducacion">Comunidad</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger"
+                            href="https://b.link/DelveEducacionFAQ">Contacto</a></li>
+                </ul>
             </div>
-        </nav>
-        
-        <script>
-            // Obtener el enlace y el menú
-            const pllmsLink = document.getElementById('pllms-link');
-            const submenu = document.getElementById('submenu');
-        
-            // Mostrar el submenú al hacer clic en "Practical LARGE LANGUAGE MODELS"
-            pllmsLink.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
-                submenu.style.display = submenu.style.display === "block" ? "none" : "block"; // Alternar el submenú
-            });
-        
-            // Mostrar el submenú al pasar el ratón
-            pllmsLink.addEventListener('mouseover', function() {
-                submenu.style.display = "block"; // Mostrar el submenú al pasar el ratón
-            });
-        
-            // Mantener el submenú visible cuando el cursor está sobre él
-            submenu.addEventListener('mouseover', function() {
-                submenu.style.display = "block"; // Mantener el submenú visible
-            });
-        
-            // Ocultar el submenú al salir de él
-            submenu.addEventListener('mouseleave', function() {
-                submenu.style.display = "none"; // Ocultar el submenú
-            });
-            
-            // Ocultar el submenú al salir del enlace principal
-            pllmsLink.addEventListener('mouseleave', function() {
-                submenu.style.display = "none"; // Ocultar el submenú al salir del enlace
-            });
-            
-            
-        </script>
-        
-        <style>
-            .submenu {
-                list-style: none; /* Eliminar el estilo de lista */
-                padding: 0; /* Eliminar el relleno */
-                margin: 0; /* Eliminar el margen */
-                position: absolute; /* Posiciona el submenú de forma absoluta */
-                background-color: #343a40; /* Fondo oscuro */
-                z-index: 1000; /* Asegura que esté por encima de otros elementos */
-            }
-            .submenu li {
-                padding: 5px 10px; /* Espaciado interno */
-            }
-            .submenu li a {
-                color: white; /* Color del texto */
-                font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-                font-size: 0.95rem;
-                color: #fff;
-                letter-spacing: 0.0625em;
-                text-decoration: none; /* Sin subrayado */
-            }
-            .submenu li a:hover {
-                text-decoration: underline; /* Subrayar en hover */
-            }
-        </style>
-        
+        </div>
+    </nav>
+
+    <script>
+        // Obtener el enlace y el menú
+        const pllmsLink = document.getElementById('pllms-link');
+        const submenu = document.getElementById('submenu');
+
+        // Mostrar el submenú al hacer clic en "Practical LARGE LANGUAGE MODELS"
+        pllmsLink.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+            submenu.style.display = submenu.style.display === "block" ? "none" : "block"; // Alternar el submenú
+        });
+
+        // Mostrar el submenú al pasar el ratón
+        pllmsLink.addEventListener('mouseover', function () {
+            submenu.style.display = "block"; // Mostrar el submenú al pasar el ratón
+        });
+
+        // Mantener el submenú visible cuando el cursor está sobre él
+        submenu.addEventListener('mouseover', function () {
+            submenu.style.display = "block"; // Mantener el submenú visible
+        });
+
+        // Ocultar el submenú al salir de él
+        submenu.addEventListener('mouseleave', function () {
+            submenu.style.display = "none"; // Ocultar el submenú
+        });
+
+        // Ocultar el submenú al salir del enlace principal
+        pllmsLink.addEventListener('mouseleave', function () {
+            submenu.style.display = "none"; // Ocultar el submenú al salir del enlace
+        });
+
+
+    </script>
+
+    <style>
+        .submenu {
+            list-style: none;
+            /* Eliminar el estilo de lista */
+            padding: 0;
+            /* Eliminar el relleno */
+            margin: 0;
+            /* Eliminar el margen */
+            position: absolute;
+            /* Posiciona el submenú de forma absoluta */
+            background-color: #343a40;
+            /* Fondo oscuro */
+            z-index: 1000;
+            /* Asegura que esté por encima de otros elementos */
+        }
+
+        .submenu li {
+            padding: 5px 10px;
+            /* Espaciado interno */
+        }
+
+        .submenu li a {
+            color: white;
+            /* Color del texto */
+            font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 0.95rem;
+            color: #fff;
+            letter-spacing: 0.0625em;
+            text-decoration: none;
+            /* Sin subrayado */
+        }
+
+        .submenu li a:hover {
+            text-decoration: underline;
+            /* Subrayar en hover */
+        }
+    </style>
 
 
 
@@ -247,167 +322,220 @@
 
 
 
-        <!-- Masthead-->
-        <header class="masthead page-dlxcv">
-            <div class="container">
 
-                <div class="masthead-subheading">Curso:</div>
-                <div class="masthead-heading text-uppercase"> Deep Learning <br> para <br>Computer Vision</div> <br>
-                <div class="masthead-subheading-2">¡Aprende con nosotros! </div>
-                <div class="masthead-subheading-2">Curso en vivo y en español. </div>
-                <br>
-                <div class="masthead-subheading-2">Inicio: 19 de Noviembre </div>
-                <br>
+    <!-- Masthead-->
+    <header class="masthead page-dlxcv">
+        <div class="container">
 
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#inscripciones">Inscribirme</a>
-                
-                <!--<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#contacto">Sé nuestro sponsor</a>-->
+            <div class="masthead-subheading">Curso:</div>
+            <div class="masthead-heading text-uppercase"> Deep Learning <br> para <br>Computer Vision</div> <br>
+            <div class="masthead-subheading-2">¡Aprende con nosotros! </div>
+            <div class="masthead-subheading-2">Curso en vivo y en español. </div>
+            <div class="masthead-subheading-2">¡Cupos limitados! </div>
+            <br>
+            <div class="masthead-subheading-2">Inicio: 19 de Noviembre </div>
+            <br>
+
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#inscripciones">Inscribirme</a>
+
+            <!--<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#contacto">Sé nuestro sponsor</a>-->
+        </div>
+    </header>
+    <!-- Services-->
+
+    <section class="page-section" id="estructura">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Descripción del curso </h2>
             </div>
-        </header>
-        <!-- Services-->
-
-        <section class="page-section" id="estructura">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Descripción del curso </h2>
-                </div>
-                <div class="text-center">
+            <div class="text-center">
                 <p>
-                    Este curso te llevará a un emocionante viaje a través de las tecnologías que están revolucionando el procesamiento de imágenes. Comenzando con los fundamentos de la visión por computadora y el aprendizaje automático, avanzarás hacia el dominio de redes neuronales básicas y convolucionales. Aprenderás a implementar arquitecturas avanzadas y a aplicar técnicas de transfer learning para resolver problemas complejos en clasificación, detección de objetos y segmentación de imágenes. A través de una metodología práctica que combina teoría con ejercicios guiados en Python, adquirirás habilidades esenciales que te permitirán desarrollar proyectos innovadores en el campo de la inteligencia artificial y la visión por computadora. Este curso es ideal para quienes buscan entender y aplicar tecnologías de vanguardia en un entorno en constante evolución.    
-                </p></div>
+                    Este curso te llevará a un emocionante viaje a través de las tecnologías que están revolucionando el
+                    procesamiento de imágenes. Comenzando con los fundamentos de la visión por computadora y el
+                    aprendizaje automático, avanzarás hacia el dominio de redes neuronales básicas y convolucionales.
+                    Aprenderás a implementar arquitecturas avanzadas y a aplicar técnicas de transfer learning para
+                    resolver problemas complejos en clasificación, detección de objetos y segmentación de imágenes. A
+                    través de una metodología práctica que combina teoría con ejercicios guiados en Python, adquirirás
+                    habilidades esenciales que te permitirán desarrollar proyectos innovadores en el campo de la
+                    inteligencia artificial y la visión por computadora. Este curso es ideal para quienes buscan
+                    entender y aplicar tecnologías de vanguardia en un entorno en constante evolución.
+                </p>
+            </div>
 
-                <br>
-                <br>
+            <br>
+            <br>
 
-                <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-                    <div style="flex: 2; min-width: 300px;">
-                      <div style="margin-bottom: 20px; border: 1px solid #ddd; padding: 15px;">
+            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                <div style="flex: 2; min-width: 300px;">
+                    <div style="margin-bottom: 20px; border: 1px solid #ddd; padding: 15px;">
                         <h2>¿A quién nos dirigimos?</h2>
-                        <p>Este curso está diseñado para estudiantes, profesionales y entusiastas que buscan adentrarse en el fascinante mundo de la visión por computadora y el aprendizaje profundo. No es necesario que tengas experiencia avanzada en inteligencia artificial, pero sí que cuentes con una comprensión básica de programación, especialmente en Python, y un interés por explorar aplicaciones innovadoras en el procesamiento de imágenes. Este curso es ideal para aquellos que desean desarrollar habilidades prácticas en uno de los campos más activos y relevantes de la tecnología actual.</p>
-                      </div>
-                      <div style="border: 1px solid #ddd; padding: 15px;">
-                        <h2>¿Qué aprenderás de este curso?</h2>
-                        <p>Al finalizar el curso, habrás adquirido una sólida comprensión de los conceptos fundamentales en visión por computadora, desde técnicas básicas de clasificación de imágenes hasta redes neuronales avanzadas y arquitecturas convolucionales. Aprenderás a aplicar modelos de deep learning como las CNNs y a implementar estrategias de optimización y regularización para mejorar la precisión de los modelos. También explorarás el uso de modelos preentrenados mediante transfer learning y aprenderás a manejar tareas más complejas, como detección de objetos y segmentación de imágenes. Cada lección práctica está diseñada para que obtengas experiencia real implementando estos modelos en proyectos de visión por computadora.</p>
-                      </div>
+                        <p>Este curso está diseñado para estudiantes, profesionales y entusiastas que buscan adentrarse
+                            en el fascinante mundo de Deep Learning y Computer Vision. No es necesario que tengas
+                            experiencia avanzada en inteligencia artificial, pero sí que cuentes con una comprensión
+                            básica de programación, especialmente en Python, y un interés por explorar aplicaciones
+                            innovadoras en el procesamiento de imágenes. Este curso es ideal para aquellos que desean
+                            desarrollar habilidades prácticas en uno de los campos más activos y relevantes de la
+                            tecnología actual.</p>
                     </div>
-                    <div style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px;">
-                      <h2>Metodología</h2>
-                      <p>Este curso combina teoría y práctica, con un enfoque centrado en la implementación de modelos. Cada clase comienza con conceptos teóricos clave, seguidos por ejercicios prácticos guiados en Python, utilizando PyTorch. La estructura de cada sesión se orienta al aprendizaje aplicado, permitiéndote ver cómo cada técnica se implementa en la práctica. Durante el curso, tendrás acceso a recursos adicionales y podrás realizar consultas a los instructores, quienes estarán disponibles para apoyar tu aprendizaje y resolver dudas en tiempo real.</p>
+                    <div style="border: 1px solid #ddd; padding: 15px;">
+                        <h2>¿Qué aprenderás de este curso?</h2>
+                        <p>Al finalizar el curso, habrás adquirido una sólida comprensión de los conceptos fundamentales
+                            en Computer Vision, desde técnicas básicas de clasificación de imágenes hasta redes
+                            neuronales avanzadas y arquitecturas convolucionales. Aprenderás a aplicar modelos de deep
+                            learning como las CNNs y a implementar estrategias de optimización y regularización para
+                            mejorar la precisión de los modelos. También explorarás el uso de modelos preentrenados
+                            mediante transfer learning y aprenderás a manejar tareas más complejas, como detección de
+                            objetos y segmentación de imágenes. Cada lección práctica está diseñada para que obtengas
+                            experiencia real implementando estos modelos en proyectos de visión por computadora.</p>
                     </div>
                 </div>
+                <div style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px;">
+                    <h2>Metodología</h2>
+                    <p>Este curso combina teoría y práctica, con un enfoque centrado en la implementación de modelos.
+                        Cada clase comienza con conceptos teóricos clave, seguidos por ejercicios prácticos guiados en
+                        Python, utilizando PyTorch. La estructura de cada sesión se orienta al aprendizaje aplicado,
+                        permitiéndote ver cómo cada técnica se implementa en la práctica. Durante el curso, tendrás
+                        acceso a recursos adicionales y podrás realizar consultas a los instructores, quienes estarán
+                        disponibles para apoyar tu aprendizaje y resolver dudas en tiempo real.</p>
+                    <br>
+                    <p>Las clases de los cursos se imparten en vivo a través de <img src="assets/img/logos/zoom.png"
+                            class="emojizoom" alt="PyTorch logo">, permitiendo la interacción directa entre alumnos y
+                        profesores. Posteriormente, los alumnos tienen acceso a todos los recursos utilizados durante la
+                        sesión, incluyendo la grabación de la clase, disponibles en nuestra plataforma. Además, cuentan
+                        con ejercicios prácticos para consolidar y aplicar los conocimientos adquiridos.</p>
+                </div>
+            </div>
 
             </br>
 
 
             <div style="display: flex; flex-wrap: wrap; gap: 20px;">
                 <!-- Tabla principal -->
-                
-                
+
+
                 <!-- Información adicional o descripción -->
                 <div style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px;">
                     <h2>Pre-requisitos</h2>
-                    <p>Para realizar este curso, es recomendable tener conocimientos previos en Python. Para aquellos inscritos que no cuenten con experiencia en el lenguaje, proporcionaremos material de nivelación en Python.</p>
+                    <p>Para realizar este curso, es recomendable tener conocimientos previos en Python. Para aquellos
+                        inscritos que no cuenten con experiencia en el lenguaje, proporcionaremos material de nivelación
+                        en Python.</p>
                 </div>
 
                 <div style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px;">
                     <h2>Habilidades que aprenderás</h2>
-                    <p>En este curso, aprenderás los <span class="hashtag1">Fundamentos de Visión por Computadora</span> y 
-                        <span class="hashtag2">Machine Learning</span>, 
-                        junto con técnicas como <span class="hashtag3">Convolutional Neural Networks (CNNs)</span> y 
-                        <span class="hashtag1">Transfer Learning</span> , aplicadas 
-                        a la <span class="hashtag2">clasificación de imágenes</span>, 
-                        <span class="hashtag3">detección de objetos y segmentación</span>. 
+                    <p>En este curso, aprenderás los <span class="hashtag1">Fundamentos de Visión por Computadora</span>
+                        y
+                        <span class="hashtag2">Machine Learning</span>,
+                        junto con técnicas como <span class="hashtag3">Convolutional Neural Networks (CNNs)</span> y
+                        <span class="hashtag1">Transfer Learning</span> , aplicadas
+                        a la <span class="hashtag2">clasificación de imágenes</span>,
+                        <span class="hashtag3">detección de objetos y segmentación</span>.
                         Trabajarás con el framework <span class="hashtag1">PyTorch</span>
-                        <img src="assets/img/logos/pytorch.svg" class="emoji" alt="PyTorch logo"> en ejercicios prácticos, 
-                        incluyendo el uso de  <span class="hashtag3">Modelos Pre-entrenados</span> y 
-                        el <span class="hashtag2">ajuste de hiperparámetros</span> para optimizar el rendimiento de los modelos.</p>
-                    
+                        <img src="assets/img/logos/pytorch.svg" class="emoji" alt="PyTorch logo"> en ejercicios
+                        prácticos,
+                        incluyendo el uso de <span class="hashtag3">Modelos Pre-entrenados</span> y
+                        el <span class="hashtag2">ajuste de hiperparámetros</span> para optimizar el rendimiento de los
+                        modelos.
+                    </p>
+
                 </div>
             </div>
 
 
 
 
-        </section>
+    </section>
 
 
 
 
-        <!-- Portfolio Grid-->
+    <!-- Portfolio Grid-->
 
-        <!-- About-->
-                    <section class="page-section" id="contenido">
-                        <div class="container">
-                            <div class="text-center">
-                                <h2 class="section-heading text-uppercase">Contenido </h2>
-                            
-                            </div>
-                            <div class="row text-center">
+    <!-- About-->
+    <section class="page-section" id="contenido">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Contenido </h2>
 
-
-
-                                <div class="col-md-4">
-                                    <span></span>
-                                    <h4 class="my-3">Introducción <br>a Visión por Computadora y<br> Machine Learning</h4>
-                                    <img src="assets/gifs/machinelearning.gif" id="circle">
-                                    <br>
-                                    <br>
-                                    <p class="text-justify">Explora las bases de la visión por computadora y el machine learning, abordando sus aplicaciones en la clasificación y detección de imágenes. La clase incluye una demostración con KNN y regresión logística para aprender a clasificar imágenes.
-                                    </p>
-                                        </span>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <span></span>
-                                    <h4 class="my-3">Redes <br>Neuronales <br>y Perceptrón Multicapa</h4>
-                                    <img src="assets/gifs/neuralnetworks.gif" id="circle">
-                                    <br><br>
-                                    <p class="text-justify">Descubre el funcionamiento de redes neuronales y el perceptrón multicapa, su inspiración biológica y arquitectura básica. Practica la implementación de una red MLP en PyTorch usando un dataset de imágenes.</p>
-                                        </span>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <span></span>
-                                    <h4 class="my-3">Convolutional <br>Neural <br>Networks(CNNs)</h4>
-                                    <img src="assets/gifs/cnn1.gif" id="circle">
-                                    <br><br>
-                                    <p class="text-justify">Aprende sobre convoluciones y pooling, esenciales en redes para procesar imágenes, y sigue una guía para implementar una CNN en PyTorch o Keras. La clase incluye el desarrollo de una CNN para la clasificación de imágenes.</p>
-                                        </span>
-                                </div>
-
-
-                                <div class="col-md-4">
-                                    <span></span>
-                                    <h4 class="my-3">Arquitecturas <br>Avanzadas <br>y Transfer Learning</h4>
-                                    <img src="assets/gifs/neuralnetworks2.gif" id="circle">
-                                    <br><br>
-                                    <p class="text-justify">Examina arquitecturas avanzadas como ResNet y VGG y el uso de transfer learning en modelos preentrenados. La práctica abarca la aplicación de un modelo transferido a un nuevo dataset para ver sus ventajas.
-                                    </p>
-                                        </span>
-                                </div>
+            </div>
+            <div class="row text-center">
 
 
 
-                                <div class="col-md-4">
-                                    <span></span>
-                                    <h4 class="my-3">Optimización <br>y Regularización <br>en CNNs</h4>
-                                    <img src="assets/gifs/optimization.gif" id="circle">
-                                    <br><br>
-                                    <p class="text-justify">Entiende cómo evitar el overfitting y mejorar el rendimiento mediante regularización y optimización. La clase culmina con un ejercicio práctico de regularización y ajuste de optimización en una CNN.</p>
-                                        </span>
-                                </div>
+                <div class="col-md-4">
+                    <span></span>
+                    <h4 class="my-3">Introducción <br>a Visión por Computadora y<br> Machine Learning</h4>
+                    <img src="assets/gifs/machinelearning.gif" id="circle">
+                    <br>
+                    <br>
+                    <p class="text-justify">Explora las bases de la visión por computadora y el machine learning,
+                        abordando sus aplicaciones en la clasificación y detección de imágenes. La clase incluye una
+                        demostración con KNN y regresión logística para aprender a clasificar imágenes.
+                    </p>
+                    </span>
+                </div>
 
-                                <div class="col-md-4">
-                                    <span></span>
-                                    <h4 class="my-3">Detección <br>de Objetos y Segmentación <br>de Imágenes</h4>
-                                    <img src="assets/gifs/segmentaton.gif" id="circle">
-                                    <br>
-                                    <br>
-                                    <p class="text-justify">Aborda la diferencia entre clasificación, detección y segmentación de imágenes, explorando algoritmos como YOLO y Mask R-CNN. La práctica incluye aplicar modelos de detección o segmentación en un dataset de imágenes.</p>
-                                        </span>
-                                </div>
+                <div class="col-md-4">
+                    <span></span>
+                    <h4 class="my-3">Redes <br>Neuronales <br>y Perceptrón Multicapa</h4>
+                    <img src="assets/gifs/neuralnetworks.gif" id="circle">
+                    <br><br>
+                    <p class="text-justify">Descubre el funcionamiento de redes neuronales y el perceptrón multicapa, su
+                        inspiración biológica y arquitectura básica. Practica la implementación de una red MLP en
+                        PyTorch usando un dataset de imágenes.</p>
+                    </span>
+                </div>
 
-                                <!-- 
+                <div class="col-md-4">
+                    <span></span>
+                    <h4 class="my-3">Convolutional <br>Neural <br>Networks(CNNs)</h4>
+                    <img src="assets/gifs/cnn1.gif" id="circle">
+                    <br><br>
+                    <p class="text-justify">Aprende sobre convoluciones y pooling, esenciales en redes para procesar
+                        imágenes, y sigue una guía para implementar una CNN en PyTorch o Keras. La clase incluye el
+                        desarrollo de una CNN para la clasificación de imágenes.</p>
+                    </span>
+                </div>
+
+
+                <div class="col-md-4">
+                    <span></span>
+                    <h4 class="my-3">Arquitecturas <br>Avanzadas <br>y Transfer Learning</h4>
+                    <img src="assets/gifs/neuralnetworks2.gif" id="circle">
+                    <br><br>
+                    <p class="text-justify">Examina arquitecturas avanzadas como ResNet y VGG y el uso de transfer
+                        learning en modelos preentrenados. La práctica abarca la aplicación de un modelo transferido a
+                        un nuevo dataset para ver sus ventajas.
+                    </p>
+                    </span>
+                </div>
+
+
+
+                <div class="col-md-4">
+                    <span></span>
+                    <h4 class="my-3">Optimización <br>y Regularización <br>en CNNs</h4>
+                    <img src="assets/gifs/optimization.gif" id="circle">
+                    <br><br>
+                    <p class="text-justify">Entiende cómo evitar el overfitting y mejorar el rendimiento mediante
+                        regularización y optimización. La clase culmina con un ejercicio práctico de regularización y
+                        ajuste de optimización en una CNN.</p>
+                    </span>
+                </div>
+
+                <div class="col-md-4">
+                    <span></span>
+                    <h4 class="my-3">Detección <br>de Objetos y Segmentación <br>de Imágenes</h4>
+                    <img src="assets/gifs/segmentaton.gif" id="circle">
+                    <br>
+                    <br>
+                    <p class="text-justify">Aborda la diferencia entre clasificación, detección y segmentación de
+                        imágenes, explorando algoritmos como YOLO y Mask R-CNN. La práctica incluye aplicar modelos de
+                        detección o segmentación en un dataset de imágenes.</p>
+                    </span>
+                </div>
+
+                <!-- 
 
                                 <div class="col-md-4">
                                     <span></span>
@@ -421,14 +549,14 @@
 
 
 
-                        </div>
-                    </section>
+            </div>
+    </section>
 
 
 
-                   
 
-                    <!--    <section class="slide-option"  id="mentores">
+
+    <!--    <section class="slide-option"  id="mentores">
                             <div class="text-center">
                                 <br>
                                 <br>
@@ -594,74 +722,96 @@
 
 
 
-                        <section class="slide-option" id="profesores">
-                            
-                        <div class="text-center">
-                            <br>
-                            
-                            <h2 class="section-heading text-uppercase">Profesores</h2>
-                            <!--<div>En versiones anteriores, cuando formábamos parte del equipo de <i>Saturdays AI La Paz</i>, tuvimos el honor de colaborar con mentores increíbles:</div>-->
-                            <br>
-                            <br>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-4 text-center">
-                                    <div class="mentor">
-                                        <h3>Carlos Menacho</h3>
-                                        <img src="assets/img/speakers/carlos_menacho.png" alt="Carlos Menacho" class="img-fluid" style="width: 50%; height: auto;">
-                                        <br>
-                                        <br>
-                                        
-                                        <img src="assets/img/speakers-logos/carlos-logo.png" alt="Logo 8" style="width: 20%; height: auto;">
-                                        <br>
-                                        <br>
-                                        <p class="text-justify">Ingeniero Mecatrónico con pasión por la inteligencia aplicada a la robótica. Amplia experiencia en enseñanza y desarrollo de proyectos de visión artificial. Docente universitario comprometido con la innovación tecnológica y la formación de futuros profesionales en el campo..</p>
-                                            <br>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                    <div class="mentor">
-                                        <h3>Erick Maraz</h3>
-                                        <img src="assets/img/speakers/erick_maraz.png" alt="Erick Maraz" class="img-fluid" style="width: 50%; height: auto;">
-                                        <br>
-                                        <br>
-                                        
-                                        <img src="assets/img/speakers-logos/erick-logo.png" alt="Logo 8" style="width: 20%; height: auto;">
-                                        <br>
-                                        <br>
-                                        <p class="text-justify">Erick Nació en Sucre, Bolivia. Hizo su licenciatura en ingeniería electromecánica en la UPB y su maestría en ingeniería eléctrica y electrónica en la EPFL como becario de la Fundación Simón. I. Patiño. La mayoría de los cursos y prácticas que hizo en su maestría fueron en el área de: “Deep Learning", “Data Science" y “Computer Vision".
+    <section class="slide-option" id="profesores">
 
-                                            Erick se considera una persona muy curiosa y con una variedad de intereses en el sector académico, empresarial, artístico y deportivo.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                    <div class="mentor">
-                                        <h3>Felipe San Martin</h3>
-                                        <img src="assets/img/speakers/felipe-san-martin.png" alt="Felipe San Martin" class="img-fluid" style="width: 50%; height: auto;">
-                                        <br>
-                                        <br>
-                                        
-                                        <img src="assets/img/speakers-logos/felipe-san-martin-logo.png" alt="Logo 8" style="width: 20%; height: auto;">
-                                        <br>
-                                        <br>
-                                        <p class="text-justify">Felipe es Ingeniero Civil Eléctrico y Master en Ingeniería Eléctrica de la Universidad de Chile. Trabajó durante 
-                                            más de 4 años en proyectos de I+D en temas de Computer Vision (CV), desarrollando soluciones para la industria desde la academia. 
-                                            Dentro de su experiencia profesional, también ha trabajado en dos empresas de tecnología chilenas: TOC Biometrics, empresa dedicada 
-                                            a la verificación de identidad, desarrollando modelos de CV; y Anastasia, empresa de Inteligencia Artificial, desarrollando un SaaS 
-                                            que permite optimizar las operaciones de pequeñas y medianas empresas mediante la automatización de procesos y predicción de demanda. 
-                                            Además, ha sido parte del equipo docente del curso de robótica móvil Duckietown Engineering Chile en la Universidad de Chile, enfocándose 
-                                            especialmente en el área de CV y Machine Learning. Felipe fue presidente de Corporación Cuac, organización sin fines de lucro que busca 
-                                            enseñar y realizar divulgación científica sobre temas de Robótica, Inteligencia Artificial y Ciencia de Datos, con el fin de democratizar 
-                                            dicho conocimiento. Actualmente se desempeña como Research Assistant en el Human Sensing Lab del Instituto de Robótica de Carnegie Mellon University.</p>
-                                    </div>
-                                </div>
+        <div class="text-center">
+            <br>
+
+            <h2 class="section-heading text-uppercase">Profesores</h2>
+            <!--<div>En versiones anteriores, cuando formábamos parte del equipo de <i>Saturdays AI La Paz</i>, tuvimos el honor de colaborar con mentores increíbles:</div>-->
+            <br>
+            <br>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <div class="mentor">
+                        <h3>Carlos Menacho</h3>
+                        <img src="assets/img/speakers/carlos_menacho.png" alt="Carlos Menacho" class="img-fluid"
+                            style="width: 50%; height: auto;">
+                        <br>
+                        <br>
+
+                        <img src="assets/img/speakers-logos/carlos-logo.png" alt="Logo 8"
+                            style="width: 20%; height: auto;">
+                        <br>
+                        <br>
+                        <p class="text-justify">Ingeniero Mecatrónico con pasión por la inteligencia aplicada a la
+                            robótica. Amplia experiencia en enseñanza y desarrollo de proyectos de visión artificial.
+                            Docente universitario comprometido con la innovación tecnológica y la formación de futuros
+                            profesionales en el campo.</p>
+                        <br>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="mentor">
+                        <h3>Erick Maraz</h3>
+                        <img src="assets/img/speakers/erick_maraz.png" alt="Erick Maraz" class="img-fluid"
+                            style="width: 50%; height: auto;">
+                        <br>
+                        <br>
+
+                        <a href="https://www.epfl.ch/en/" target="_blank"><img src="assets/img/speakers-logos/erick-logo.png" alt="Logo 8"
+                            style="width: 20%; height: auto;"></a>
+                        <br>
+                        <br>
+                        <p class="text-justify">Erick Nació en Sucre, Bolivia. Hizo su licenciatura en ingeniería
+                            electromecánica en la UPB y su maestría en ingeniería eléctrica y electrónica en la EPFL
+                            como becario de la Fundación Simón. I. Patiño. La mayoría de los cursos y prácticas que hizo
+                            en su maestría fueron en el área de: “Deep Learning", “Data Science" y “Computer Vision".
+
+                            Erick se considera una persona muy curiosa y con una variedad de intereses en el sector
+                            académico, empresarial, artístico y deportivo.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="mentor">
+                        <h3>Felipe San Martin</h3>
+                        <img src="assets/img/speakers/felipe-san-martin.png" alt="Felipe San Martin" class="img-fluid"
+                            style="width: 50%; height: auto;">
+                        <br>
+                        <br>
+
+                        <a href="https://www.cmu.edu/" target="_blank"> <img src="assets/img/speakers-logos/felipe-san-martin-logo.png" alt="Logo 8"
+                            style="width: 20%; height: auto;"></a>
+                        <br>
+                        <br>
+                        <p class="text-justify">Felipe es Ingeniero Civil Eléctrico y Master en Ingeniería Eléctrica de
+                            la Universidad de Chile. Trabajó durante
+                            más de 4 años en proyectos de I+D en temas de Computer Vision (CV), desarrollando soluciones
+                            para la industria desde la academia.
+                            Dentro de su experiencia profesional, también ha trabajado en dos empresas de tecnología
+                            chilenas: TOC Biometrics, empresa dedicada
+                            a la verificación de identidad, desarrollando modelos de CV; y Anastasia, empresa de
+                            Inteligencia Artificial, desarrollando un SaaS
+                            que permite optimizar las operaciones de pequeñas y medianas empresas mediante la
+                            automatización de procesos y predicción de demanda.
+                            Además, ha sido parte del equipo docente del curso de robótica móvil Duckietown Engineering
+                            Chile en la Universidad de Chile, enfocándose
+                            especialmente en el área de CV y Machine Learning. Felipe fue presidente de Corporación
+                            Cuac, organización sin fines de lucro que busca
+                            enseñar y realizar divulgación científica sobre temas de Robótica, Inteligencia Artificial y
+                            Ciencia de Datos, con el fin de democratizar
+                            dicho conocimiento. Actualmente se desempeña como Research Assistant en el Human Sensing Lab
+                            del Instituto de Robótica de Carnegie Mellon University.</p>
+                    </div>
+                </div>
 
 
-                            </div>
+            </div>
 
-                           <!-- <div class="container">
+            <!-- <div class="container">
                                 
 
                             
@@ -691,73 +841,191 @@
                                 </div>
                             </div>-->
 
-                        </section>
-
-                <section  class="page-section" id="inscripciones">
-                  <div class="container">
-                      <div class="text-center">
-                          <h2 class="section-heading text-uppercase">Inscripción</h2>
-                          
-                          <p> <b>Duración del curso: </b> 19 de Noviembre - 30 de Noviembre</p>
-                          <p><b>Martes: </b>20:00 - 22:00 UTC-4</p>
-                          <p><b>Jueves: </b>20:00 - 22:00 UTC-4</p>
-                          <p><b>Sábado: </b>08:00 - 10:00 UTC-4</p>
-                          <p><b>Modalidad:</b> Online, En tiempo real por ZOOM</p>
-                          <p>¡Incluye Certificado con carga horaria!.</p>
-                          <p>¡Aprovecha el descuento de Preventa! Hasta el 11 de Noviembre (Un solo pago)</p>
-                          <button class="btn btn-inscription btn-xl text-uppercase" id="sendMessageButton" type="reset"  onclick="window.open('https://forms.gle/eexm9pDemWBP6LYa6','_blank')">Inscribirme</button>
-
-                      </div>
-
-                </section>
+    </section>
 
 
-                <section class="page-section" id="faq">
-                    <div class="container">
-                        <div class="text-center">
-                            <h2 class="section-heading text-uppercase">Preguntas y respuestas frecuentes </h2>
-                        </div>
-                        <h4>¿El programa incluye certificado? </h4>
-                        <p>¡Sí! Al finalizar las clases los alumnos que hayan cumplido con los requisitos de finalización recibirán un certificado con carga horaria.</p>
-                
-                        <h4>¿Cuántos pagos hay que realizar para confirmar mi inscripción? </h4>
-                        <p>¡Solo un pago! Aprovecha los descuentos.</p>
-                
-                        <h4>¿Cuál es la edad mínima para participar en el programa? </h4>
-                        <p>La edad mínima para participar del programa es de 18 años.</p>
-                
-                        <h4>¿Puedo participar del programa si no tengo ningun conocimiento de programación? </h4>
-                        <p>¡Sí! Facilitaremos nuestro material de nivelación para los inscritos. </p>
-                
-                        <h4>¿El programa está enfocado a solo personas del área de informática e ingeniería de sistemas?</h4>
-                        <p> No, todos son bienvenidos a participar del programa.</p>
-                
-                        <p> ¿Aún tienes dudas?, <a href ="https://b.link/DelveEducacionFAQ"  target="_blank" >pulsa aquí</a>.</p>
+    <section class="slide-option" id="cdu">
+
+        <div class="text-center">
+            <br>
+
+            <h2 class="section-heading text-uppercase">Casos de uso, Deep Learning para Computer Vision</h2>
+            <!--<div>En versiones anteriores, cuando formábamos parte del equipo de <i>Saturdays AI La Paz</i>, tuvimos el honor de colaborar con mentores increíbles:</div>-->
+            <br>
+            <br>
+        </div>
+        <div class="container">
+
+
+
+
+            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                <!-- Información adicional o descripción en 3 columnas-->
+                <div style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px;">
+                   <center> <h3>Diagnóstico médico asistido por IA</h3></center>
+                    <img src="assets/img/cdu/ejemplo1cdu.png" alt="Diagnóstico médico" class="img-fluid"
+                        style="width: 100%; height: auto;">
+                        <br>
+                    <p class="text-justify"><br>Utilizando CNNs y arquitecturas avanzadas como ResNet con técnicas de
+                        transfer learning, es posible analizar imágenes médicas (como radiografías y resonancias
+                        magnéticas) para detectar anomalías, como tumores o fracturas. La detección de objetos y
+                        segmentación permite, además, aislar regiones específicas en una imagen, ayudando a los
+                        profesionales a visualizar áreas críticas y a tomar decisiones informadas rápidamente.</p>
+                    <ul>
+                        <li><a href="https://www.nature.com/articles/s41598-024-53733-6" target="_blank"> Paper - Nature: Una nueva arquitectura de CNN para la detección temprana y la clasificación precisas de la enfermedad de Alzheimer utilizando datos de resonancia magnética</a></li>
+                        <li><a href="https://www.lacapitalmdp.com/una-bioingeniera-argentina-desarrollo-un-algoritmo-para-detectar-el-cancer-de-mama/" target="_blank"> Noticia - La Capital (Argentina): Una bioingeniera argentina desarrolló un algoritmo para detectar el cáncer de mama</a></li>
+                    </ul>
+                        
                     </div>
-                </section>
 
+                <div style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px;">
+                    <center><h3>Control de calidad en manufactura</h3></center>
+                    <img src="assets/img/cdu/ejemplo2cdu.png" alt="Control de calidad" class="img-fluid"
+                        style="width: 100%; height: auto;">
+                        <br>
+                    <p class="text-justify"><br>En una línea de producción, modelos de visión por computadora con redes
+                        neuronales pueden clasificar productos y detectar defectos visuales, como imperfecciones o
+                        piezas dañadas. La detección de objetos y segmentación permite localizar exactamente el área
+                        defectuosa en cada producto, mejorando el control de calidad automatizado y reduciendo el
+                        desperdicio.</p>
 
-        <footer class="footer py-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-left">Copyright © Delve 2024</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="https://twitter.com/SaturdaysAILP"  target="_blank"><i class="fab fa-twitter"></i></a><a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/saturdaysailp/"  target="_blank"><i class="fab fa-facebook-f"></i></a><a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/company/64506868/"  target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-right"><a class="mr-3" href="#!">Privacy Policy</a><a href="#!">Terms of Use</a></div>
+                        <ul>
+                            <li><a href="https://www.foodmanufacturing.com/capital-investment/news/21115586/tyson-to-count-its-chickens-with-computer-vision" target="_blank"> Noticia - Food Manufacturing: Tyson contará sus pollos con visión artificial</a></li>
+                            <li><a href="https://www.thenewbarcelonapost.com/picvisa-vision-artificial-para-separar-residuos/" target="_blank"> Noticia - The New Barcelona Post (España): Picvisa: visión artificial para separar residuos</a></li>
+                        </ul>
                 </div>
+                <div style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px;">
+                    <center><h3>Seguridad en transporte y tráfico</h3></center>
+                    <img src="assets/img/cdu/ejemplo3cdu.png" alt="Seguridad en transporte" class="img-fluid"
+                        style="width: 100%; height: auto;">
+                        <br>
+                    <p class="text-justify"><br>Las técnicas de detección de objetos y segmentación en imágenes se aplican
+                        para detectar peatones, otros vehículos y señales de tráfico en imágenes en tiempo real
+                        capturadas por cámaras en sistemas de vehículos autónomos. Este proceso es clave para mejorar la
+                        navegación y evitar accidentes, al identificar y predecir con precisión la posición de cada
+                        elemento alrededor del vehículo.</p>
+                        
+                        <ul>
+                            <li><a href="https://spacecoastdaily.com/2024/06/florida-dot-approves-statewide-ai-traffic-management-by-notraffic/" target="_blank"> Noticia - Space Coast Daily (EEUU): El Departamento de Transporte de Florida aprueba la gestión del tráfico con inteligencia artificial a nivel estatal por parte de NoTraffic</a></li>
+                            <li><a href="https://www.digit.in/features/general/how-computer-vision-and-ai-will-automate-toll-booths-on-indian-roads-highways.html" target="_blank"> Noticia - Digit (India): Cómo la visión artificial y la inteligencia artificial automatizarán las cabinas de peaje en las carreteras y autopistas de la India</a></li>
+                        </ul>
+                    </div>
+
+                
+                
+
             </div>
-        </footer>
-        
-        <!-- Bootstrap core JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Contact form JS-->
-        <script src="assets/mail/jqBootstrapValidation.js"></script>
-        <script src="assets/mail/contact_me.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+
+
+
+
+
+            <!-- <div class="container">
+                                    
+    
+                                
+                                
+                                    <div class="row">
+                                        <div class="col-md-4 text-center">
+                                           
+                                        </div>
+                                        <div class="col-md-4 text-center">
+                                            <div class="mentor">
+                                                <h3>Juan G. Gomez 🇨🇴🇲🇽</h3>
+                                                <img src="assets/img/speakers/juan-guillermo.png" alt="Juan Guillermo" class="img-fluid" style="width: 50%; height: auto;">
+                                                
+                                                
+                                                <br>
+                                                <br>
+                                                <p class="text-justify">Juan Guillermo co-organizes several global and local events, such as GDG Cali, startup weekend Colombia and free software. He has been involved 
+                                                    in tech and software programming for the past 20 years. He attends more than 30 events per year as a guest speaker throughout Latin America, where he speaks about 
+                                                    mobile, android, cloud, firebase, Kotlin, software architecture, entrepreneurship, and innovation. He has been a programmer, software architect, technology leader, 
+                                                    university professor, and advisor in technology companies and systems departments. Now, he is a tech lead in WordBox. Juan is GDE (Google Developer Expert) in Firebase, 
+                                                    On-Device Machine Learning, GCP, and Kotlin. He holds a BS in System Engineering, and an MS in Software Engineering at Universidad San Buenaventura Cali.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 text-center">
+                                            
+                                        </div>
+                                    </div>
+                                </div>-->
+
+    </section>
+
+    <section class="page-section" id="inscripciones">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Inscripción</h2>
+
+                <p> <b>Duración del curso: </b> 19 de Noviembre - 30 de Noviembre</p>
+                <p><b>Martes: </b>20:00 - 22:00 UTC-4</p>
+                <p><b>Jueves: </b>20:00 - 22:00 UTC-4</p>
+                <p><b>Sábado: </b>08:00 - 10:00 UTC-4</p>
+                <p><b>Modalidad:</b> Online, En tiempo real por ZOOM</p>
+                <p>¡Incluye Certificado con carga horaria!.</p>
+                <p>¡Aprovecha el descuento de Preventa! Hasta el 11 de Noviembre (Un solo pago)</p>
+                <button class="btn btn-inscription btn-xl text-uppercase" id="sendMessageButton" type="reset"
+                    onclick="window.open('https://forms.gle/eexm9pDemWBP6LYa6','_blank')">Inscribirme</button>
+
+            </div>
+
+    </section>
+
+
+    <section class="page-section" id="faq">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Preguntas y respuestas frecuentes </h2>
+            </div>
+            <h4>¿El programa incluye certificado? </h4>
+            <p>¡Sí! Al finalizar las clases los alumnos que hayan cumplido con los requisitos de finalización recibirán
+                un certificado con carga horaria.</p>
+
+            <h4>¿Cuántos pagos hay que realizar para confirmar mi inscripción? </h4>
+            <p>¡Solo un pago! Aprovecha los descuentos.</p>
+
+            <h4>¿Cuál es la edad mínima para participar en el programa? </h4>
+            <p>La edad mínima para participar del programa es de 18 años.</p>
+
+            <h4>¿Puedo participar del programa si no tengo ningun conocimiento de programación? </h4>
+            <p>¡Sí! Facilitaremos nuestro material de nivelación para los inscritos. </p>
+
+            <h4>¿El programa está enfocado a solo personas del área de informática e ingeniería de sistemas?</h4>
+            <p> No, todos son bienvenidos a participar del programa.</p>
+
+            <p> ¿Aún tienes dudas?, <a href="https://b.link/DelveEducacionFAQ" target="_blank">pulsa aquí</a>.</p>
+        </div>
+    </section>
+
+
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-left">Copyright © Delve 2024</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark btn-social mx-2" href="https://twitter.com/SaturdaysAILP" target="_blank"><i
+                            class="fab fa-twitter"></i></a><a class="btn btn-dark btn-social mx-2"
+                        href="https://www.facebook.com/saturdaysailp/" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a><a class="btn btn-dark btn-social mx-2"
+                        href="https://www.linkedin.com/company/64506868/" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-right"><a class="mr-3" href="#!">Privacy Policy</a><a href="#!">Terms of
+                        Use</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Contact form JS-->
+    <script src="assets/mail/jqBootstrapValidation.js"></script>
+    <script src="assets/mail/contact_me.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
 </html>
