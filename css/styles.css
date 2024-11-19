@@ -10167,15 +10167,15 @@ header.masthead {
   position: relative; /* Para permitir que el pseudo-elemento cubra todo el contenedor */
 }
 .masthead.page-central {
-  background-image: url("../assets/img/space_1.png");
+  background-image: url("../assets/img/new_poster.jpg");
 }
 
 .masthead.page-pllms {
-  background-image: url("../assets/img/post_images/large_language_models.png");
+  background-image: url("../assets/img/large_language_models.jpg");
 }
 
 .masthead.page-dlxcv {
-  background-image: url("../assets/img/post_images/computer_vision.png");
+  background-image: url("../assets/img/dlxcv_computer_vision.jpeg");
 }
 
 .masthead.page-deep-learning {
@@ -10183,7 +10183,7 @@ header.masthead {
 }
 
 .masthead.page-cva {
-  background-image: url("../assets/img/drones_pastel.png");
+  background-image: url("../assets/img/computer_vision_avanzado.jpg");
 }
 header.masthead::before {
   content: "";
