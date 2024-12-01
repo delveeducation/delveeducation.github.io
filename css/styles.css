@@ -32,6 +32,8 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+
+
 *,
 *::before,
 *::after {
@@ -74,6 +76,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
+
 
 p {
   margin-top: 0;
@@ -586,6 +589,8 @@ pre code {
     max-width: 1140px;
   }
 }
+
+
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -2442,7 +2447,7 @@ textarea.form-control {
   }
 }
 .btn:hover {
-  color: #212529;
+  color: white;
   text-decoration: none;
 }
 .btn:focus, .btn.focus {
@@ -2466,8 +2471,8 @@ fieldset:disabled a.btn {
   border: 2px solid white;
 }
 .btn-inscription {
-  color: black;
-  background-color: #fec810;
+  color: rgb(255, 255, 255);
+  background-color: #000000;
   border: 2px solid white;
 }
 
@@ -2476,6 +2481,13 @@ fieldset:disabled a.btn {
   background-color: transparent;
   border: 2px solid black;
 }
+
+.btn-information:hover {
+  color: inherit; /* Mantiene el color original del texto */
+  background-color: inherit; /* Mantiene el color de fondo original */
+  text-decoration: none; /* Quita cualquier subrayado */
+}
+
 .btn-primary:hover {
   color: #fff;
   background-color: #fec810;
@@ -10091,6 +10103,28 @@ img::-moz-selection {
   padding-bottom: 1rem;
   background-color: #212529;
 }
+
+#mainNavCourses {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #212529;
+  z-index: 1000;
+  padding-top: 0.5rem;  /* Tamaño reducido desde el inicio */
+  padding-bottom: 0.5rem;  /* Tamaño reducido desde el inicio */
+
+  padding: 0.75rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.75rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.95rem;
+  color: #fff;
+  letter-spacing: 0.0625em;
+  border: 0;
+}
+
 #mainNav .navbar-toggler {
   padding: 0.75rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -10167,7 +10201,7 @@ header.masthead {
   position: relative; /* Para permitir que el pseudo-elemento cubra todo el contenedor */
 }
 .masthead.page-central {
-  background-image: url("../assets/img/new_poster.jpg");
+  background-image: url("../assets/img/new_poster_squares.png");
 }
 
 .masthead.page-pllms {
@@ -10204,8 +10238,9 @@ header.masthead .masthead-subheading {
   font-size: 1.5rem;
   color: white;
   font-style: italic;
-  line-height: 1.5rem;
+  line-height: 0.5rem;
   margin-bottom: 0.1rem;
+
   font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
@@ -10224,7 +10259,7 @@ header.masthead .masthead-subheading-img {
   font-style: normal;
   line-height: 0.5rem;
   margin-bottom: 0px;
-  font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 header.masthead .masthead-heading {
   font-size: 3.25rem;
@@ -10237,19 +10272,19 @@ header.masthead .masthead-heading {
 
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 17rem;
-    padding-bottom: 12.5rem;
+    padding-top: 10rem;
+    padding-bottom: 7rem;
   }
   header.masthead .masthead-subheading {
     font-size: 2.25rem;
     font-style: italic;
-    line-height: 2rem;
+    line-height: 0.5rem;
     margin-bottom: 2rem;
   }
   header.masthead .masthead-heading {
     font-size: 4.5rem;
     font-weight: 700;
-    line-height: 4.5rem;
+    line-height: 3rem;
     margin-bottom: 0rem;
   }
 }
