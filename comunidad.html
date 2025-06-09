@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delve Cursos</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">
+            <a href="index.html"><img src="delve_logo.png" alt="Delve logo" style="height: 60px;"></a>
+        </h1>
+
+        <nav>
+            <ul>
+                <li><a href="cursos.html">cursos</a></li>
+                <li><a href="empresas.html">empresas</a></li>
+                <li><a href="comunidad.html">comunidad</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+
+
+
+        <!--<p class="section-title">Explora las areas...</p>-->
+        <section class="full-bg-section4">
+            <center>
+                <h2>Eventos:</h2>
+            </center>
+            <br>
+
+            <div class="carrete-container">
+                <button class="carrete-btn prev" onclick="prevCarrete()">&#10094;</button>
+
+                <div class="carrete-track" id="carreteTrack">
+                    <div class="carrete-slide"><a href="https://forms.gle/w1jzdKgey4kCPndt6"><img
+                                src="assets/img/web/delve-lanzamiento.png" alt="Imagen 1"></a></div>
+                    <div class="carrete-slide"><img src="assets/img/web/gdg_bwai_delve.png" alt="Imagen 2"></div>
+
+                    <!-- Agrega más <div class="carrete-slide"> con imágenes según necesites -->
+                </div>
+
+                <button class="carrete-btn next" onclick="nextCarrete()">&#10095;</button>
+            </div>
+            <br>
+            <center>¿Tienes un evento? Cuéntanos más, podemos ser sponsors.</center>
+        </section>
+
+
+
+        <br><br>
+        <center>
+            <h2>Merch</h2>
+        </center>
+        <section class="courses">
+            <div class="course-box"><a href="icv.html"><img src="assets/img/web/polera_delve_1.png"></a>
+                <center><b>
+                        Polera Delve Athletic
+                    </b></center>
+                <center>Pronto a la venta</center>
+            </div>
+            <div class="course-box"><a href="kg.html"><img src="assets/img/web/delve_polera_2.png"></a>
+                <center><b>
+                        Polera Delve Escudo
+                    </b></center>
+                <center>Pronto a la venta</center>
+            </div>
+            <div class="course-box"><a href="llmopre.html"><img src="assets/img/web/delve_polera_alphafold.png"></a>
+                <center><b>Polera Proteina AI</b></center>
+                <center>Pronto a la venta</center>
+            </div>
+            <!--<div class="course-box">Pronto más cursos...</div>-->
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+
+
+                <img src="delve_logo.png" alt="Delve logo" style="height: 30px;">
+                <p>Calle 12 de Calacoto<br>Piso 7<br>La Paz, Bolivia</p>
+            </div>
+            <div>
+                <strong>nosotros</strong>
+                <p>sobre nosotros</p>
+                
+            </div>
+            <div>
+                <strong>programas</strong>
+                <p>para empresas</p>
+                <p>para colegios</p>
+            </div>
+            <div>
+                <strong>¡conectemos!</strong>
+                <div class="socials">
+                    <a href="https://www.facebook.com/delveeducacion" target="_blank" aria-label="Facebook"><i
+                            class="fab fa-facebook-f"></i></a><br>
+                    <a href="hhttps://www.instagram.com/delveeducacion/" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a><br>
+                    <a href="https://www.linkedin.com/company/delveeducacion" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a><br>
+                    <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i
+                            class="fab fa-tiktok"></i></a><br>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>Acelerados por </p>
+            <a href="https://aceleratec.org/portafolio/"><img src="assets/img/web/aceleratec.svg" alt="Delve logo"
+                    style="height: 30px;"></a>
+        </div>
+    </footer>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('slide-container');
+            const slides = Array.from(container.children);
+
+            // Clonar slides y añadir al final para loop infinito
+            slides.forEach(slide => {
+                const clone = slide.cloneNode(true);
+                container.appendChild(clone);
+            });
+
+            const totalWidth = container.scrollWidth;
+            const halfWidth = totalWidth / 2;
+
+            // Crear keyframes dinámicos
+            const animationName = 'scrollInfinite';
+
+            const styleSheet = document.createElement('style');
+            styleSheet.type = 'text/css';
+            styleSheet.innerHTML = `
+      @keyframes ${animationName} {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-${halfWidth}px); }
+      }
+    `;
+            document.head.appendChild(styleSheet);
+
+            // Duración en segundos (ajusta divisor para velocidad)
+            const duration = halfWidth / 100;
+
+            container.style.animation = `${animationName} ${duration}s linear infinite`;
+        });
+
+
+        let currentCarreteIndex = 0;
+
+        function updateCarretePosition() {
+            const track = document.getElementById("carreteTrack");
+            track.style.transform = `translateX(-${currentCarreteIndex * 100}%)`;
+        }
+
+        function nextCarrete() {
+            const slides = document.querySelectorAll('.carrete-slide');
+            currentCarreteIndex = (currentCarreteIndex + 1) % slides.length;
+            updateCarretePosition();
+        }
+
+        function prevCarrete() {
+            const slides = document.querySelectorAll('.carrete-slide');
+            currentCarreteIndex = (currentCarreteIndex - 1 + slides.length) % slides.length;
+            updateCarretePosition();
+        }
+    </script>

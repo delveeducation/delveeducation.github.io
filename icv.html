@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curso de Computer Vision</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <header>
+        <h1 class="logo">
+            <a href="index.html"><img src="delve_logo.png" alt="Delve logo" style="height: 60px;"></a>
+        </h1>
+
+        <nav>
+            <ul>
+                <li><a href="cursos.html">cursos</a></li>
+                <li><a href="empresas.html">empresas</a></li>
+                <li><a href="comunidad.html">comunidad</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+
+  <div class="left-column" style="margin-bottom: 1px !important;">
+    <h1>Introducción a Computer Vision</h1>
+
+
+    <div class="contenido">
+      <div class="boton-falso-a"><a href="cursos.html">Principiante</a></div>
+      <div class="boton-falso-b"><a href="cursos.html">100% Online</a></div>
+      <div class="boton-falso-c"><a href="cursos.html">Inteligencia Artificial</a></div>
+    </div>
+
+  </div>
+
+
+
+
+  <!-- Columna derecha: fija en escritorio, arriba en mobile -->
+  <div class="right-column">
+    <div class="course-photo"><img src="assets/img/web/icv.png"></div>
+    <div class="course-info">
+
+      <button class="boton-falso-d">¡Pronto disponible!</button>
+
+      <!--<h2>Precio: <b>20 USD</b></h2>-->
+      <!--<H3>Duración: 2 horas</H3>-->
+      <!--<H3>Certificado incluido</H3>-->
+
+
+      <div class="linea-negra"></div>
+
+
+
+      <a href="emily.html">
+        <div class="instructor-container">
+          <div class="instructor-photo"><img src="assets/img/pp/emily_rivera.png"></div>
+          <div class="instructor-info">
+            <p><strong><a href="index.html">Por Emily Rivera</strong></p>
+      </a>
+      <p>Ingeniera Electrónica con una Maestría en Física y Matemática Aplicada, especializada en Redes Neuronales y
+        Computación Neuronal en Moscow Institute of Physics and Technology (MIPT), Rusia. Especialista en
+        Inteligencia Artificial en la startup internacional Avatai.</p>
+    </div>
+  </div></a>
+
+  </div>
+  </div>
+  <div class="main-content">
+    <!-- Columna izquierda: contenido -->
+    <div class="left-column">
+
+
+      <p>Aprende a construir sistemas de visión por computadora desde cero, con proyectos prácticos y modelos reales
+      </p>
+
+
+      <div class="info-card">
+        <div class="icon-wrapper">💡</div>
+        <h3>¿Qué aprenderás?</h3>
+        <div class="info-grid">
+          <p>Fundamentos de imágenes digitales: RGB, HSV, escala de grises.</p>
+          <p>Procesamiento de imágenes: filtrado, convoluciones, transformaciones.</p>
+          <p>Detección de bordes, contornos y segmentación.</p>
+          <p>Detección de rostros y objetos usando Haar Cascades, HOG y modelos preentrenados.</p>
+          <p>Introducción a YOLO y MobileNet para detección avanzada.</p>
+          <p>Proyecto final: sistema de detección en tiempo real con webcam.</p>
+        </div>
+      </div>
+
+
+      <div class="info-card" onclick="toggleCard(this)">
+        <div class="icon-wrapper">📚</div>
+        <h3>Contenido del curso</h3>
+
+
+        <table class="tabla-curso">
+          <thead>
+            <tr>
+              <th>Módulo</th>
+
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="modulo-titulo">Módulo 1: Introducción a la Visión por Computadora</div>
+              </td>
+
+              <td>
+                <div class="contenido">Definición, aplicaciones clave (medicina, seguridad, autos autónomos, AR/VR) y su relación con la IA.</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="modulo-titulo">Módulo 2: Procesamiento de Imágenes</div>
+              </td>
+
+              <td>
+                <div class="contenido">Teoría y práctica del procesamiento básico de imágenes, incluyendo filtrado, detección de bordes,
+                transformaciones y uso de OpenCV.</div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="modulo-titulo">Módulo 3: Detección de Contornos y Segmentación de Imágenes</div>
+              </td>
+
+              <td>
+                <div class="contenido">Aprenderás segmentación por umbralización para detección de objetos y formas.</div>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <div class="modulo-titulo">Módulo 4: Detección de Rostros y Objetos con Modelos Preentrenados</div>
+              </td>
+
+              <td>
+                <div class="contenido">Explorarás detectores clásicos como Haar Cascades y HOG, y los aplicarás para detección facial en
+                imágenes y video</div>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <div class="modulo-titulo">Módulo 5: Introducción a Modelos de Deep Learning en Visión por Computadora</div>
+              </td>
+
+              <td>
+                <div class="contenido">Verás cómo se integran modelos como MobileNet y YOLO para tareas de detección de objetos con OpenCV.</div>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <div class="modulo-titulo">Módulo 6: Sistema de Detección en Tiempo Real</div>
+              </td>
+
+              <td>
+                <div class="contenido">Proyecto práctico para crear un sistema de detección de rostros y objetos en tiempo real con webcam.</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <!--<div class="curso">
+          <div class="resumen">
+            <span class="expandir" onclick="expandirTodas()">Ver más detalles</span>
+            <br>
+          </div>
+          <br>
+
+
+          <div class="seccion">
+            <div class="seccion-header" onclick="toggleSeccion(this)">
+              <span class="flecha">▶</span>
+              <div class="info">
+                <div class="titulo">Módulo 1: Introducción a la Visión por Computadora</div>
+                <div class="detalle">4 clases • 8 min</div>
+              </div>
+            </div>
+            <div class="seccion-contenido">
+              <p>Definición, aplicaciones clave (medicina, seguridad, autos autónomos, AR/VR) y su relación con la IA.
+              </p>
+            </div>
+          </div>
+
+
+
+          <div class="seccion">
+            <div class="seccion-header" onclick="toggleSeccion(this)">
+              <span class="flecha">▶</span>
+              <div class="info">
+                <div class="titulo">Módulo 2: Procesamiento de Imágenes</div>
+              </div>
+            </div>
+            <div class="seccion-contenido">
+              <p>Teoría y práctica del procesamiento básico de imágenes, incluyendo filtrado, detección de bordes,
+                transformaciones y uso de OpenCV.</p>
+            </div>
+          </div>
+
+          <div class="seccion">
+            <div class="seccion-header" onclick="toggleSeccion(this)">
+              <span class="flecha">▶</span>
+              <div class="info">
+                <div class="titulo">Módulo 3: Detección de Contornos y Segmentación de Imágenes</div>
+              </div>
+            </div>
+            <div class="seccion-contenido">
+              <p>Aprenderás segmentación por umbralización para detección de objetos y formas.</p>
+            </div>
+          </div>
+
+          <div class="seccion">
+            <div class="seccion-header" onclick="toggleSeccion(this)">
+              <span class="flecha">▶</span>
+              <div class="info">
+                <div class="titulo">Módulo 4: Detección de Rostros y Objetos con Modelos Preentrenados</div>
+              </div>
+            </div>
+            <div class="seccion-contenido">
+              <p>Explorarás detectores clásicos como Haar Cascades y HOG, y los aplicarás para detección facial en
+                imágenes y video.</p>
+            </div>
+          </div>
+
+
+          <div class="seccion">
+            <div class="seccion-header" onclick="toggleSeccion(this)">
+              <span class="flecha">▶</span>
+              <div class="info">
+                <div class="titulo">Módulo 5: Introducción a Modelos de Deep Learning en Visión por Computadora</div>
+              </div>
+            </div>
+            <div class="seccion-contenido">
+              <p>Verás cómo se integran modelos como MobileNet y YOLO para tareas de detección de objetos con OpenCV.
+              </p>
+            </div>
+          </div>
+
+          <div class="seccion">
+            <div class="seccion-header" onclick="toggleSeccion(this)">
+              <span class="flecha">▶</span>
+              <div class="info">
+                <div class="titulo">Módulo 6: Sistema de Detección en Tiempo Real</div>
+              </div>
+            </div>
+            <div class="seccion-contenido">
+              <p>Proyecto práctico para crear un sistema de detección de rostros y objetos en tiempo real con webcam.
+              </p>
+            </div>
+          </div>
+        </div>-->
+
+      </div>
+
+
+
+
+
+      <div class="info-card">
+        <div class="icon-wrapper">📄</div>
+        <h3>Descripción del Curso</h3>
+        <div class="info-grid">
+          Este curso ofrece una introducción completa a la visión por computadora, combinando teoría accesible con
+          prácticas reales usando Python y OpenCV. Aprenderás desde la representación digital de imágenes hasta la
+          implementación de modelos preentrenados como YOLO y MobileNet. A lo largo del curso desarrollarás habilidades
+          para procesar imágenes, detectar objetos y construir sistemas en tiempo real. Ideal para quienes desean
+          iniciarse en la visión por computadora con un enfoque práctico y moderno.
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="icon-wrapper">🎒</div>
+        <h3>¿Qué incluye el curso?</h3>
+        <div class="info-grid">
+          <ul style="list-style-type: disc; padding-left: 40px;">
+            <li>Clases teóricas claras con ejemplos reales.</li>
+            <li>Ejercicios guiados y notebooks en Colab listos para usar.</li>
+            <li>Actividades con código incompleto para que practiques resolviendo.</li>
+            <li>Acceso a recursos descargables y bibliografía recomendada.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="icon-wrapper">👥</div>
+        <h3>Público objetivo</h3>
+        <div class="info-grid">
+          <ul style="list-style-type: disc; padding-left: 40px;">
+            <li>Estudiantes y profesionales interesados en IA o procesamiento de imágenes.</li>
+            <li>Programadores que quieran incorporar visión por computadora en sus proyectos.</li>
+            <li>Curiosos tecnológicos que deseen aprender desde cero.</li>
+            <li>No necesitas experiencia previa con redes neuronales, ¡te acompañamos paso a paso!</li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+  function toggleSeccion(header) {
+    const seccion = header.closest(".seccion");
+    seccion.classList.toggle("abierta");
+  }
+
+  function expandirTodas() {
+    document.querySelectorAll('.seccion').forEach(seccion => {
+      seccion.classList.add('abierta');
+    });
+  }
+</script>

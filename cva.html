@@ -1,722 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Delve</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
-        <link href="css/styles.css" rel="stylesheet" />
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curso de Computer Vision</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
-        <style>
-        section {
-            display: flex;
-            flex-flow: column;
-            align-items: center;
-        }
-        div.container {
-            transition: all .3s ease;
-        }
-        h1 {
-            margin: 15px 0 0 0;
-        }
-        h3 {
-            margin: 0 0 25px 0;
-        }
-        @media (max-width: 992px) {
-            section {
-                padding: 0 20px 0 20px;
-            }
-        }
-        section.slide-option {
-            margin: 0 0 50px 0;
-        }
-        .no-marg {
-            margin: 0 0 0 0;
-        }
-        div.highway-slider {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            height: 250px; /* Increased height */
-        }
-        div.highway-barrier {
-            overflow: hidden;
-            position: relative;
-        }
-        ul.highway-lane {
-            display: flex;
-            height: 100%;
-        }
-        li.highway-car {
-            width: 220px; /* Increased width */
-            display: flex;
-            flex-flow: column;
-            justify-content: center;
-            align-items: center;
-            background: white;
-            color: black;
-            text-align: center;
-        }
-        li.highway-car img {
-            width: 120px; /* Increased size */
-            height: 120px; /* Increased size */
-            border-radius: 50%;
-        }
-        @keyframes translateinfinite {
-            100% { transform: translateX(calc(-220px * 12)); } /* Adjusted for new width */
-        }
-        #infinite div.highway-barrier {
-            background: #fff;
-        }
-        #infinite div.highway-barrier::before,
-        #infinite div.highway-barrier::after {
-            content: " ";
-            position: absolute;
-            z-index: 9;
-            width: 220px; /* Adjusted for new width */
-            height: 100%;
-        }
-        #infinite div.highway-barrier::before {
-            top: 0; left: 0;
-            background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-        }
-        #infinite div.highway-barrier::after {
-            top: 0; right: 0;
-            background: linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-        }
-        #infinite div.highway-barrier ul.highway-lane {
-            width: calc(220px * 24); /* Adjusted for new width */
-        }
-        #infinite div.highway-barrier ul.highway-lane li.highway-car {
-            animation: translateinfinite 50s linear infinite;
-        }
-        .name, .text {
-            margin-top: 5px;
-            font-size: 16px;
-        }
-        
-        #descripcion {
-            background-color: white;
-        }
+  <header>
+    <h1 class="logo">
+      <a href="index.html"><img src ="delve_logo.png" alt="Delve logo" style="height: 60px;"></a>
+    </h1>
+    <nav>
+      <ul>
+        <li>cursos</li>
+        <li>empresas</li>
+        <li>comunidad</li>
+        <li>login</li>
+      </ul>
+    </nav>
+  </header>
 
-        #contenido {
-            background-color: whitesmoke;
-        }
+  <div class="main-content">
+    <!-- Columna izquierda: contenido -->
+    <div class="left-column">
+<h2>En este curso aprenderás</h2>
 
-        #profesores {
-            background-color: white;
-        }
+  <p></p>blablablablablablblblablablablablablablablblblablablablablablablablablablablablablablblblablablablablablablblblabla...</p>
 
-        #casos {
-            background-color: whitesmoke;
-        }
+      <div class="contenido">
+        <p><strong>Contenido:</strong></p>
+        <button>¿Qué es la imagen?</button>
+        <button>imagen vs blablabla</button>
+      </div>
 
-        #faq {
-            background-color: white;
-        }
-
-
-        .hashtag1 {
-            background-color: #fee1e1; /* Fondo azul claro */
-            color: #f2211d;           /* Texto azul */
-            font-weight: bold;
-            padding: 4px 8px;         /* Espaciado interno */
-            border-radius: 12px;      /* Bordes redondeados */
-            display: inline-block; 
-        }
-
-        .hashtag2 {
-            background-color: #E1F5FE; /* Fondo azul claro */
-            color: #1DA1F2;           /* Texto azul */
-            font-weight: bold;
-            padding: 4px 8px;         /* Espaciado interno */
-            border-radius: 12px;      /* Bordes redondeados */
-            display: inline-block; 
-        }
-
-        .hashtag3 {
-            background-color: #e7fee1; /* Fondo azul claro */
-            color: #13a10f;           /* Texto azul */
-            font-weight: bold;
-            padding: 4px 8px;         /* Espaciado interno */
-            border-radius: 12px;      /* Bordes redondeados */
-            display: inline-block; 
-        }
-        .emoji {
-            width: 1em;
-            height: 1em;
-            vertical-align: middle; /* Alineación con el texto */
-        }
-        .emojizoom {
-            width: 2.5em;
-            height: 0.75em;
-            vertical-align: middle; /* Alineación con el texto */
-        }
-        p {
-            text-align: justify;
-        }
-        </style>
-    </head>
-
-    
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavCourses">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="index.html"><b>delve</b></a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#" id="pllms-link">CURSOS</a>
-                            <ul class="submenu" id="submenu" style="display: none;">
-                                <li><a href="dlxcv.html">Deep Learning para Computer Vision</a></li>
-                                <li><a href="cva.html">Computer Vision Avanzado</a></li>
-                                
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="https://chat.whatsapp.com/GLWGWVwGiHvLpYApfb9CKH">Comunidad</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="bit.ly/SAILP-CONS">Contacto</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        
-        <script>
-            // Obtener el enlace y el menú
-            const pllmsLink = document.getElementById('pllms-link');
-            const submenu = document.getElementById('submenu');
-        
-            // Mostrar el submenú al hacer clic en "Practical LARGE LANGUAGE MODELS"
-            pllmsLink.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
-                submenu.style.display = submenu.style.display === "block" ? "none" : "block"; // Alternar el submenú
-            });
-        
-            // Mostrar el submenú al pasar el ratón
-            pllmsLink.addEventListener('mouseover', function() {
-                submenu.style.display = "block"; // Mostrar el submenú al pasar el ratón
-            });
-        
-            // Mantener el submenú visible cuando el cursor está sobre él
-            submenu.addEventListener('mouseover', function() {
-                submenu.style.display = "block"; // Mantener el submenú visible
-            });
-        
-            // Ocultar el submenú al salir de él
-            submenu.addEventListener('mouseleave', function() {
-                submenu.style.display = "none"; // Ocultar el submenú
-            });
-            
-            // Ocultar el submenú al salir del enlace principal
-            pllmsLink.addEventListener('mouseleave', function() {
-                submenu.style.display = "none"; // Ocultar el submenú al salir del enlace
-            });
-            
-            
-        </script>
-        
-        <style>
-            .submenu {
-                list-style: none; /* Eliminar el estilo de lista */
-                padding: 0; /* Eliminar el relleno */
-                margin: 0; /* Eliminar el margen */
-                position: absolute; /* Posiciona el submenú de forma absoluta */
-                background-color: #343a40; /* Fondo oscuro */
-                z-index: 1000; /* Asegura que esté por encima de otros elementos */
-            }
-            .submenu li {
-                padding: 5px 10px; /* Espaciado interno */
-            }
-            .submenu li a {
-                color: white; /* Color del texto */
-                font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-                font-size: 0.95rem;
-                color: #fff;
-                letter-spacing: 0.0625em;
-                text-decoration: none; /* Sin subrayado */
-            }
-            .submenu li a:hover {
-                text-decoration: underline; /* Subrayar en hover */
-            }
-            .fixedcontainer {
-        position: fixed; /* Mantiene el contenedor fijo en su posición */
-        top: 70px; /* Posición desde el borde superior */
-        right: 10px; /* Posición desde el borde derecho en lugar de izquierdo */
-        width: 35%; /* Ancho del contenedor */
-        background-color: #f9f9f9;
-        padding: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        height: calc(100vh - 20px); /* Ajusta la altura al 100% de la ventana menos márgenes */
-        overflow-y: auto; /* Habilita scroll interno si el contenido es mayor */
-    }
-    .fixedimage {
-        float: left;
-        width: 100%;
-        height: auto;
-        margin-bottom: 3%
-    }
-    .fixedtext {
-        text-align: justify;
-    }
-
-    .bodycontainer {
-        margin-right: 36%; /* Ajusta el contenido para dejar espacio al contenedor fijo a la derecha */
-        padding: 20px;
-    }
-
-    .full-width-btn {
-        width: 100%; /* El botón ocupará el 100% del ancho del contenedor */
-    }
-
-    @media (max-width: 768px) { /* Aplica a pantallas de hasta 768px de ancho */
-    .fixedcontainer {
-        position: relative; /* Cambia de fijo a relativo */
-        top: 0; /* Reinicia el desplazamiento superior */
-        right: 0; /* Reinicia el desplazamiento derecho */
-        width: 100%; /* Ocupa el ancho completo del contenedor padre */
-        margin: 0 auto; /* Centra el contenedor */
-        height: auto; /* Ajusta la altura automáticamente */
-        box-shadow: none; /* Elimina la sombra si no es necesaria */
-    }
-
-    .bodycontainer {
-        margin-right: 0; /* Elimina el margen derecho adicional */
-        padding: 20px; /* Mantén el relleno uniforme */
-    }
-}
-
-        </style>
-
-
-    <!-- Masthead-->
-    
-    <!-- Services-->
-
-    <div class="fixedcontainer">
-   
-        <img src="assets/img/cva_course.webp" alt="Imagen de ejemplo" class="fixedimage">
-       
-        <h2 >Curso: Computer Vision Avanzado</h2>
-        <button class="btn btn-inscription btn-xl text-uppercase full-width-btn" id="sendMessageButton" type="reset"
-                    onclick="window.open('https://forms.gle/s8A8MDo6dxiM8XDf9','_blank')">Inscribirme</button>
-                    <br>
-        <p> <br>
-            <b>Duración del curso: </b> 10 de Diciembre - 19 de Diciembre</p>
-                <p><b>Martes y Jueves: </b>20:00 - 22:00 UTC-4</p>
-                <p><b>Sábado: </b>08:00 - 10:00 UTC-4</p>
-                <p><b>Modalidad:</b> Online, En tiempo real por ZOOM</p>
-                <p>¡Incluye Certificado con carga horaria!.</p>
-                <p>¡Aprovecha el descuento de Preventa! Hasta el 2 de Diciembre (Un solo pago)</p>
-                
-                    
+      <div class="contenido">
+        <p><strong>Contenido:</strong></p>
+        <button>¿Qué es la imagen?</button>
+        <button>imagen vs blablabla</button>
+      </div>
+            <div class="contenido">
+        <p><strong>Contenido:</strong></p>
+        <button>¿Qué es la imagen?</button>
+        <button>imagen vs blablabla</button>
+      </div>
+            <div class="contenido">
+        <p><strong>Contenido:</strong></p>
+        <button>¿Qué es la imagen?</button>
+        <button>imagen vs blablabla</button>
+      </div>
+            <div class="contenido">
+        <p><strong>Contenido:</strong></p>
+        <button>¿Qué es la imagen?</button>
+        <button>imagen vs blablabla</button>
+      </div>
+            <div class="contenido">
+        <p><strong>Contenido:</strong></p>
+        <button>¿Qué es la imagen?</button>
+        <button>imagen vs blablabla</button>
+      </div>
+            <div class="contenido">
+        <p><strong>Contenido:</strong></p>
+        <button>¿Qué es la imagen?</button>
+        <button>imagen vs blablabla</button>
+      </div>
+            <div class="contenido">
+        <p><strong>Contenido:</strong></p>
+        <button>¿Qué es la imagen?</button>
+        <button>imagen vs blablabla</button>
+      </div>
+            <div class="contenido">
+        <p><strong>Contenido:</strong></p>
+        <button>¿Qué es la imagen?</button>
+        <button>imagen vs blablabla</button>
+      </div>
     </div>
 
+    <!-- Columna derecha: fija en escritorio, arriba en mobile -->
+    <div class="right-column">
+      <div class="course-photo"><img src="icv.png"></div>
+      <div class="course-info">
+              <h2>Introducción a Computer Vision</h2>
+      <button class="inscribirme-btn">Inscribirme</button>
+        <div class="instructor-container">
+  <div class="instructor-photo"><img src="pp.jpeg"></div>
+  <div class="instructor-info">
+    <p><strong>Por Emily Rivera</strong></p>
+    <p>Emily estudió en MIPT (Rusia) el Master en XXX</p>
+  </div>
+</div>
 
-    <section class="page-section" id="descripcion">
-        <div class="bodycontainer">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Descripción del curso </h2>
-            </div>
-            <div class="text-center">
-                <p>
-                    Este curso avanzado de Visión por Computadora cubre técnicas innovadoras, incluyendo CNNs avanzadas, 
-                    Vision Transformers y Modelos de Difusión, explorando temas clave como ResNet, FPN, SimCLR y GANs. 
-                    A través de teoría y prácticas, se ofrece una perspectiva integral de las técnicas modernas de generación y clasificación de imágenes.
-                </p>
-            </div>
+      </div>
+    </div>
+  </div>
 
-            <br>
-            <br>
-
-            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-                <div style="flex: 2; min-width: 300px;">
-                    <div style="margin-bottom: 20px; border: 1px solid #ddd; padding: 15px;">
-                        <h2>¿A quién nos dirigimos?</h2>
-                        <p>Este curso está dirigido a estudiantes, investigadores y profesionales en inteligencia artificial y visión por computadora con 
-                            idalmente conocimientos previos en redes neuronales y machine learning, interesados en técnicas avanzadas y aplicaciones de arquitecturas 
-                            modernas en proyectos complejos.</p>
-                    </div>
-                    <div style="border: 1px solid #ddd; padding: 15px;">
-                        <h2>¿Qué aprenderás de este curso?</h2>
-                        <p>En el curso descubrirás cómo implementar arquitecturas avanzadas como ResNet, entenderás Self-Supervised Learning con SimCLR, explorarás GANs, Vision Transformers y Modelos de Difusión, comprendiendo su impacto en la generación de imágenes de alta calidad.</p>
-                    </div>
-                </div>
-                <div style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px;">
-                    <h2>Metodología</h2>
-                    <p>Este curso combina teoría y práctica, comenzando con conceptos clave seguidos de ejercicios prácticos guiados en Python y PyTorch, con apoyo en tiempo real de los instructores. 
-                        Las clases se imparten en vivo a través de Zoom, con acceso a grabaciones y recursos adicionales para reforzar el aprendizaje.</p>
-                </div>
-            </div>
-
-            </br>
-
-
-            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-                <!-- Tabla principal -->
-
-
-                <!-- Información adicional o descripción -->
-                <div style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px;">
-                    <h2>Pre-requisitos</h2>
-                    <p>Para realizar este curso, es recomendable tener conocimientos previos en Python. Para aquellos
-                        inscritos que no cuenten con experiencia en el lenguaje, proporcionaremos material de nivelación
-                        en Python.</p>
-                    
-                        <p>Se recomienda haber concluido el curso <a href="dlxcv.html" target="_blank">"Deep Learning para Computer Vision"</a>.</p>
-                </div>
-
-                <div style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px;">
-                    <h2>Habilidades que aprenderás</h2>
-                    <p>
-                        Este curso avanzado de Visión por Computadora abarca desde conceptos fundamentales de <span class="hashtag1">Convolutional Neural Networks (CNNs)</span> 
-                        hasta arquitecturas y técnicas de última generación, como <span class="hashtag1">ResNet</span>para redes profundas y <span class="hashtag2">Self-Supervised Learning</span>, que minimiza 
-                        la dependencia de datos etiquetados. También explorarás las <span class="hashtag3"> Generative Adversarial Networks (GANs)</span> para generación de imágenes,
-                        los <span class="hashtag1">Vision Transformers (ViT)</span> que utilizan transformadores en visión, y los <span class="hashtag2">Modelos de Difusión</span>, una técnica emergente 
-                        para crear imágenes detalladas. Cada módulo combina teoría y práctica. Trabajarás con el framework <span class="hashtag1">PyTorch</span>
-                        <img src="assets/img/logos/pytorch.svg" class="emoji" alt="PyTorch logo"> en ejercicios
-                        prácticos ofreciendo implementaciones guiadas de estas técnicas 
-                        avanzadas para aplicar en el análisis y procesamiento de imágenes.
-                    </p>
-
-                </div>
-            </div>
-
-
-
-
-    </section>
-
-
-
-    <section class="page-section" id="contenido">
-        <div class="bodycontainer">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Contenido </h2>
-
-            </div>
-            <div class="row text-center">
-
-
-
-                <div class="col-md-4">
-                    <span></span>
-                    <h4 class="my-3">Fundamentos <br> y Avances <br> en CNN</h4>
-                    <img src="assets/gifs/machinelearning.gif" id="circle">
-                    <br>
-                    <br>
-                    <p class="text-justify">Descubre los conceptos esenciales de las redes neuronales convolucionales (CNN), 
-                        incluyendo su estructura básica y aplicaciones en visión por computadora. Además, profundiza en la 
-                        arquitectura ResNet, su solución al problema de entrenamiento en redes profundas.
-                    </p>
-                    </span>
-                </div>
-
-                <div class="col-md-4">
-                    <span></span>
-                    <h4 class="my-3">Self-Supervised Learning <br>para Vision por Computadora</h4>
-                    <img src="assets/gifs/selfsupervised.gif" id="circle">
-                    <br><br>
-                    <p class="text-justify">Explora el aprendizaje auto-supervisado y cómo ayuda a reducir la
-                         dependencia de grandes cantidades de datos etiquetados en visión por computadora. 
-                         Con una implementación de SimCLR, ajusta modelos de autoaprendizaje y evalúa su 
-                         rendimiento en tareas visuales con datasets pequeños.</p>
-                    </span>
-                </div>
-
-                <div class="col-md-4">
-                    <span></span>
-                    <h4 class="my-3">Generative <br>Adversarial <br>Networks(GANs)</h4>
-                    <img src="assets/gifs/2_dgm.gif" id="circle">
-                    <br><br>
-                    <p class="text-justify">Adéntrate en el mundo de las GANs, una arquitectura innovadora para 
-                        la generación de imágenes a través de la interacción entre un generador y un discriminador. 
-                        La clasee te permitirá entender su estructura y aplicaciones en visión por computadora.</p>
-                    </span>
-                </div>
-
-
-                
-
-
-
-                <div class="col-md-4">
-                    <span></span>
-                    <h4 class="my-3">Vision <br>Transformers </h4>
-                    <img src="assets/gifs/visiontransformers.gif" id="circle">
-                    <br><br>
-                    <p class="text-justify">Descubre cómo los Vision Transformers (ViT) adaptan la arquitectura de transformadores para visión 
-                        por computadora y compara su funcionamiento y rendimiento con las CNNs. Mediante una implementación 
-                        práctica, profundiza en la estructura y capacidad de interpretación de los ViTs en tareas de 
-                        clasificación de imágenes.</p>
-                    </span>
-                </div>
-
-                <div class="col-md-4">
-                    <span></span>
-                    <h4 class="my-3">Difussion <br>Models</h4>
-                    <img src="assets/gifs/diffusion_models.gif" id="circle">
-                    <br><br>
-                    <p class="text-justify">
-                        Explora los modelos de difusión y su innovador enfoque en la generación de imágenes, 
-                        diferenciándolos de otras arquitecturas generativas como las GANs. A través de una 
-                        implementación práctica, observa las etapas de difusión y generación inversa en un dataset pequeño, 
-                        visualizando los resultados generados.
-                    </p>
-                    </span>
-                </div>
-
-
-            </div>
-    </section>
-
-
-   <section class="slide-option" id="profesores">
-
-                            
-                            <div class="bodycontainer">
-                                <div class="text-center">
-                                    <br>
-                        
-                                    <h2 class="section-heading text-uppercase">Profesores</h2>
-                                    <!--<div>En versiones anteriores, cuando formábamos parte del equipo de <i>Saturdays AI La Paz</i>, tuvimos el honor de colaborar con mentores increíbles:</div>-->
-                                    <br>
-                                    <br>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4 text-center">
-                                        <div class="mentor">
-                                            <h3>Jose Cabrera</h3>
-                                            <img src="assets/img/speakers/jj.png" alt="JJ" class="img-fluid"
-                                                style="width: 50%; height: auto;">
-                                            <br>
-                                            <br>
-                 
-                                                <a href="https://fiep.bmstu.ru/?lang=en" target="_blank"><img src="assets/img/speakers-logos/jj_logo.png" alt="Logo 8"
-                                                    style="width: 20%; height: auto;"></a>
-                                            <br>
-                                            <br>
-                                            <p class="text-justify">Con una licenciatura en Robótica y Mecatrónica, y una maestría especializada en Robótica de Servicios e Industrial de la Universidad Técnica Estatal de Bauman en Moscú, cuento con una sólida formación académica en el campo. Además, he completado cursos especializados en visión por computadora en el laboratorio de Huawei, llevados a cabo en BMSTU, lo cual ha fortalecido mi experiencia en tecnologías de vanguardia.
-
-                                                En cuanto a experiencia profesional, he tenido la oportunidad de trabajar en GAZ Group, una empresa líder en la industria automotriz en Rusia, donde apliqué mis habilidades en robótica y mecatrónica para desarrollar soluciones innovadoras en automatización industrial.
-                                                
-                            
-                                                
-                                                Con una base sólida en robótica y mecatrónica, experiencia industrial práctica y un fuerte compromiso con la educación, estoy bien preparado para contribuir a proyectos de vanguardia en el campo. Mis habilidades incluyen lenguajes de programación como Python y C++, y tengo experiencia práctica con frameworks y herramientas de software de robótica como ROS, RobotStudio y programación de KUKA.</p>
-                                            <br>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 text-center">
-                                        <div class="mentor">
-                                            <h3>Henry Ruiz</h3>
-                                            <img src="assets/img/speakers/henry_ruiz.png" alt="Henry " class="img-fluid"
-                                                style="width: 50%; height: auto;">
-                                            <br>
-                                            <br>
-                    
-                                            <a href="https://www.tamu.edu/s" target="_blank"><img src="assets/img/speakers-logos/hr_logo.png" alt="Logo 8"
-                                                style="width: 20%; height: auto;"></a>
-                                            <br>
-                                            <br>
-                                            <p class="text-justify">Henry Ruiz es Research Scientist en la Universidad Texas A&M (AgriLife Research) en Estados Unidos. Posee un doctorado en ingeniería de esta misma institución y es miembro del prestigioso grupo de Google Developer Experts (GDE) en Machine Learning. Su tesis doctoral se enfocó en la aplicación de herramientas de geofísica, como el Ground Penetrating Radar (GPR), junto con simulación matemática, electromagnetismo, procesamiento de señales y machine learning. Actualmente, su investigación se centra en comprender y explorar a bajo nivel las capacidades emergentes de los LLMs (Large Language Models), como el razonamiento y la planificación, que han transformado la forma de interactuar con estos modelos para resolver problemas complejos mediante aplicaciones basadas en agentes y sistemas RAG(Retrieval Augmented Generation). Henry cuenta con más de 10 años de experiencia en la industria como desarrollador de software full-stack y data scientist, y es un apasionado de los proyectos open-source.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 text-center">
-                                        <div class="mentor">
-                                            <h3>Oscar Contreras</h3>
-                                            <img src="assets/img/speakers/oscar-contreras.png" alt="Oscar Contreras" class="img-fluid"
-                                                style="width: 50%; height: auto;">
-                                            <br>
-                                            <br>
-                    
-                                            <a href="https://www.cmu.edu/" target="_blank"> <img src="assets/img/speakers-logos/oc_logo.png" alt="Logo 8"
-                                                style="width: 20%; height: auto;"></a>
-                                            <br>
-                                            <br>
-                                            <p class="text-justify">Oscar Contreras es Ingeniero de Sistemas de profesión con grado de Maestría en Informática Avanzada por parte de la Universidad
-
-                                                Oscar Contreras es Ingeniero de Sistemas de profesión con grado de Maestría en Informática Avanzada por parte de la Universidad de Brístol (Reino Unido). Cuenta con amplia experiencia en el ámbito de la tecnología en los ámbitos de Ingeniería de Software y Big Data. Actualmente ejerce como docente universitario a nivel pre y postgrado en diversas universidades bolivianas, como por ejemplo la UCB, EMI y Univalle.</p>
-                                        </div>
-                                    </div>
-                    
-                    
-                                </div>
-                    
-                        
-                    
-                        </section>
-
-    <section class="slide-option" id="casos">
-
-        
-        <div class="bodycontainer">
-
-            <div class="text-center">
-            
-                <h2 class="section-heading text-uppercase">Casos de uso, Computer Vision</h2>
-                <!--<div>En versiones anteriores, cuando formábamos parte del equipo de <i>Saturdays AI La Paz</i>, tuvimos el honor de colaborar con mentores increíbles:</div>-->
-                <br>
-                <br>
-            </div>
-
-
-            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-                <!-- Información adicional o descripción en 3 columnas-->
-                <div style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px;">
-                   <center> <h3>Diagnóstico médico asistido por IA</h3></center>
-                    <img src="assets/img/cdu/ejemplo1cdu.png" alt="Diagnóstico médico" class="img-fluid"
-                        style="width: 100%; height: auto;">
-                        <br>
-                    <p class="text-justify"><br>Utilizando CNNs y arquitecturas avanzadas como ResNet con técnicas de
-                        transfer learning, es posible analizar imágenes médicas (como radiografías y resonancias
-                        magnéticas) para detectar anomalías, como tumores o fracturas. La detección de objetos y
-                        segmentación permite, además, aislar regiones específicas en una imagen, ayudando a los
-                        profesionales a visualizar áreas críticas y a tomar decisiones informadas rápidamente.</p>
-                    <ul>
-                        <li><a href="https://www.nature.com/articles/s41598-024-53733-6" target="_blank"> Paper - Nature: Una nueva arquitectura de CNN para la detección temprana y la clasificación precisas de la enfermedad de Alzheimer utilizando datos de resonancia magnética</a></li>
-                        <li><a href="https://www.lacapitalmdp.com/una-bioingeniera-argentina-desarrollo-un-algoritmo-para-detectar-el-cancer-de-mama/" target="_blank"> Noticia - La Capital (Argentina): Una bioingeniera argentina desarrolló un algoritmo para detectar el cáncer de mama</a></li>
-                    </ul>
-                        
-                    </div>
-
-                <div style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px;">
-                    <center><h3>Control de calidad en manufactura</h3></center>
-                    <img src="assets/img/cdu/ejemplo2cdu.png" alt="Control de calidad" class="img-fluid"
-                        style="width: 100%; height: auto;">
-                        <br>
-                    <p class="text-justify"><br>En una línea de producción, modelos de visión por computadora con redes
-                        neuronales pueden clasificar productos y detectar defectos visuales, como imperfecciones o
-                        piezas dañadas. La detección de objetos y segmentación permite localizar exactamente el área
-                        defectuosa en cada producto, mejorando el control de calidad automatizado y reduciendo el
-                        desperdicio.</p>
-
-                        <ul>
-                            <li><a href="https://www.foodmanufacturing.com/capital-investment/news/21115586/tyson-to-count-its-chickens-with-computer-vision" target="_blank"> Noticia - Food Manufacturing: Tyson contará sus pollos con visión artificial</a></li>
-                            <li><a href="https://www.thenewbarcelonapost.com/picvisa-vision-artificial-para-separar-residuos/" target="_blank"> Noticia - The New Barcelona Post (España): Picvisa: visión artificial para separar residuos</a></li>
-                        </ul>
-                </div>
-                <div style="flex: 1; min-width: 300px; border: 1px solid #ddd; padding: 15px;">
-                    <center><h3>Seguridad en transporte y tráfico</h3></center>
-                    <img src="assets/img/cdu/ejemplo3cdu.png" alt="Seguridad en transporte" class="img-fluid"
-                        style="width: 100%; height: auto;">
-                        <br>
-                    <p class="text-justify"><br>Las técnicas de detección de objetos y segmentación en imágenes se aplican
-                        para detectar peatones, otros vehículos y señales de tráfico en imágenes en tiempo real
-                        capturadas por cámaras en sistemas de vehículos autónomos. Este proceso es clave para mejorar la
-                        navegación y evitar accidentes, al identificar y predecir con precisión la posición de cada
-                        elemento alrededor del vehículo.</p>
-                        
-                        <ul>
-                            <li><a href="https://spacecoastdaily.com/2024/06/florida-dot-approves-statewide-ai-traffic-management-by-notraffic/" target="_blank"> Noticia - Space Coast Daily (EEUU): El Departamento de Transporte de Florida aprueba la gestión del tráfico con inteligencia artificial a nivel estatal por parte de NoTraffic</a></li>
-                            <li><a href="https://www.digit.in/features/general/how-computer-vision-and-ai-will-automate-toll-booths-on-indian-roads-highways.html" target="_blank"> Noticia - Digit (India): Cómo la visión artificial y la inteligencia artificial automatizarán las cabinas de peaje en las carreteras y autopistas de la India</a></li>
-                        </ul>
-                    </div>
-
-                
-                
-
-            </div>
-
-
-
-
-
-            <!-- <div class="container">
-                                    
-    
-                                
-                                
-                                    <div class="row">
-                                        <div class="col-md-4 text-center">
-                                           
-                                        </div>
-                                        <div class="col-md-4 text-center">
-                                            <div class="mentor">
-                                                <h3>Juan G. Gomez 🇨🇴🇲🇽</h3>
-                                                <img src="assets/img/speakers/juan-guillermo.png" alt="Juan Guillermo" class="img-fluid" style="width: 50%; height: auto;">
-                                                
-                                                
-                                                <br>
-                                                <br>
-                                                <p class="text-justify">Juan Guillermo co-organizes several global and local events, such as GDG Cali, startup weekend Colombia and free software. He has been involved 
-                                                    in tech and software programming for the past 20 years. He attends more than 30 events per year as a guest speaker throughout Latin America, where he speaks about 
-                                                    mobile, android, cloud, firebase, Kotlin, software architecture, entrepreneurship, and innovation. He has been a programmer, software architect, technology leader, 
-                                                    university professor, and advisor in technology companies and systems departments. Now, he is a tech lead in WordBox. Juan is GDE (Google Developer Expert) in Firebase, 
-                                                    On-Device Machine Learning, GCP, and Kotlin. He holds a BS in System Engineering, and an MS in Software Engineering at Universidad San Buenaventura Cali.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 text-center">
-                                            
-                                        </div>
-                                    </div>
-                                </div>-->
-
-    </section>
-
-
-
-    <section class="page-section" id="faq">
-        <div class="bodycontainer">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Preguntas y respuestas frecuentes </h2>
-            </div>
-            <h4>¿El programa incluye certificado? </h4>
-            <p>¡Sí! Al finalizar las clases los alumnos que hayan cumplido con los requisitos de finalización recibirán un certificado con carga horaria.</p>
-    
-            <h4>¿Cuántos pagos hay que realizar para confirmar mi inscripción? </h4>
-            <p>¡Solo un pago! Aprovecha los descuentos.</p>
-    
-            <h4>¿Cuál es la edad mínima para participar en el programa? </h4>
-            <p>La edad mínima para participar del programa es de 18 años.</p>
-    
-            <h4>¿Puedo participar del programa si no tengo ningun conocimiento de programación? </h4>
-            <p>¡Sí! Facilitaremos nuestro material de nivelación para los inscritos. </p>
-    
-            <h4>¿El programa está enfocado a solo personas del área de informática e ingeniería de sistemas?</h4>
-            <p> No, todos son bienvenidos a participar del programa.</p>
-    
-            <p> ¿Aún tienes dudas?, <a href ="bit.ly/SAILP-CONS"  target="_blank" >pulsa aquí</a>.</p>
-        </div>
-    </section>
-    
-    
-            <footer class="footer py-4">
-                <div class="bodycontainer">
-                    <div class="row align-items-center">
-                        <div class="col-lg-4 text-lg-left">Copyright © Delve 2024</div>
-                        <div class="col-lg-4 my-3 my-lg-0">
-                            
-                            
-                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/delveeducacion"  target="_blank">
-                                <i class="fab fa-facebook-f"></i></a>
-                                
-                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/company/delveeducacion"  target="_blank">
-                                <i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                        <div class="col-lg-4 text-lg-right"><a class="mr-3" href="#!">Privacy Policy</a><a href="#!">Terms of Use</a></div>
-                    </div>
-                </div>
-            </footer>
-            
-            <!-- Bootstrap core JS-->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-            <!-- Third party plugin JS-->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-            <!-- Contact form JS-->
-            <script src="assets/mail/jqBootstrapValidation.js"></script>
-            <script src="assets/mail/contact_me.js"></script>
-            <!-- Core theme JS-->
-            <script src="js/scripts.js"></script>
-        </body>
-    </html>
-    
+</body>
+</html>

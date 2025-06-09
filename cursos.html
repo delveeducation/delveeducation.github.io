@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delve Cursos</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">
+            <a href="index.html"><img src="delve_logo.png" alt="Delve logo" style="height: 60px;"></a>
+        </h1>
+
+        <nav>
+            <ul>
+                <li><a href="cursos.html">cursos</a></li>
+                <li><a href="empresas.html">empresas</a></li>
+                <li><a href="comunidad.html">comunidad</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        <section class="full-bg-section2">
+        <br>
+        <center><h2>Cursos</h2></center>
+        <br>
+        <center><p>A continuación, descubre los cursos de tecnologías deeptech que tenemos para ti.</p></center>
+        <p class="section-title"><b>Sección: Inteligencia Artificial</b></p>
+        <section class="courses">
+            <div class="course-box"><a href="icv.html"><img src="assets/img/web/ICV.png"></a><b>Introducción a Computer Vision</b><br>
+                Por Emily Rivera</div>
+            <div class="course-box"><a href="kg.html"><img src="assets/img/web/KG.png"></a><b>Knowledge Graphs </b><br> Por Martin Arispe</div>
+            <div class="course-box"><a href="llmopre.html"><img src="assets/img/web/llmopre.png"></a><b>LLMs on premise</b> <br> Por Camilo Bolaños</div>
+            <!--<div class="course-box">Pronto más cursos...</div>-->
+
+            
+        </section>
+        <center><h4>Pronto lanzamiento de más secciones y más cursos</h4></center>
+        </section>
+    </main>
+    
+
+    <script src="script.js"></script>
+</body>
+
+
+<br>
+<br>
+<br>
+
+<br>
+
+
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            
+
+            <img src="delve_logo.png" alt="Delve logo" style="height: 30px;">
+            <p>Calle 12 de Calacoto<br>Piso 7<br>La Paz, Bolivia</p>
+        </div>
+        <div>
+            <strong>nosotros</strong>
+            <p>equipo</p>
+            
+        </div>
+        <div>
+            <strong>programas especiales</strong>
+            <p>empresas</p>
+            <p>colegios</p>
+        </div>
+        <div>
+    <strong>redes sociales</strong>
+    <div class="socials">
+        <a href="https://www.facebook.com/delveeducacion" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><br>
+        <a href="hhttps://www.instagram.com/delveeducacion/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a><br>
+        <a href="https://www.linkedin.com/company/delveeducacion" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><br>
+        <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a><br>
+    </div>
+</div>
+
+    </div>
+    <div class="footer-bottom">
+        <p>Acelerados por </p>
+        <a href="https://aceleratec.org/portafolio/"><img src="assets/img/web/aceleratec.svg" alt="Delve logo" style="height: 30px;"></a>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('slide-container');
+        const slides = Array.from(container.children);
+
+        // Clonar slides y añadir al final para loop infinito
+        slides.forEach(slide => {
+            const clone = slide.cloneNode(true);
+            container.appendChild(clone);
+        });
+
+        const totalWidth = container.scrollWidth;
+        const halfWidth = totalWidth / 2;
+
+        // Crear keyframes dinámicos
+        const animationName = 'scrollInfinite';
+
+        const styleSheet = document.createElement('style');
+        styleSheet.type = 'text/css';
+        styleSheet.innerHTML = `
+      @keyframes ${animationName} {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-${halfWidth}px); }
+      }
+    `;
+        document.head.appendChild(styleSheet);
+
+        // Duración en segundos (ajusta divisor para velocidad)
+        const duration = halfWidth / 100;
+
+        container.style.animation = `${animationName} ${duration}s linear infinite`;
+    });
+</script>
