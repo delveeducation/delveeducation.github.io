@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso de Fundamentos de Deep Learning</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <header>
+        <h1 class="logo">
+            <a href="index.html"><img src="delve_logo.png" alt="Delve logo" style="height: 60px;"></a>
+        </h1>
+
+        <nav>
+            <ul>
+                <li><a href="cursos.html">cursos</a></li>
+                <li><a href="empresas.html">empresas</a></li>
+                <li><a href="comunidad.html">comunidad</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <div class="left-column" style="margin-bottom: 1px !important;">
+        <h1>Fundamentos de Deep Learning</h1>
+
+
+        <div class="contenido">
+            <div class="boton-falso-a"><a href="cursos.html">Principiante</a></div>
+            <div class="boton-falso-b"><a href="cursos.html">100% Online</a></div>
+            <div class="boton-falso-c"><a href="cursos.html">Inteligencia Artificial</a></div>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- Columna derecha: fija en escritorio, arriba en mobile -->
+    <div class="right-column">
+        <div class="course-photo"><img src="assets/img/web/fdl.png"></div>
+        <div class="course-info">
+
+            <a href="pagos_fdl.html" target=”_blank”><button class="boton-falso-d">¡Empezar ya!</button></a>
+            <center>
+                <h3>Incluye certificado al terminar el curso</h3>
+            </center>
+
+            <!--<h2>Precio: <b>20 USD</b></h2>-->
+            <!--<H3>Duración: 2 horas</H3>-->
+            <!--<H3>Certificado incluido</H3>-->
+
+
+            <div class="linea-negra"></div>
+
+
+
+            <a href="oscar_contreras.html">
+                <div class="instructor-container">
+                    <div class="instructor-photo"><img src="assets/img/pp/oscar_contreras.png"></div>
+                    <div class="instructor-info">
+                        <p><strong><a href="index.html">Por Oscar Contreras</strong></p>
+            </a>
+
+
+            <p>Realizó su licenciatura en Ingeniería de Sistemas y posteriormente obtuvo una Maestría en Informática Avanzada por la Universidad de Brístol (Reino Unido). 
+                Cuenta con amplia experiencia en Ingeniería de Software e Ingeniería de Datos. 
+
+            </p>
+        </div>
+    </div></a>
+
+    </div>
+    </div>
+    <div class="main-content">
+        <!-- Columna izquierda: contenido -->
+        <div class="left-column">
+
+            <h4>Duración: 4 horas</h4>
+            <p>Descubre cómo funcionan las redes neuronales desde los fundamentos hasta aplicaciones prácticas.
+            </p>
+
+
+
+            <div class="info-card">
+                <div class="icon-wrapper">💡</div>
+                <h3>¿Qué aprenderás?</h3>
+                <div class="info-grid">
+                    <p>Aprenderás qué son las redes neuronales y cómo se inspiran en el cerebro humano.</p>
+                    <p>Entenderás los conceptos clave del Deep Learning y sus aplicaciones actuales.</p>
+                    <p>Dominarás el funcionamiento matemático de una neurona artificial.</p>
+                    <p>Explorarás cómo fluye la información en una red mediante la propagación hacia adelante.</p>
+                    <p>Comprenderás cómo aprenden las redes usando retropropagación y optimización.</p>
+                    <p>Implementarás redes neuronales con Keras y PyTorch.</p>
+                </div>
+            </div>
+
+
+
+            <div class="info-card" onclick="toggleCard(this)">
+                <div class="icon-wrapper">📚</div>
+                <h3>Contenido del curso</h3>
+
+
+                <table class="tabla-curso">
+                    <thead>
+                        <tr>
+                            <th>Módulo</th>
+
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="modulo-titulo">Módulo 1: Fundamentos Conceptuales de Deep Learning
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="contenido">En este módulo se presentarán los conceptos básicos del Deep
+                                    Learning, incluyendo qué son las redes neuronales, sus aplicaciones,
+                                    diferencias entre neuronas naturales y artificiales, y una introducción a los
+                                    modelos como la regresión logística.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="modulo-titulo">Módulo 2: Modelado Matemático de Neuronas Artificiales</div>
+                            </td>
+
+                            <td>
+                                <div class="contenido">Se explorará el funcionamiento interno de las neuronas
+                                    artificiales desde una perspectiva matemática,
+                                    abarcando funciones de activación como la sigmoidal, su implementación práctica, y
+                                    cómo se construyen redes feedforward.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="modulo-titulo">Módulo 3: Propagación hacia Adelante (Forward Propagation)
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="contenido">Este módulo se enfocará en cómo fluye la información a través de
+                                    una red neuronal, cubriendo la propagación hacia adelante,
+                                    las expresiones matemáticas involucradas, y el entrenamiento básico de una red.
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <div class="modulo-titulo">Módulo 4: Propagación hacia Atrás (Backward Propagation)
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="contenido">Se explicará cómo las redes neuronales aprenden mediante la
+                                    retropropagación del error, abordando funciones de pérdida,
+                                    descenso del gradiente y otros métodos de optimización para ajustar los pesos de la
+                                    red.</div>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <div class="modulo-titulo">Módulo 5: Implementación de Redes Neuronales en Keras y
+                                    PyTorch</div>
+                            </td>
+
+                            <td>
+                                <div class="contenido">En este módulo final se aplicará lo aprendido para implementar
+                                    redes neuronales reales utilizando las
+                                    librerías Keras y PyTorch, incluyendo exploración de arquitecturas alternativas y un
+                                    cierre del curso.</div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+                <!--<div class="curso">
+          <div class="resumen">
+            <span class="expandir" onclick="expandirTodas()">Ver más detalles</span>
+            <br>
+          </div>
+          <br>
+
+
+          <div class="seccion">
+            <div class="seccion-header" onclick="toggleSeccion(this)">
+              <span class="flecha">▶</span>
+              <div class="info">
+                <div class="titulo">Módulo 1: Introducción a la Visión por Computadora</div>
+                <div class="detalle">4 clases • 8 min</div>
+              </div>
+            </div>
+            <div class="seccion-contenido">
+              <p>Definición, aplicaciones clave (medicina, seguridad, autos autónomos, AR/VR) y su relación con la IA.
+              </p>
+            </div>
+          </div>
+
+
+
+          <div class="seccion">
+            <div class="seccion-header" onclick="toggleSeccion(this)">
+              <span class="flecha">▶</span>
+              <div class="info">
+                <div class="titulo">Módulo 2: Procesamiento de Imágenes</div>
+              </div>
+            </div>
+            <div class="seccion-contenido">
+              <p>Teoría y práctica del procesamiento básico de imágenes, incluyendo filtrado, detección de bordes,
+                transformaciones y uso de OpenCV.</p>
+            </div>
+          </div>
+
+          <div class="seccion">
+            <div class="seccion-header" onclick="toggleSeccion(this)">
+              <span class="flecha">▶</span>
+              <div class="info">
+                <div class="titulo">Módulo 3: Detección de Contornos y Segmentación de Imágenes</div>
+              </div>
+            </div>
+            <div class="seccion-contenido">
+              <p>Aprenderás segmentación por umbralización para detección de objetos y formas.</p>
+            </div>
+          </div>
+
+          <div class="seccion">
+            <div class="seccion-header" onclick="toggleSeccion(this)">
+              <span class="flecha">▶</span>
+              <div class="info">
+                <div class="titulo">Módulo 4: Detección de Rostros y Objetos con Modelos Preentrenados</div>
+              </div>
+            </div>
+            <div class="seccion-contenido">
+              <p>Explorarás detectores clásicos como Haar Cascades y HOG, y los aplicarás para detección facial en
+                imágenes y video.</p>
+            </div>
+          </div>
+
+
+          <div class="seccion">
+            <div class="seccion-header" onclick="toggleSeccion(this)">
+              <span class="flecha">▶</span>
+              <div class="info">
+                <div class="titulo">Módulo 5: Introducción a Modelos de Deep Learning en Visión por Computadora</div>
+              </div>
+            </div>
+            <div class="seccion-contenido">
+              <p>Verás cómo se integran modelos como MobileNet y YOLO para tareas de detección de objetos con OpenCV.
+              </p>
+            </div>
+          </div>
+
+          <div class="seccion">
+            <div class="seccion-header" onclick="toggleSeccion(this)">
+              <span class="flecha">▶</span>
+              <div class="info">
+                <div class="titulo">Módulo 6: Sistema de Detección en Tiempo Real</div>
+              </div>
+            </div>
+            <div class="seccion-contenido">
+              <p>Proyecto práctico para crear un sistema de detección de rostros y objetos en tiempo real con webcam.
+              </p>
+            </div>
+          </div>
+        </div>-->
+
+            </div>
+
+
+
+
+
+            <div class="info-card">
+                <div class="icon-wrapper">📄</div>
+                <h3>Descripción del Curso</h3>
+                <div class="info-grid">
+                    Explora el poder del Deep Learning con este curso diseñado para llevarte desde los conceptos
+                    fundamentales hasta
+                    la implementación de redes neuronales con Keras y PyTorch. A lo largo del curso comprenderás cómo
+                    funcionan
+                    las redes neuronales desde cero, dominarás los principios matemáticos que las sustentan, y
+                    aprenderás a entrenarlas eficazmente utilizando
+                    técnicas modernas de propagación hacia adelante y hacia atrás. Este curso es ideal para quienes
+                    buscan
+                    iniciarse en el mundo de Deep Learning o fortalecer su base técnica con un enfoque claro, práctico y
+                    orientado a resultados reales.
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="icon-wrapper">🎒</div>
+                <h3>¿Qué incluye el curso?</h3>
+                <div class="info-grid">
+                    <ul style="list-style-type: disc; padding-left: 40px;">
+                        <li>Clases teóricas claras con ejemplos reales.</li>
+                        <li>Ejercicios guiados y notebooks en Colab listos para usar.</li>
+                        <li>Actividades con código incompleto para que practiques resolviendo.</li>
+                        <li>Acceso a recursos descargables y bibliografía recomendada.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="icon-wrapper">👥</div>
+                <h3>Público objetivo</h3>
+                <div class="info-grid">
+                    <ul style="list-style-type: disc; padding-left: 40px;">
+
+                        <li>Estudiantes y profesionales que deseen iniciarse en el mundo del Deep Learning.</li>
+                        <li>Personas con interés en comprender cómo funcionan las redes neuronales desde cero.</li>
+                        <li>Programadores con nociones básicas de Python que quieran aprender a construir modelos con
+                            Keras y PyTorch.</li>
+                        <li>Este curso es ideal como primer paso antes de avanzar a aplicaciones más complejas como
+                            Computer Vision o NLP.</li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+
+</body>
+
+</html>
+
+<script>
+    function toggleSeccion(header) {
+        const seccion = header.closest(".seccion");
+        seccion.classList.toggle("abierta");
+    }
+
+    function expandirTodas() {
+        document.querySelectorAll('.seccion').forEach(seccion => {
+            seccion.classList.add('abierta');
+        });
+    }
+</script>
