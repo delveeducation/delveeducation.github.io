@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirmación de Pedido</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    .greeting {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .payment-method {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+      margin-bottom: 30px;
+    }
+    .card, .qr {
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+    .card {
+      background-color: #fef3c7;
+    }
+    .qr {
+      background-color: #d1fae5;
+    }
+    .summary {
+      text-align: right;
+      font-size: 16px;
+    }
+    .summary h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .total {
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .img-icon {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    a {
+  text-decoration: none;
+  color: inherit;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" target="_blank"><img src="delve_logo.png" alt="Delve logo" style="height: 60px;"></a>
+    <br>
+    <br>
+    <div class="greeting">
+        <center><h1>Acceso Founder 🔥</h1></center>
+        <center>Suscripción anual con acceso a todos los cursos, incluidos los que se incorporen próximamente.</center>
+    
+    </div>
+
+
+    <a href="https://pay.zwap.dev/b/4gM3cu3R26LccoGeD4b7y1Y"><div class="payment-method">
+      <div class="card">
+        <img class="img-icon" src="assets/img/web/tarjeta.png" alt="Tarjeta"/>
+        <div>Pago por tarjeta de crédito/débito 🌎</div>
+      </div></a>
+
+      
+      <a href="https://forms.gle/n9aRUvPk5cemdjLf9"><div class="qr">
+        <img class="img-icon" src="assets/img/web/qr.png" alt="QR"/>
+        <div>Pago por código QR habilitado para Bolivia (TC oficial) 🇧🇴</div>
+      </div> </a>
+    </div>
+
+    <div class="summary">
+        <div>El pago que realizará le dará acceso por 12 meses a todos los cursos de la plataforma.</div>
+      <h2>Compra de acceso a todos los cursos por un año.</h2>
+      <div class="row">
+        <div></div>
+        <div>80 USD</div>
+      </div>
+      <div class="total">Total<br>80 USD</div>
+    </div>
+  </div>
+</body>
+</html>
