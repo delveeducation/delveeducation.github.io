@@ -182,6 +182,7 @@ nav li {
 }
 
 /* Cursos */
+/*
 .courses {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -189,7 +190,16 @@ nav li {
   max-width: 1200px;
   margin: 0 auto;
   padding: 50px;
+}*/
+.courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 50px;
+  max-width: calc(5 * 200px + 4 * 50px); /* 5 columnas de 200px + 4 gaps */
+  margin: 0 auto;
+  padding: 50px;
 }
+
 
 .course-box {
   aspect-ratio: 1 / 1;
