@@ -28,7 +28,20 @@ body {
   overflow-x: hidden;
 }
 
-/* Header */
+/* Header
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}*/
+
 header {
   position: fixed;
   top: 0;
@@ -41,6 +54,26 @@ header {
   align-items: center;
   padding: 15px;
 }
+
+/* Da espacio al contenido */
+body {
+  padding-top: 90px; /* ajusta según la altura del header */
+}
+
+/* En móvil, puedes aumentar o ajustar */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  body {
+    padding-top: 120px; /* más espacio si el header crece */
+  }
+}
+
+
+
 
 .logo {
   font-weight: bold;
