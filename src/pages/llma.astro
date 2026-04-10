@@ -1,0 +1,791 @@
+---
+import logo from "../assets/logo.png";
+const year = new Date().getFullYear();
+---
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Delve Educación</title>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            body {
+                margin: 0;
+                font-family: "Inter", sans-serif;
+                background: #0f172a;
+                color: white;
+            }
+
+            /* NAVBAR ORIGINAL */
+
+            nav {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background: rgba(15, 23, 42, 0.9);
+                backdrop-filter: blur(10px);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 40px;
+                box-sizing: border-box;
+                z-index: 1000;
+            }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 30px;
+                margin: 0;
+                padding: 0;
+                align-items: center;
+            }
+
+            nav a {
+                text-decoration: none;
+                color: white;
+                font-weight: 500;
+                transition: 0.3s;
+            }
+
+            nav a:hover {
+                color: #38bdf8;
+            }
+
+            .nav-btn {
+                padding: 8px 16px;
+                background: white;
+                color: black !important;
+                border-radius: 8px;
+                font-weight: 600;
+            }
+
+            .logo img {
+                height: 35px;
+                width: auto;
+                display: block;
+            }
+
+            /* CONTENIDO */
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 90px 20px 80px 20px;
+            }
+
+            .course-layout {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                column-gap: 60px;
+                row-gap: 20px;
+                align-items: start;
+            }
+
+            .course-header h1 {
+                font-size: 2.8rem;
+                margin-bottom: 15px;
+            }
+
+            .meta {
+                color: #94a3b8;
+                margin-bottom: 25px;
+                font-size: 0.95rem;
+            }
+
+            .dot {
+                margin: 0 8px;
+            }
+
+            .description {
+                color: #cbd5e1;
+                line-height: 1.7;
+                margin-bottom: 0px;
+                font-size: 1.05rem;
+            }
+
+            .section h2 {
+                margin-bottom: 25px;
+            }
+
+            .module {
+                background: #1e293b;
+                padding: 20px;
+                border-radius: 12px;
+                margin-bottom: 20px;
+                transition: 0.3s ease;
+            }
+
+            .module:hover {
+                background: #273449;
+            }
+
+            .module h3 {
+                margin: 0 0 8px 0;
+            }
+
+            .module p {
+                margin: 0;
+                color: #94a3b8;
+            }
+
+            /* CARD DERECHA */
+
+            .course-card {
+                background: #1e293b;
+                border-radius: 20px;
+                overflow: hidden;
+                position: sticky;
+                top: 120px;
+                padding: 20px;
+                transition: 0.3s ease;
+                grid-column: 2;
+                grid-row: 1 / span 2;
+            }
+
+            .course-card img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+            }
+
+            .course-card:hover {
+                transform: translateY(-5px);
+                background: #273449;
+            }
+
+            .course-card h3 {
+                margin-bottom: 15px;
+            }
+
+            .recommended-course-card {
+                background: #1e293b;
+                border-radius: 20px;
+                overflow: hidden;
+                position: sticky;
+                top: 300px;
+            }
+
+            .recommended-course-card img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+            }
+
+            .card-content {
+                padding: 20px;
+            }
+
+            .professor {
+                color: #94a3b8;
+                margin-bottom: 20px;
+            }
+
+            .price {
+                font-size: 2rem;
+                font-weight: 700;
+                margin-bottom: 20px;
+            }
+
+            .btn-primary {
+                display: block;
+                text-align: center;
+                padding: 14px;
+                background: #38bdf8;
+                color: #0f172a;
+                border-radius: 12px;
+                text-decoration: none;
+                font-weight: 600;
+                margin-bottom: 25px;
+                transition: 0.3s ease;
+            }
+
+            .btn-primary:hover {
+                transform: translateY(-3px);
+            }
+
+            .card-info {
+                color: #94a3b8;
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            footer {
+                text-align: center;
+                padding: 60px 20px;
+                color: #94a3b8;
+                margin-top: 80px;
+            }
+            .hamburger {
+                display: none;
+                flex-direction: column;
+                gap: 6px;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                width: 25px;
+                height: 3px;
+                background: white;
+                border-radius: 3px;
+                transition: 0.3s;
+            }
+            /* RESPONSIVE */
+
+            @media (max-width: 900px) {
+                .course-layout {
+                    grid-template-columns: 1fr;
+                }
+
+                .course-card {
+                    grid-column: auto;
+                    grid-row: auto;
+                    position: static;
+                }
+
+                .recommended-course-card {
+                    position: relative;
+                    top: 0;
+                }
+
+                nav {
+                    padding: 20px;
+                }
+
+                nav ul {
+                    position: absolute;
+                    top: 80px;
+                    right: 0;
+                    background: #0f172a;
+                    flex-direction: column;
+                    width: 220px;
+                    padding: 30px;
+                    gap: 20px;
+                    display: none;
+                    box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.3);
+                    border-radius: 12px 0 0 12px;
+                }
+
+                nav ul.active {
+                    display: flex;
+                }
+
+                .hamburger {
+                    display: flex;
+                }
+            }
+
+            .relacionados {
+                padding: 80px 20px;
+                background-color: #f8fafc;
+            }
+
+            .relacionados h2 {
+                text-align: center;
+                font-size: 2rem;
+                margin-bottom: 50px;
+                color: #0f172a;
+            }
+
+            .cursos-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+
+            .curso-card {
+                background: white;
+                border-radius: 14px;
+                padding: 20px;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+                transition: transform 0.3s ease;
+            }
+
+            .curso-card:hover {
+                transform: translateY(-6px);
+            }
+
+            .curso-card img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+                border-radius: 10px;
+                margin-bottom: 20px;
+            }
+
+            .curso-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+                color: #1e293b;
+            }
+
+            .curso-card p {
+                font-size: 0.95rem;
+                color: #475569;
+                margin-bottom: 20px;
+            }
+
+            .curso-card .btn {
+                display: inline-block;
+                background-color: #38bdf8;
+                color: white;
+                padding: 10px 18px;
+                border-radius: 8px;
+                text-decoration: none;
+                font-size: 0.9rem;
+                font-weight: 600;
+            }
+
+            .curso-card .btn:hover {
+                background-color: #0ea5e9;
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .cursos-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* PROFESOR SECTION */
+
+            .profesor {
+                margin-top: 100px;
+            }
+
+            .profesor-title {
+                font-size: 2.3rem;
+                margin-bottom: 50px;
+            }
+
+            .profesor-card {
+                display: flex;
+                align-items: center;
+                gap: 60px;
+                padding: 10px 0;
+            }
+
+            .profesor-img img {
+                width: 320px;
+                border-radius: 20px;
+                object-fit: cover;
+            }
+
+            .profesor-info h3 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
+            .profesor-roles {
+                color: #cbd5e1;
+                margin-bottom: 20px;
+                line-height: 1.6;
+            }
+
+            .profesor-info p {
+                color: #94a3b8;
+                margin-bottom: 15px;
+                line-height: 1.7;
+            }
+
+            /* RESPONSIVE */
+
+            @media (max-width: 900px) {
+                .profesor-card {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .profesor-img img {
+                    width: 100%;
+                    max-width: 300px;
+                }
+            }
+
+            .aprendizaje {
+                background: transparent; /* Mantiene tu background actual */
+                color: #ffffff;
+                max-width: 1200px;
+                margin: auto;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+            }
+
+            .col p {
+                line-height: 1.6;
+                margin-bottom: 18px;
+            }
+
+            /* Responsive */
+            @media (max-width: 900px) {
+                .grid {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+
+                .aprendizaje h2 {
+                    font-size: 2rem;
+                    margin-top: 5px;
+                }
+            }
+
+            .course-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                margin-top: 60px;
+            }
+
+            @media (max-width: 1100px) {
+                .course-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 600px) {
+                .course-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .recommended-course-card {
+                background: #1e293b;
+                padding: 20px;
+                border-radius: 20px;
+                transition: 0.3s ease;
+            }
+
+            .recommended-course-card:hover {
+                transform: translateY(-5px);
+                background: #273449;
+            }
+
+            .recommended-course-card h3 {
+                margin-bottom: 15px;
+            }
+
+            .btn {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background: white;
+                color: black;
+                border-radius: 10px;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+            .course-type {
+                display: inline-block;
+                margin-top: 15px; /* 👈 separa del botón */
+                margin-bottom: 5px;
+                padding: 6px 14px;
+                font-size: 0.75rem;
+                font-weight: 600;
+                border-radius: 20px;
+                background: rgba(56, 189, 248, 0.2);
+                color: #38bdf8;
+                letter-spacing: 0.5px;
+                border: 1px solid rgba(56, 189, 248, 0.4);
+            }
+
+            @media (max-width: 900px) {
+                .course-layout {
+                    grid-template-columns: 1fr;
+                }
+
+                .course-card {
+                    grid-row: 2;
+                    position: relative;
+                    top: 0;
+                    margin-bottom: 10px;
+                }
+
+                .course-main {
+                    grid-row: 3;
+                }
+            }
+
+            p {
+                text-align: justify;
+            }
+
+            .course-header {
+                grid-column: 1;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- NAVBAR IGUAL AL HOME -->
+        <nav>
+            <div class="logo">
+                <a href="/"><img src={logo.src} alt="Delve Educación Logo" /></a
+                >
+            </div>
+
+            <ul id="nav-links">
+                <li><a href="/cursos">Cursos</a></li>
+                <li><a href="/nosotros">Nosotros</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+                <li><a href="/inscribirme" class="nav-btn">Inscribirme</a></li>
+            </ul>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+
+        <div class="container">
+            <!-- HEADER DEL CURSO -->
+            <div class="course-layout">
+                <div class="course-header">
+                    <h1>Large Language Models</h1>
+
+                    <div class="meta">
+                        Intermedio <span class="dot">•</span> 5 horas
+                    </div>
+
+                    <p class="description">
+                        Aprende desde cero a construir, consultar y aplicar
+                        Knowledge Graphs combinando teoría y práctica con
+                        herramientas reales para representar y aprovechar
+                        conocimiento de forma inteligente.
+                    </p>
+                </div>
+
+                <!-- GRID -->
+
+                <div class="course-main">
+                    <section class="aprendizaje">
+                        <h2>¿Qué aprenderás?</h2>
+
+                        <div class="grid">
+                            <div class="col">
+                                <p>
+                                    Comprender los fundamentos de grafos y su
+                                    uso en Knowledge Graphs.
+                                </p>
+                                <p>
+                                    Entender cómo ontologías y taxonomías
+                                    estructuran el conocimiento.
+                                </p>
+                            </div>
+
+                            <div class="col">
+                                <p>
+                                    Diferenciar bases de datos tradicionales y
+                                    Knowledge Graphs.
+                                </p>
+                                <p>
+                                    Extraer información de datos estructurados y
+                                    no estructurados.
+                                </p>
+                            </div>
+
+                            <div class="col">
+                                <p>
+                                    Construir y consultar Knowledge Graphs con
+                                    Neo4j, RDF y SPARQL.
+                                </p>
+                                <p>
+                                    Explorar casos de uso reales en distintas
+                                    industrias.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="section">
+                        <h2>Contenido del Curso</h2>
+
+                        <div class="module">
+                            <h3>
+                                Módulo 1: Introducción a los Large Language
+                                Models (LLMs)
+                            </h3>
+                            <p>
+                                Comprenderás qué son los LLMs, su evolución
+                                histórica, principales aplicaciones y
+                                diferencias frente a modelos tradicionales de
+                                NLP.
+                            </p>
+                        </div>
+
+                        <div class="module">
+                            <h3>
+                                Módulo 2: Fundamentos Técnicos y Arquitectura de
+                                Transformers
+                            </h3>
+                            <p>
+                                Aprenderás los conceptos clave detrás de los
+                                LLMs, incluyendo tokens, embeddings y el
+                                funcionamiento de la arquitectura Transformer.
+                            </p>
+                        </div>
+
+                        <div class="module">
+                            <h3>
+                                Módulo 3: Pre-Entrenamiento y Ajuste de LLMs
+                            </h3>
+                            <p>
+                                Explorarás cómo se entrenan y evalúan los LLMs,
+                                los tipos de datasets utilizados y las métricas
+                                más importantes.
+                            </p>
+                        </div>
+
+                        <div class="module">
+                            <h3>Módulo 4: Prompt Engineering y Herramientas</h3>
+                            <p>
+                                Descubrirás cómo interactuar eficazmente con
+                                LLMs mediante prompts, y cómo usar herramientas
+                                modernas para implementar soluciones.
+                            </p>
+                        </div>
+
+                        <div class="module">
+                            <h3>
+                                Módulo 5: Aplicaciones Avanzadas, Desafíos y
+                                Ética
+                            </h3>
+                            <p>
+                                Conocerás técnicas avanzadas como fine-tuning y
+                                RAG, junto con los desafíos, limitaciones y
+                                consideraciones éticas en el uso de LLMs.
+                            </p>
+                        </div>
+                    </div>
+
+                    <br />
+                    <h2>Descripción</h2>
+                    <p class="description">
+                        Este curso profundiza en el uso avanzado de modelos de
+                        lenguaje grandes (LLMs), enfocándose en técnicas
+                        modernas para optimizar su entrenamiento, inferencia y
+                        despliegue en entornos reales. Aprenderás métodos como
+                        cuantización, fine-tuning eficiente (QLoRA, LoRA) y
+                        estrategias de escalabilidad, así como el uso de
+                        herramientas para producción como vLLM.
+                        Además, se exploran enfoques avanzados de razonamiento,
+                        agentes basados en LLMs y tendencias actuales como
+                        modelos multimodales y arquitecturas eficientes,
+                        brindando una visión práctica para construir sistemas
+                    </p>
+
+                    <br />
+
+                    <h2>Conoce al profesor</h2>
+                    <div class="profesor-card">
+                        <div class="profesor-img">
+                            <img
+                                src="../../src/assets/mentores/martin_arispe.jpg"
+                                alt="Emily Rivera"
+                            />
+                        </div>
+
+                        <div class="profesor-info">
+                            <h3>Martin Arispe</h3>
+
+                            <p class="profesor-roles">
+                                Especialista en Inteligencia Artificial con
+                                experiencia en Agentes de IA, Large Language
+                                Models (LLMs) y Knowledge Graphs. Ha liderado la
+                                implementación de flujos de trabajo con
+                                Generative AI y plataformas impulsadas por IA.
+                                Participó en el proyecto MINTE en Fraunhofer
+                                IAIS (Alemania), integrando Deep Learning y
+                                Knowledge Graphs.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <h2>Cursos relacionados</h2>
+
+                        <div class="course-grid">
+                            <div class="recommended-course-card">
+                                <img
+                                    src="../../src/assets/cursos/large_language_models_locales.png"
+                                    alt="Large Language Models Locales"
+                                    class="course-image"
+                                />
+
+                                <h3>
+                                    Large Language <br />. Models Locales
+                                </h3>
+                                <p class="professor">Prof. Camilo Bolaños</p>
+
+                                <a href="/llml" class="btn">Ver programa</a>
+                            </div>
+
+                            <div class="recommended-course-card">
+                                <img
+                                    src="../../src/assets/cursos/large_language_models_avanzado.png"
+                                    alt="Large Language Models Avanzado"
+                                    class="course-image"
+                                />
+
+                                <h3>
+                                    Large Language<br /> Models Avanzado
+                                </h3>
+                                <p class="professor">Prof. Edison Bejarano</p>
+
+                                                    <span>Muy Pronto</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DERECHA -->
+
+                <div class="course-card">
+                    <img
+                        src="../../src/assets/cursos/large_language_models.png"
+                        alt="Large Language Models"
+                    />
+
+                    <div class="card-content">
+                        <p class="professor">Profesor: Martin Arispe</p>
+
+                        <!--<div class="price">20 USD</div>-->
+
+                        <a href="#" class="btn-primary"> Inscribirme Ahora </a>
+
+                        <div class="card-info">
+                            ✔ Acceso anual <br />
+                            ✔ Certificado oficial Delve <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            © {year} Delve Educación
+        </footer>
+        <script>
+            const hamburger = document.getElementById("hamburger");
+            const navLinks = document.getElementById("nav-links");
+
+            hamburger.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+        </script>
+    </body>
+</html>
