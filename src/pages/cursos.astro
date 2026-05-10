@@ -1,5 +1,4 @@
 ---
-import logo from "../assets/logo.png";
 const year = new Date().getFullYear();
 ---
 
@@ -262,15 +261,15 @@ const year = new Date().getFullYear();
     <body>
         <nav>
             <div class="logo">
-                <a href="/"><img src={logo.src} alt="Delve Educación Logo" /></a
+                <a href="/"><img src="/assets/logo.png" /></a
                 >
             </div>
 
             <ul id="nav-links">
+                <li><a href="/ellms">Programas</a></li>
                 <li><a href="/cursos">Cursos</a></li>
                 <li><a href="/nosotros">Nosotros</a></li>
                 <li><a href="/contacto">Contacto</a></li>
-                <li><a href="/inscribirme" class="nav-btn">Inscribirme</a></li>
             </ul>
 
             <div class="hamburger" id="hamburger">
@@ -287,7 +286,7 @@ const year = new Date().getFullYear();
             <div class="course-grid">
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/python_practico.png"
+                        src="/assets/cursos/python_practico.png"
                         alt="Deep Learning"
                         class="course-image"
                     />
@@ -295,14 +294,14 @@ const year = new Date().getFullYear();
                     <h3>Python <br />Práctico</h3>
                     <p class="professor">Prof. Diego Angulo</p>
 
-                    <a href="/pp" class="btn">Ver programa</a>
+                    <a href="/pp" class="btn">Ver curso</a>
 
                     <span class="course-type-programming">Programación</span>
                 </div>
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/algoritmos_y_estructura_de_datos.png"
+                        src="/assets/cursos/algoritmos_y_estructura_de_datos.png"
                         alt="Algoritmos y Estructuras de Datos"
                         class="course-image"
                     />
@@ -310,14 +309,14 @@ const year = new Date().getFullYear();
                     <h3>Algoritmos y Estructura de Datos</h3>
                     <p class="professor">Prof. Diego Angulo</p>
 
-                    <a href="/aed" class="btn">Ver programa</a>
+                    <a href="/aed" class="btn">Ver curso</a>
 
                     <span class="course-type-programming">Programación</span>
                 </div>
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/calculo_para_ia.png"
+                        src="/assets/cursos/calculo_para_ia.png"
                         alt="Calculo para Inteligencia Artificial"
                         class="course-image"
                     />
@@ -325,14 +324,14 @@ const year = new Date().getFullYear();
                     <h3>Cálculo para Inteligencia Artificial</h3>
                     <p class="professor">Prof. Oscar Contreras</p>
 
-                    <a href="/cai" class="btn">Ver programa</a>
+                    <a href="/cai" class="btn">Ver curso</a>
 
                     <span class="course-type-AI">Inteligencia Artificial</span>
                 </div>
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/fundamentos_de_deep_learning.png"
+                        src="/assets/cursos/fundamentos_de_deep_learning.png"
                         alt="Deep Learning"
                         class="course-image"
                     />
@@ -340,14 +339,14 @@ const year = new Date().getFullYear();
                     <h3>Fundamentos de Deep Learning</h3>
                     <p class="professor">Prof. Oscar Contreras</p>
 
-                    <a href="/fdl" class="btn">Ver programa</a>
+                    <a href="/fdl" class="btn">Ver curso</a>
 
                     <span class="course-type-AI">Inteligencia Artificial</span>
                 </div>
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/introduccion_a_computer_vision.png"
+                        src="/assets/cursos/introduccion_a_computer_vision.png"
                         alt="Deep Learning"
                         class="course-image"
                     />
@@ -355,14 +354,14 @@ const year = new Date().getFullYear();
                     <h3>Introducción a Computer Vision</h3>
                     <p class="professor">Prof. Emily Rivera</p>
 
-                    <a href="/icv" class="btn">Ver programa</a>
+                    <a href="/icv" class="btn">Ver curso</a>
 
                     <span class="course-type-AI">Inteligencia Artificial</span>
                 </div>
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/introduccion_a_computacion_cuantica.png"
+                        src="/assets/cursos/introduccion_a_computacion_cuantica.png"
                         alt="Deep Learning"
                         class="course-image"
                     />
@@ -370,7 +369,7 @@ const year = new Date().getFullYear();
                     <h3>Introducción a Computación Cuántica</h3>
                     <p class="professor">Prof. Pau Fargas</p>
 
-                    <a href="/iqc" class="btn">Ver programa</a>
+                    <a href="/iqc" class="btn">Ver curso</a>
 
                     <span class="course-type-quantum">Computación Cuántica</span
                     >
@@ -378,7 +377,7 @@ const year = new Date().getFullYear();
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/deep_learning_para_computer_vision.png"
+                        src="/assets/cursos/deep_learning_para_computer_vision.png"
                         alt="Deep Learning"
                         class="course-image"
                     />
@@ -386,14 +385,14 @@ const year = new Date().getFullYear();
                     <h3>Deep Learning Computer Vision</h3>
                     <p class="professor">Prof. Erick Maraz</p>
 
-                    <a href="/dlxcv" class="btn">Ver programa</a>
+                    <a href="/dlxcv" class="btn">Ver curso</a>
 
                     <span class="course-type-AI">Inteligencia Artificial</span>
                 </div>
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/knowledge_graphs.png"
+                        src="/assets/cursos/knowledge_graphs.png"
                         alt="Deep Learning"
                         class="course-image"
                     />
@@ -401,14 +400,14 @@ const year = new Date().getFullYear();
                     <h3>Knowledge Graphs</h3>
                     <p class="professor">Prof. Martin Arispe</p>
 
-                    <a href="/kg" class="btn">Ver programa</a>
+                    <a href="/kg" class="btn">Ver curso</a>
 
                     <span class="course-type-AI">Inteligencia Artificial</span>
                 </div>
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/large_language_models.png"
+                        src="/assets/cursos/large_language_models.png"
                         alt="Deep Learning"
                         class="course-image"
                     />
@@ -416,22 +415,22 @@ const year = new Date().getFullYear();
                     <h3>Large Language Models</h3>
                     <p class="professor">Prof. Martin Arispe</p>
 
-                    <a href="/llms" class="btn">Ver programa</a>
+                    <a href="/llms" class="btn">Ver curso</a>
 
                     <span class="course-type-AI">Inteligencia Artificial</span>
                 </div>
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/large_language_models_locales.png"
+                        src="/assets/cursos/large_language_models_locales.png"
                         alt="Deep Learning"
                         class="course-image"
                     />
 
                     <h3>Large Language Models Locales</h3>
-                    <p class="professor">Prof. Martin Arispe</p>
+                    <p class="professor">Prof. Camilo Bolaños</p>
 
-                    <a href="/llml" class="btn">Ver programa</a>
+                    <a href="/llml" class="btn">Ver curso</a>
 
                     <span class="course-type-AI">Inteligencia Artificial</span>
                 </div>
@@ -440,7 +439,7 @@ const year = new Date().getFullYear();
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/large_language_models_avanzado.png"
+                        src="/assets/cursos/large_language_models_avanzado.png"
                         alt="Large Language Models Avanzado"
                         class="course-image"
                     />
@@ -448,7 +447,7 @@ const year = new Date().getFullYear();
                     <h3>Large Language Models Avanzado</h3>
                     <p class="professor">Prof. Edison Bejarano</p>
 
-                    <!--<a href="/llma" class="btn">Ver programa</a>-->
+                    <!--<a href="/llma" class="btn">Ver curso</a>-->
                     <span>Muy Pronto</span>
 
                     <span class="course-type-AI">Inteligencia Artificial</span>
@@ -456,7 +455,7 @@ const year = new Date().getFullYear();
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/self_supervised_learning.png"
+                        src="/assets/cursos/self_supervised_learning.png"
                         alt="Deep Learning"
                         class="course-image"
                     />
@@ -471,7 +470,7 @@ const year = new Date().getFullYear();
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/computer_vision_3d.png"
+                        src="/assets/cursos/computer_vision_3d.png"
                         alt="Deep Learning"
                         class="course-image"
                     />
@@ -486,7 +485,7 @@ const year = new Date().getFullYear();
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/human_pose_estimation.png"
+                        src="/assets/cursos/human_pose_estimation.png"
                         alt="Deep Learning"
                         class="course-image"
                     />
@@ -501,7 +500,7 @@ const year = new Date().getFullYear();
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/multimodal_ai.png"
+                        src="/assets/cursos/multimodal_ai.png"
                         alt="Deep Learning"
                         class="course-image"
                     />
@@ -541,7 +540,7 @@ const year = new Date().getFullYear();
                     <h3>Tensor Networks</h3>
                     <p class="professor">Prof. ?????</p>
 
-                    <a href="/fdl" class="btn">Ver programa</a>
+                    <a href="/fdl" class="btn">Ver curso</a>
 
                     <span class="course-type">Computación Cuántica</span>
                 </div>
@@ -558,7 +557,7 @@ const year = new Date().getFullYear();
                     <h3>Procesamiento de Información Cuántica</h3>
                     <p class="professor">Prof. ?????</p>
 
-                    <a href="/fdl" class="btn">Ver programa</a>
+                    <a href="/fdl" class="btn">Ver curso</a>
 
                     <span class="course-type">Computación Cuántica</span>
                 </div>

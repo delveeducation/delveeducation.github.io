@@ -1,5 +1,4 @@
 ---
-import logo from "../assets/logo.png";
 const year = new Date().getFullYear();
 ---
 
@@ -373,15 +372,15 @@ const year = new Date().getFullYear();
     <body>
         <nav>
             <div class="logo">
-                <a href="/"><img src={logo.src} alt="Delve Educación Logo" /></a
+                <a href="/"><img src="/assets/logo.png"/></a
                 >
             </div>
 
             <ul id="nav-links">
+                <li><a href="/ellms">Programas</a></li>
                 <li><a href="/cursos">Cursos</a></li>
                 <li><a href="/nosotros">Nosotros</a></li>
                 <li><a href="/contacto">Contacto</a></li>
-                <li><a href="https://forms.gle/fknvV9x2rLHyrF4N7"  target="_blank" class="nav-btn">Inscribirme</a></li>
             </ul>
 
             <div class="hamburger" id="hamburger">
@@ -406,7 +405,7 @@ const year = new Date().getFullYear();
 
                 <div class="founder-image">
                     <img
-                        src="../../src/assets/team_delve.png"
+                        src="/assets/team_delve.png"
                         alt="Acceso Founder Delve"
                     />
                 </div>

@@ -1,5 +1,4 @@
 ---
-import logo from "../assets/logo.png";
 const year = new Date().getFullYear();
 ---
 
@@ -532,15 +531,15 @@ const year = new Date().getFullYear();
         <!-- NAVBAR IGUAL AL HOME -->
         <nav>
             <div class="logo">
-                <a href="/"><img src={logo.src} alt="Delve Educación Logo" /></a
+                <a href="/"><img src="/assets/logo.png"/></a
                 >
             </div>
 
             <ul id="nav-links">
+                <li><a href="/ellms">Programas</a></li>
                 <li><a href="/cursos">Cursos</a></li>
                 <li><a href="/nosotros">Nosotros</a></li>
                 <li><a href="/contacto">Contacto</a></li>
-                <li><a href="/inscribirme" class="nav-btn">Inscribirme</a></li>
             </ul>
 
             <div class="hamburger" id="hamburger">
@@ -659,7 +658,7 @@ const year = new Date().getFullYear();
                     <div class="profesor-card">
                         <div class="profesor-img">
                             <img
-                                src="../../src/assets/mentores/camilo_bolaños.png"
+                                src="/assets/mentores/camilo_bolanios.png"
                                 alt="Emily Rivera"
                             />
                         </div>
@@ -684,7 +683,7 @@ const year = new Date().getFullYear();
                         <div class="course-grid">
                              <div class="recommended-course-card">
                                 <img
-                                    src="../../src/assets/cursos/large_language_models.png"
+                                    src="/assets/cursos/large_language_models.png"
                                     alt="Large Language Models"
                                     class="course-image"
                                 />
@@ -699,7 +698,7 @@ const year = new Date().getFullYear();
 
                             <div class="recommended-course-card">
                                 <img
-                                    src="../../src/assets/cursos/large_language_models_avanzado.png"
+                                    src="/assets/cursos/large_language_models_avanzado.png"
                                     alt="Large Language Models Avanzado"
                                     class="course-image"
                                 />
@@ -720,7 +719,7 @@ const year = new Date().getFullYear();
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/large_language_models_locales.png"
+                        src="/assets/cursos/large_language_models_locales.png"
                         alt="Large Language Models"
                     />
 

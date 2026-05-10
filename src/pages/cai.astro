@@ -1,5 +1,4 @@
 ---
-import logo from "../assets/logo.png";
 const year = new Date().getFullYear();
 ---
 
@@ -532,15 +531,15 @@ const year = new Date().getFullYear();
         <!-- NAVBAR IGUAL AL HOME -->
         <nav>
             <div class="logo">
-                <a href="/"><img src={logo.src} alt="Delve Educación Logo" /></a
+                <a href="/"><img src="/assets/logo.png"/></a
                 >
             </div>
 
-            <ul id="nav-links">
+            <ul>
+                <li><a href="/ellms">Programas</a></li>
                 <li><a href="/cursos">Cursos</a></li>
                 <li><a href="/nosotros">Nosotros</a></li>
                 <li><a href="/contacto">Contacto</a></li>
-                <li><a href="/inscribirme" class="nav-btn">Inscribirme</a></li>
             </ul>
 
             <div class="hamburger" id="hamburger">
@@ -689,7 +688,7 @@ const year = new Date().getFullYear();
                     <div class="profesor-card">
                         <div class="profesor-img">
                             <img
-                                src="../../src/assets/mentores/oscar_contreras.png"
+                                src="/assets/mentores/oscar_contreras.png"
                                 alt="Emily Rivera"
                             />
                         </div>
@@ -714,7 +713,7 @@ const year = new Date().getFullYear();
                         <div class="course-grid">
                             <div class="recommended-course-card">
                                 <img
-                                    src="../../src/assets/cursos/fundamentos_de_deep_learning.png"
+                                    src="/assets/cursos/fundamentos_de_deep_learning.png"
                                     alt="Fundamentos de Deep Learning"
                                     class="course-image"
                                 />
@@ -729,7 +728,7 @@ const year = new Date().getFullYear();
 
                             <div class="recommended-course-card">
                                 <img
-                                    src="../../src/assets/cursos/deep_learning_para_computer_vision.png"
+                                    src="/assets/cursos/deep_learning_para_computer_vision.png"
                                     alt="Deep Learning para Computer Vision"
                                     class="course-image"
                                 />
@@ -749,7 +748,7 @@ const year = new Date().getFullYear();
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/calculo_para_ia.png"
+                        src="/assets/cursos/calculo_para_ia.png"
                         alt="Cálculo para Inteligencia artificial"
                     />
 

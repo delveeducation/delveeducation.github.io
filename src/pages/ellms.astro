@@ -1,5 +1,4 @@
 ---
-import logo from "../assets/logo.png";
 const year = new Date().getFullYear();
 ---
 
@@ -7,7 +6,7 @@ const year = new Date().getFullYear();
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Deep Learning Avanzado | Delve Educación</title>
+        <title>Delve Educación</title>
 
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
@@ -255,26 +254,26 @@ const year = new Date().getFullYear();
                 }
 
                 nav {
-					padding: 20px;
-				}
+                    padding: 20px;
+                }
 
-				nav ul {
-					position: absolute;
-					top: 80px;
-					right: 0;
-					background: #0f172a;
-					flex-direction: column;
-					width: 220px;
-					padding: 30px;
-					gap: 20px;
-					display: none;
-					box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.3);
-					border-radius: 12px 0 0 12px;
-				}
+                nav ul {
+                    position: absolute;
+                    top: 80px;
+                    right: 0;
+                    background: #0f172a;
+                    flex-direction: column;
+                    width: 220px;
+                    padding: 30px;
+                    gap: 20px;
+                    display: none;
+                    box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.3);
+                    border-radius: 12px 0 0 12px;
+                }
 
-				nav ul.active {
-					display: flex;
-				}
+                nav ul.active {
+                    display: flex;
+                }
 
                 .hamburger {
                     display: flex;
@@ -374,7 +373,7 @@ const year = new Date().getFullYear();
             }
 
             .profesor-img img {
-                width: 320px;
+                width: 220px;
                 border-radius: 20px;
                 object-fit: cover;
             }
@@ -532,14 +531,15 @@ const year = new Date().getFullYear();
         <!-- NAVBAR IGUAL AL HOME -->
         <nav>
             <div class="logo">
-                <img src={logo.src} alt="Delve Educación Logo" />
+                <a href="/"><img src="/assets/logo.png"/></a
+                >
             </div>
 
             <ul id="nav-links">
+                <li><a href="/ellms">Programas</a></li>
                 <li><a href="/cursos">Cursos</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#" class="nav-btn">Inscribirme</a></li>
+                <li><a href="/nosotros">Nosotros</a></li>
+                <li><a href="/contacto">Contacto</a></li>
             </ul>
 
             <div class="hamburger" id="hamburger">
@@ -553,14 +553,19 @@ const year = new Date().getFullYear();
             <!-- HEADER DEL CURSO -->
             <div class="course-layout">
                 <div class="course-header">
-                    <h1>Fundamentos de Deep Learning</h1>
+                    <h3 style="color: #00FFEE;">PROGRAMA</h3>
+                    <h1 style="color: #00FFEE;">Especialista en LLMs</h1>
 
                     <div class="meta">
-                        Básico <span class="dot">•</span> 5 horas
+                        De Fundamentos a Aplicaciones Reales<span class="dot"
+                            >•</span
+                        > 4 Semanas
                     </div>
 
                     <p class="description">
-                        Descubre cómo funcionan las redes neuronales...
+                        Aprende a construir aplicaciones modernas con LLMs,
+                        sistemas RAG y técnicas avanzadas de optimización e
+                        inferencia.
                     </p>
                 </div>
 
@@ -573,110 +578,65 @@ const year = new Date().getFullYear();
                         <div class="grid">
                             <div class="col">
                                 <p>
-                                    Aprenderás los fundamentos de las redes
-                                    neuronales.
+                                    Fundamentos de Large Language Models (LLMs)
                                 </p>
-                                <p>
-                                    Entenderás los conceptos clave del Deep
-                                    Learning y sus aplicaciones.
-                                </p>
+                                <p>Arquitectura Transformer</p>
                             </div>
 
                             <div class="col">
-                                <p>
-                                    Dominarás la matemática de una neurona
-                                    artificial.
-                                </p>
-                                <p>
-                                    Explorarás cómo fluye la información en una
-                                    red (forward propagation).
-                                </p>
+                                <p>Prompt Engineering aplicado</p>
+                                <p>Sistemas RAG de alto rendimiento</p>
                             </div>
 
                             <div class="col">
-                                <p>
-                                    Comprenderás cómo aprenden las redes con
-                                    backpropagation y optimización.
-                                </p>
-                                <p>
-                                    Implementarás redes neuronales con Keras y
-                                    PyTorch.
-                                </p>
+                                <p>Fine-tuning y evaluación de modelos</p>
+                                <p>Cuantización e inferencia eficiente</p>
                             </div>
                         </div>
                     </section>
 
                     <div class="section">
-                        <h2>Contenido del Curso</h2>
+                        <h2>Contenido del programa</h2>
 
                         <div class="module">
-                            <h3>
-                                Módulo 1: Fundamentos Conceptuales de Deep
-                                Learning
-                            </h3>
+                            <h3>Bloque 1: Fundamentos de LLMs</h3>
                             <p>
-                                En este módulo se presentarán los conceptos
-                                básicos del Deep Learning, incluyendo qué son
-                                las redes neuronales, sus aplicaciones,
-                                diferencias entre neuronas naturales y
-                                artificiales, y una introducción a los modelos
-                                como la regresión logística.
+                                Comprenderás cómo funcionan los Large Language
+                                Models desde la arquitectura Transformer y los
+                                mecanismos de self-attention hasta conceptos
+                                fundamentales como embeddings, tokenización y
+                                prompting moderno.
                             </p>
                         </div>
 
                         <div class="module">
-                            <h3>
-                                Módulo 2: Modelado Matemático de Neuronas
-                                Artificiales
-                            </h3>
+                            <h3>Bloque 2: LLMs Locales</h3>
                             <p>
-                                Se explorará el funcionamiento interno de las
-                                neuronas artificiales desde una perspectiva
-                                matemática, abarcando funciones de activación
-                                como la sigmoidal, su implementación práctica, y
-                                cómo se construyen redes feedforward.
+                                Aprenderás a ejecutar modelos open-source de
+                                forma local utilizando herramientas modernas
+                                para construir aplicaciones prácticas como
+                                chatbots, sistemas de clasificación, asistentes
+                                inteligentes y generación automática de texto.
                             </p>
                         </div>
 
                         <div class="module">
-                            <h3>
-                                Módulo 3: Propagación hacia Adelante (Forward
-                                Propagation)
-                            </h3>
+                            <h3>Bloque 3: LLMs Avanzado</h3>
                             <p>
-                                Este módulo se enfocará en cómo fluye la
-                                información a través de una red neuronal,
-                                cubriendo la propagación hacia adelante, las
-                                expresiones matemáticas involucradas, y el
-                                entrenamiento básico de una red.
+                                Explorarás técnicas avanzadas para optimizar y
+                                adaptar modelos de lenguaje utilizando
+                                cuantización, LoRA, QLoRA, fine-tuning eficiente
+                                e inferencia optimizada para producción.
                             </p>
                         </div>
 
                         <div class="module">
-                            <h3>
-                                Módulo 4: Propagación hacia Atrás (Backward
-                                Propagation)
-                            </h3>
+                            <h3>Bloque 4: Aplicaciones con LLMs</h3>
                             <p>
-                                Se explicará cómo las redes neuronales aprenden
-                                mediante la retropropagación del error,
-                                abordando funciones de pérdida, descenso del
-                                gradiente y otros métodos de optimización para
-                                ajustar los pesos de la red.
-                            </p>
-                        </div>
-
-                        <div class="module">
-                            <h3>
-                                Módulo 5: Implementación de Redes Neuronales en
-                                Keras y PyTorch
-                            </h3>
-                            <p>
-                                En este módulo final se aplicará lo aprendido
-                                para implementar redes neuronales reales
-                                utilizando las librerías Keras y PyTorch,
-                                incluyendo exploración de arquitecturas
-                                alternativas y un cierre del curso.
+                                Aplicarás los conceptos aprendidos mediante
+                                ejercicios guiados, implementación de proyectos
+                                prácticos y resolución de casos reales
+                                utilizando sistemas modernos basados en LLMs.
                             </p>
                         </div>
                     </div>
@@ -684,73 +644,124 @@ const year = new Date().getFullYear();
                     <br />
                     <h2>Descripción</h2>
                     <p class="description">
-                        Explora el poder del Deep Learning con este curso
-                        diseñado para llevarte desde los conceptos fundamentales
-                        hasta la implementación de redes neuronales con Keras y
-                        PyTorch. A lo largo del curso comprenderás cómo
-                        funcionan las redes neuronales desde cero, dominarás los
-                        principios matemáticos que las sustentan, y aprenderás a
-                        entrenarlas eficazmente utilizando técnicas modernas de
-                        propagación hacia adelante y hacia atrás. Este curso es
-                        ideal para quienes buscan iniciarse en el mundo de Deep
-                        Learning o fortalecer su base técnica con un enfoque
-                        claro, práctico y orientado a resultados reales.
+                        Desarrollarás una comprensión sólida de los Large
+                        Language Models (LLMs), desde sus fundamentos teóricos
+                        hasta técnicas modernas utilizadas en sistemas de
+                        inteligencia artificial generativa. A lo largo del
+                        programa aprenderás a trabajar con modelos open-source,
+                        construir sistemas RAG, optimizar inferencia mediante
+                        cuantización y desplegar aplicaciones reales tanto en
+                        entornos locales como escalables. El programa combina
+                        fundamentos técnicos con implementación práctica,
+                        permitiéndote desarrollar experiencia aplicada en
+                        tecnologías modernas utilizadas en la industria de IA.
                     </p>
 
                     <br />
 
-                    <h2>Conoce al profesor</h2>
+                    <h2>Metodología</h2>
+                    <p class="description">
+                        El programa se desarrolla bajo una metodología de
+                        Blended Learning, combinando aprendizaje autónomo y
+                        sesiones prácticas en vivo. De lunes a viernes avanzarás
+                        mediante contenido audiovisual estructurado, mientras
+                        que los sábados participarás en clases en tiempo real
+                        enfocadas en implementación práctica, resolución de
+                        dudas y desarrollo de proyectos guiados.
+                    </p>
+
+                    <br />
+
+                    <h2>Conoce a los profesores</h2>
                     <div class="profesor-card">
                         <div class="profesor-img">
                             <img
-                                src="../../src/assets/mentores/oscar_contreras.png"
-                                alt="Nicolás Bohorquez"
+                                src="/assets/mentores/martin_arispe.jpg"
+                                alt="Martin Arispe"
                             />
                         </div>
 
                         <div class="profesor-info">
-                            <h3>Oscar Contrerass</h3>
+                            <h3>Martin Arispe</h3>
 
                             <p class="profesor-roles">
-                                Realizó su licenciatura en Ingeniería de
-                                Sistemas y posteriormente obtuvo una Maestría en
-                                Informática Avanzada por la Universidad de
-                                Brístol (Reino Unido). Cuenta con amplia
-                                experiencia en Ingeniería de Software e
-                                Ingeniería de Datos.
+                                Especialista en Inteligencia Artificial con
+                                experiencia en Agentes de IA, Large Language
+                                Models (LLMs) y Knowledge Graphs. Ha liderado la
+                                implementación de flujos de trabajo con
+                                Generative AI y plataformas impulsadas por IA.
+                                Participó en el proyecto MINTE en Fraunhofer
+                                IAIS (Alemania), integrando Deep Learning y
+                                Knowledge Graphs.
                             </p>
                         </div>
                     </div>
 
-                    <div class="container">
-                        <h2>Cursos relacionados</h2>
+                    <div class="profesor-card">
+                        <div class="profesor-img">
+                            <img
+                                src="/assets/mentores/camilo_bolanios.png"
+                                alt="Camilo Bolaños"
+                            />
+                        </div>
 
-                        <div class="course-grid">
-                            <div class="recommended-course-card">
-                                <img
-                                    src="../../src/assets/cursos/introduccion_a_computer_vision.png"
-                                    alt="Introducción a Computer Vision"
-                                    class="course-image"
-                                />
+                        <div class="profesor-info">
+                            <h3>Camilo Bolaños</h3>
 
-                                <h3>Introducción<br />a Computer Vision</h3>
-                                <p class="professor">Prof. Emili Rivera</p>
+                            <p class="profesor-roles">
+                                Ingenierio Mecatrónico con una Maestría en
+                                Mecatrónica, Robótica e Ingeniería de
+                                Automatización por la Universidad de Valladolid.
+                                Cuenta con más de 7 años en desarrollo Backend
+                                aplicado a soluciones de Inteligencia Artificial
+                                en diversos paises en Europa.
+                            </p>
+                        </div>
+                    </div>
 
-                                <a href="/fdl" class="btn">Ver programa</a>
-                            </div>
+                    <div class="profesor-card">
+                        <div class="profesor-img">
+                            <img
+                                src="/assets/mentores/edison_bejarano.png"
+                                alt="Edison Bejarano"
+                            />
+                        </div>
 
-                            <div class="recommended-course-card">
-                                <img
-                                    src="/ejemplo_nn.jpg"
-                                    alt="Deep Learning"
-                                    class="course-image"
-                                />
+                        <div class="profesor-info">
+                            <h3>Edison Bejarano</h3>
 
-                                <h3>Fundamentos <br />de Deep Learning</h3>
-                                <p class="professor">Prof. Oscar Contreras</p>
+                            <p class="profesor-roles">
+                                Ingeniero Aeroespacial con un Máster en
+                                Inteligencia Artificial y experiencia en
+                                investigación avanzada en modelos de lenguaje
+                                aplicados a robótica en la UPC. Actualmente
+                                trabaja en el desarrollo de soluciones de IA y
+                                LLMs en el ITCL, combinando investigación
+                                académica con aplicaciones tecnológicas en
+                                entornos industriales reales.
+                            </p>
+                        </div>
+                    </div>
 
-                                <a href="/dlxcv" class="btn">Ver programa</a>
-                            </div>
+                    <div class="profesor-card">
+                        <div class="profesor-img">
+                            <img
+                                src="/assets/mentores/fernando_silva.jpg"
+                                alt="Fernando Silva"
+                            />
+                        </div>
+
+                        <div class="profesor-info">
+                            <h3>Fernando Silva</h3>
+
+                            <p class="profesor-roles">
+                                Es ingeniero en sistemas con un máster en
+                                inteligencia artificial realizado en Europa.
+                                Tiene experiencia en proyectos de machine
+                                learning, visión por computadora y procesamiento
+                                de lenguaje natural en empresas y organizaciones
+                                en Latinoamérica y Europa.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -759,12 +770,15 @@ const year = new Date().getFullYear();
 
                 <div class="course-card">
                     <img
-                        src="../../src/assets/cursos/fundamentos_de_deep_learning.png"
+                        src="/assets/cursos/ellms_web.png"
                         alt="Deep Learning"
                     />
 
                     <div class="card-content">
-                        <p class="professor">Profesor: Oscar Contreras</p>
+                        <p class="professor">
+                            Profesores: Martin Arispe, Camilo Bolaños, Edison
+                            Bejarano y Fernando Silva
+                        </p>
 
                         <!--<div class="price">20 USD</div>-->
 
