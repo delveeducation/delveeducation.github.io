@@ -7,12 +7,10 @@ const year = new Date().getFullYear();
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Delve Educación | DeepTech</title>
-
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
             rel="stylesheet"
         />
-
         <style>
             body {
                 margin: 0;
@@ -36,14 +34,14 @@ const year = new Date().getFullYear();
             p {
                 font-size: 1.2rem;
                 color: #cbd5e1;
-                text-align: justify;
+                text-align: justify ;
             }
 
             .btn {
                 display: inline-block;
                 margin-top: 30px;
                 padding: 14px 28px;
-                background: rgb(136, 255, 96);
+                background: white;
                 color: black;
                 border-radius: 12px;
                 text-decoration: none;
@@ -53,6 +51,12 @@ const year = new Date().getFullYear();
 
             .btn:hover {
                 transform: translateY(-3px);
+            }
+
+            footer {
+                margin-top: 80px;
+                color: #94a3b8;
+                font-size: 0.9rem;
             }
 
             nav {
@@ -67,6 +71,11 @@ const year = new Date().getFullYear();
                 padding: 20px 40px;
                 box-sizing: border-box;
                 z-index: 1000;
+            }
+
+            nav .logo {
+                font-weight: 700;
+                font-size: 1.2rem;
             }
 
             nav ul {
@@ -88,8 +97,15 @@ const year = new Date().getFullYear();
                 color: #38bdf8;
             }
 
+            .nav-btn {
+                padding: 8px 16px;
+                background: white;
+                color: black;
+                border-radius: 8px;
+                font-weight: 600;
+            }
             .logo img {
-                height: 35px;
+                height: 40px;
                 width: auto;
                 display: block;
             }
@@ -97,7 +113,7 @@ const year = new Date().getFullYear();
             .founder {
                 margin-top: 100px;
                 padding: 60px;
-                background: #14202e;
+                background: #191e2d;
                 border-radius: 20px;
                 display: flex;
                 align-items: center;
@@ -131,7 +147,111 @@ const year = new Date().getFullYear();
                 border-radius: 16px;
             }
 
+            .carousel-section {
+                margin-top: 120px;
+                text-align: center;
+            }
+
+            .carousel-section h2 {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .carousel {
+                overflow: hidden;
+                width: 100%;
+            }
+
+            .carousel-track {
+                display: flex;
+                gap: 40px;
+                width: max-content;
+                animation: scroll 15s linear infinite;
+            }
+
+            .slide {
+                min-width: 200px;
+                text-align: center;
+            }
+
+            .slide img {
+                width: 200px;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+
+            .slide p {
+                margin-top: 15px;
+                margin-bottom: 10px;
+                color: #cbd5e1;
+                font-weight: 500;
+            }
+
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+
+            .founders-subtitle {
+                max-width: 800px;
+                margin: 20px auto 60px auto;
+                color: #cbd5e1;
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+
+            .offer-section {
+                margin-top: 120px;
+                text-align: center;
+            }
+
+            .offer-section h2 {
+                font-size: 2rem;
+                margin-bottom: 50px;
+            }
+
+            .offer-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 30px;
+            }
+
+            .offer-card {
+                display: block;
+                background: #1e293b;
+                padding: 40px 30px;
+                border-radius: 20px;
+                text-decoration: none;
+                color: white;
+                transition: 0.3s ease;
+            }
+
+            .offer-card h3 {
+                margin-bottom: 15px;
+            }
+
+            .offer-card p {
+                color: #cbd5e1;
+                font-size: 0.95rem;
+            }
+
+            .offer-card:hover {
+                transform: translateY(-6px);
+                background: #273449;
+            }
+
+            .logo img {
+                height: 35px; /* Ajusta el tamaño aquí */
+                width: auto; /* Mantiene proporción */
+            }
+
             /* HAMBURGER */
+
             .hamburger {
                 display: none;
                 flex-direction: column;
@@ -144,9 +264,16 @@ const year = new Date().getFullYear();
                 height: 3px;
                 background: white;
                 border-radius: 3px;
+                transition: 0.3s;
             }
 
+            /* RESPONSIVE */
+
             @media (max-width: 768px) {
+                nav {
+                    padding: 20px;
+                }
+
                 nav ul {
                     position: absolute;
                     top: 80px;
@@ -157,6 +284,7 @@ const year = new Date().getFullYear();
                     padding: 30px;
                     gap: 20px;
                     display: none;
+                    box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.3);
                     border-radius: 12px 0 0 12px;
                 }
 
@@ -167,14 +295,14 @@ const year = new Date().getFullYear();
                 .hamburger {
                     display: flex;
                 }
+            }
 
-                .founder {
-                    flex-direction: column;
-                    text-align: center;
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
                 }
-
-                .founder-text {
-                    text-align: center;
+                100% {
+                    transform: translateX(-50%);
                 }
             }
 
@@ -196,6 +324,7 @@ const year = new Date().getFullYear();
             .social-icons img {
                 width: 24px;
                 height: 24px;
+
                 opacity: 0.8;
                 transition: 0.3s ease;
             }
@@ -216,23 +345,35 @@ const year = new Date().getFullYear();
             .accelerated-text {
                 color: #94a3b8;
                 font-size: 0.85rem;
+                letter-spacing: 1px;
                 text-transform: uppercase;
+                margin: 0;
             }
 
             .accelerated-logo {
                 height: 35px;
                 opacity: 0.9;
+                transition: 0.3s ease;
             }
+
+            .accelerated-logo:hover {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+
+
+            .nav-btn:link,
+.nav-btn:visited {
+	color: black;
+}
         </style>
     </head>
 
     <body>
-        <!-- NAV -->
         <nav>
             <div class="logo">
-                <a href="/">
-                    <img src="/assets/logo.png" />
-                </a>
+                <a href="/"><img src="/assets/logo.png"/></a
+                >
             </div>
 
             <ul id="nav-links">
@@ -249,56 +390,66 @@ const year = new Date().getFullYear();
             </div>
         </nav>
 
-        <!-- CONTENT -->
         <div class="container">
             <div class="founder">
                 <div class="founder-text">
-                    <h2>Contáctanos</h2>
+                    <h2>Somos un equipo DeepTech</h2>
                     <p>
-                        Puedes enviarnos un mensaje para conocer más sobre nuestras iniciativas,
-                        explorar oportunidades de colaboración o resolver cualquier duda.
+                        Somos un equipo multidisciplinario enfocado en deeptech,
+                        donde convergen distintas especialidades con un objetivo
+                        en común: impulsar a Latinoamérica para que juegue un
+                        papel relevante en el desarrollo y aplicación de
+                        tecnologías avanzadas.
                     </p>
-
-                    <a
-                        href="https://api.whatsapp.com/send/?phone=59178853748&text=Hola+quiero+mas+informacion+de+los+cursos&type=phone_number&app_absent=0"
-                        target="_blank"
-                        class="btn"
-                    >
-                        Enviar WhatsApp
-                    </a>
                 </div>
 
                 <div class="founder-image">
-                    <img src="/assets/contacto_delve.png" />
+                    <img
+                        src="/assets/team_delve.png"
+                        alt="Acceso Founder Delve"
+                    />
                 </div>
             </div>
+
+            <footer>
+                <div class="accelerated">
+                    <p class="accelerated-text">Acelerados por:</p>
+                    <img
+                        src="/aceleratec.svg"
+                        alt="Aceleradora"
+                        class="accelerated-logo"
+                    />
+                </div>
+
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank">
+                        <img src="/facebook.webp" alt="Facebook" />
+                    </a>
+
+                    <a href="https://instagram.com" target="_blank">
+                        <img src="/instagram.webp" alt="Instagram" />
+                    </a>
+
+                    <a href="https://tiktok.com" target="_blank">
+                        <img src="/tiktok.webp" alt="TikTok" />
+                    </a>
+
+                    <a href="https://linkedin.com" target="_blank">
+                        <img src="/linkedin.webp" alt="LinkedIn" />
+                    </a>
+                </div>
+
+                <p style="text-align: center;">© {year} Delve Educación</p>
+            </footer>
+
+            <script>
+                const hamburger = document.getElementById("hamburger");
+                const navLinks = document.getElementById("nav-links");
+
+                hamburger.addEventListener("click", () => {
+                    navLinks.classList.toggle("active");
+                });
+            </script>
         </div>
-
-        <!-- FOOTER (FUERA) -->
-        <footer>
-            <div class="accelerated">
-                <p class="accelerated-text">Acelerados por:</p>
-                <img src="/aceleratec.svg" class="accelerated-logo" />
-            </div>
-
-            <div class="social-icons">
-                <a href="https://facebook.com"><img src="/facebook.webp" /></a>
-                <a href="https://instagram.com"><img src="/instagram.webp" /></a>
-                <a href="https://tiktok.com"><img src="/tiktok.webp" /></a>
-                <a href="https://linkedin.com"><img src="/linkedin.webp" /></a>
-            </div>
-
-            <p>© {year} Delve Educación</p>
-        </footer>
-
-        <!-- SCRIPT (FUERA) -->
-        <script>
-            const hamburger = document.getElementById("hamburger");
-            const navLinks = document.getElementById("nav-links");
-
-            hamburger.addEventListener("click", () => {
-                navLinks.classList.toggle("active");
-            });
-        </script>
     </body>
 </html>

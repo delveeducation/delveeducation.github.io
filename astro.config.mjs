@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://www.delveedu.com'
+  site: 'https://www.delveedu.com',
+  base: '/'
 });
-
