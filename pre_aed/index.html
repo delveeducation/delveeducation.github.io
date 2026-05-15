@@ -1,57 +1,65 @@
-<!DOCTYPE html><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Delve Educación</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><style>body{margin:0;font-family:Inter,sans-serif;background:#0f172a;color:#fff}nav{position:fixed;top:0;width:100%;background:#0f172ae6;backdrop-filter:blur(10px);display:flex;justify-content:space-between;align-items:center;padding:20px 40px;box-sizing:border-box;z-index:1000}nav ul{list-style:none;display:flex;gap:30px;margin:0;padding:0;align-items:center}nav a{text-decoration:none;color:#fff;font-weight:500;transition:.3s}nav a:hover{color:#38bdf8}.nav-btn{padding:8px 16px;background:#fff;color:#000!important;border-radius:8px;font-weight:600}.logo img{height:35px;width:auto;display:block}.container{max-width:1200px;margin:0 auto;padding:90px 20px 80px}.course-layout{display:grid;grid-template-columns:2fr 1fr;column-gap:60px;row-gap:20px;align-items:start}.course-header h1{font-size:2.8rem;margin-bottom:15px}.meta{color:#94a3b8;margin-bottom:25px;font-size:.95rem}.dot{margin:0 8px}.description{color:#cbd5e1;line-height:1.7;margin-bottom:0;font-size:1.05rem}.section h2{margin-bottom:25px}.module{background:#1e293b;padding:20px;border-radius:12px;margin-bottom:20px;transition:.3s ease}.module:hover{background:#273449}.module h3{margin:0 0 8px}.module p{margin:0;color:#94a3b8}.course-card{background:#1e293b;border-radius:20px;overflow:hidden;position:sticky;top:120px;padding:20px;transition:.3s ease;grid-column:2;grid-row:1 / span 2}.course-card img{width:100%;height:220px;object-fit:cover}.course-card:hover{transform:translateY(-5px);background:#273449}.card-content{padding:20px}.professor{color:#94a3b8;margin-bottom:20px}.btn-primary{display:block;text-align:center;padding:14px;background:#38bdf8;color:#0f172a;border-radius:12px;text-decoration:none;font-weight:600;margin-bottom:25px;transition:.3s ease}.btn-primary:hover{transform:translateY(-3px)}.card-info{color:#94a3b8;font-size:.9rem;line-height:1.6}footer{text-align:center;padding:60px 20px;color:#94a3b8;margin-top:80px}.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer}.hamburger span{width:25px;height:3px;background:#fff;border-radius:3px;transition:.3s}@media(max-width:900px){.course-layout{grid-template-columns:1fr}.course-card{grid-row:2;position:relative;top:0;margin-bottom:10px}nav{padding:20px}nav ul{position:absolute;top:80px;right:0;background:#0f172a;flex-direction:column;width:220px;padding:30px;gap:20px;display:none;box-shadow:-10px 10px 30px #0000004d;border-radius:12px 0 0 12px}nav ul.active{display:flex}.hamburger{display:flex}}.aprendizaje{color:#fff;max-width:1200px;margin:auto}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}.col p{line-height:1.6;margin-bottom:18px}@media(max-width:900px){.grid{grid-template-columns:1fr;gap:20px}}.course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:60px}@media(max-width:600px){.course-grid{grid-template-columns:1fr}}.recommended-course-card{background:#1e293b;padding:20px;border-radius:20px;transition:.3s ease}.recommended-course-card:hover{transform:translateY(-5px);background:#273449}.recommended-course-card img{width:100%;height:220px;object-fit:cover;border-radius:12px}.btn{display:inline-block;margin-top:20px;padding:10px 20px;background:#fff;color:#000;border-radius:10px;text-decoration:none;font-weight:600}p{text-align:justify}.course-header{grid-column:1}.profesor-card{display:flex;align-items:center;gap:60px;padding:10px 0}.profesor-img img{width:320px;border-radius:20px;object-fit:cover}.profesor-info p{color:#94a3b8;line-height:1.7}@media(max-width:900px){.profesor-card{flex-direction:column;text-align:center}.profesor-img img{width:100%;max-width:300px}}
-</style></head> <body> <nav> <div class="logo"> <a href="/"> <img src="/assets/logo.png" alt="Delve Educación"> </a> </div> <ul id="nav-links"> <li><a href="/ellms">Programas</a></li> <li><a href="/cursos">Cursos</a></li> <li><a href="/nosotros">Nosotros</a></li> <li><a href="/contacto">Contacto</a></li> </ul> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> </nav> <div class="container"> <div class="course-layout"> <div class="course-header"> <h1>Algoritmos y Estructuras de Datos</h1> <div class="meta">
-Básico <span class="dot">•</span> 5 horas
+<!DOCTYPE html><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Delve Educación</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><style>body{margin:0;font-family:Inter,sans-serif;background:#0f172a;color:#fff}nav{position:fixed;top:0;width:100%;background:#0f172ae6;backdrop-filter:blur(10px);display:flex;justify-content:space-between;align-items:center;padding:20px 40px;box-sizing:border-box;z-index:1000}nav ul{list-style:none;display:flex;gap:30px;margin:0;padding:0;align-items:center}nav a{text-decoration:none;color:#fff;font-weight:500;transition:.3s}nav a:hover{color:#38bdf8}.logo img{height:35px;width:auto;display:block}.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer}.hamburger span{width:25px;height:3px;background:#fff;border-radius:3px}.container{max-width:1200px;margin:0 auto;padding:110px 20px 80px}.course-layout{display:grid;grid-template-columns:2fr 1fr;gap:40px;align-items:start}.course-header{grid-column:1}.course-header h1{font-size:2.8rem;margin-bottom:15px}.meta{color:#94a3b8;margin-bottom:25px}.dot{margin:0 8px}.description{color:#cbd5e1;line-height:1.7;font-size:1.05rem}.aprendizaje{grid-column:1}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}.col p{line-height:1.7;color:#cbd5e1}.course-card{background:#1e293b;border-radius:20px;overflow:hidden;position:sticky;top:120px;padding:20px;transition:.3s ease;grid-column:2;grid-row:1 / span 3}.course-card:hover{transform:translateY(-5px);background:#273449}.course-card img{width:100%;height:220px;object-fit:cover;border-radius:14px}.card-content{padding-top:20px}.professor{color:#94a3b8;margin-bottom:20px}.btn-primary{display:block;text-align:center;padding:14px;background:#38bdf8;color:#0f172a;border-radius:12px;text-decoration:none;font-weight:600;margin-bottom:25px;transition:.3s ease}.btn-primary:hover{transform:translateY(-3px)}.card-info{color:#94a3b8;line-height:1.6}.course-main{grid-column:1}.section h2{margin-bottom:25px}.module{background:#1e293b;padding:20px;border-radius:12px;margin-bottom:20px;transition:.3s ease}.module:hover{background:#273449}.module h3{margin-top:0}.module p{color:#94a3b8;line-height:1.7}.profesor-card{display:flex;align-items:center;gap:60px;margin-top:30px}.profesor-img img{width:320px;border-radius:20px}.profesor-info p{color:#94a3b8;line-height:1.7}.course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:40px}.recommended-course-card{background:#1e293b;padding:20px;border-radius:20px;transition:.3s ease}.recommended-course-card:hover{transform:translateY(-5px);background:#273449}.recommended-course-card img{width:100%;height:220px;object-fit:cover;border-radius:14px}.btn{display:inline-block;margin-top:20px;padding:10px 20px;background:#fff;color:#000;border-radius:10px;text-decoration:none;font-weight:600}footer{text-align:center;padding:60px 20px;color:#94a3b8;margin-top:80px}p{text-align:justify}@media(max-width:900px){.course-layout{grid-template-columns:1fr}.course-header{grid-column:1;grid-row:1}.aprendizaje{grid-column:1;grid-row:2}.course-card{grid-column:1;grid-row:3;position:static;top:0;margin-top:20px}.course-main{grid-column:1;grid-row:4}.grid{grid-template-columns:1fr;gap:20px}.course-grid{grid-template-columns:1fr}.profesor-card{flex-direction:column;text-align:center}.profesor-img img{width:100%;max-width:300px}nav{padding:20px}nav ul{position:absolute;top:80px;right:0;background:#0f172a;flex-direction:column;width:220px;padding:30px;gap:20px;display:none;box-shadow:-10px 10px 30px #0000004d;border-radius:12px 0 0 12px}nav ul.active{display:flex}.hamburger{display:flex}}
+</style></head> <body> <nav> <div class="logo"> <a href="/"> <img src="/assets/logo.png" alt="Delve Educación"> </a> </div> <ul id="nav-links"> <li><a href="/ellms">Programas</a></li> <li><a href="/cursos">Cursos</a></li> <li><a href="/nosotros">Nosotros</a></li> <li><a href="/contacto">Contacto</a></li> </ul> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> </nav> <div class="container"> <div class="course-layout"> <!-- HEADER --> <div class="course-header"> <h1>
+Algoritmos y Estructuras de Datos
+</h1> <div class="meta">
+Básico
+<span class="dot">•</span>
+5 horas
 </div> <p class="description">
-En este curso se aprenderán los fundamentos de
-                        estructuras de datos y algoritmos para analizar y
-                        mejorar la eficiencia computacional mediante ejercicios
-                        prácticos en Python.
-</p> </div> <div class="course-main"> <section class="aprendizaje"> <h2>¿Qué aprenderás?</h2> <div class="grid"> <div class="col"> <p>
-Analizar la eficiencia de los algoritmos con
-                                    notación Big-O.
+En este curso se aprenderán los fundamentos
+                        de estructuras de datos y algoritmos para
+                        analizar y mejorar la eficiencia computacional
+                        mediante ejercicios prácticos en Python.
+</p> </div> <!-- APRENDIZAJE --> <section class="aprendizaje"> <h2>¿Qué aprenderás?</h2> <div class="grid"> <div class="col"> <p>
+Analizar la eficiencia de los
+                                algoritmos con notación Big-O.
 </p> <p>
 Implementar algoritmos de búsqueda y
-                                    ordenamiento.
+                                ordenamiento.
 </p> </div> <div class="col"> <p>
-Usar estructuras lineales como arrays y
-                                    listas enlazadas.
+Usar estructuras lineales como arrays
+                                y listas enlazadas.
 </p> <p>
 Trabajar con árboles y grafos para
-                                    representar relaciones.
+                                representar relaciones.
 </p> </div> <div class="col"> <p>
 Aplicar pilas y colas en problemas
-                                    prácticos.
+                                prácticos.
 </p> <p>
-Utilizar hashing, recursión y programación
-                                    dinámica para optimizar soluciones.
-</p> </div> </div> </section> <div class="section"> <h2>Contenido del Curso</h2> <div class="module"> <h3>
-Módulo 1: Introducción a Algoritmos y
-                                Complejidad
-</h3> <p>
-Aprenderás qué es un algoritmo, cómo medir su
-                                eficiencia y analizar su complejidad usando
-                                notación Big-O.
-</p> </div> </div> <br> <h2>Conoce al profesor</h2> <div class="profesor-card"> <div class="profesor-img"> <img src="/assets/mentores/diego_angulo.png" alt="Diego Angulo"> </div> <div class="profesor-info"> <h3>Diego Angulo</h3> <p>
-Matemático aplicado a la Informática, graduado
-                                del MIPT (Rusia). Trabaja en investigación de
-                                redes neuronales y desarrollo backend.
-</p> </div> </div> <h2 style="margin-top: 80px;">Cursos relacionados</h2> <div class="course-grid"> <div class="recommended-course-card"> <img src="/assets/cursos/calculo_para_ia.png" alt="Cálculo para IA"> <h3>
-Cálculo para <br>
-Inteligencia Artificial
-</h3> <p class="professor">
-Prof. Oscar Contreras
-</p> <a href="/cai" class="btn">Ver programa</a> </div> <div class="recommended-course-card"> <img src="/assets/cursos/fundamentos_de_deep_learning.png" alt="Fundamentos Deep Learning"> <h3>
-Fundamentos de <br>
-Deep Learning
-</h3> <p class="professor">
-Prof. Oscar Contreras
-</p> <a href="/fdl" class="btn">Ver programa</a> </div> </div> </div> <div class="course-card"> <img src="/assets/cursos/algoritmos_y_estructura_de_datos.png" alt="Algoritmos y Estructuras de Datos"> <div class="card-content"> <p class="professor">
+Utilizar hashing, recursión y
+                                programación dinámica para optimizar
+                                soluciones.
+</p> </div> </div> </section> <!-- CARD --> <div class="course-card"> <img src="/assets/cursos/algoritmos_y_estructura_de_datos.png" alt="Algoritmos y Estructuras de Datos"> <div class="card-content"> <p class="professor">
 Profesor: Diego Angulo
 </p> <a href="https://forms.gle/fknvV9x2rLHyrF4N7" target="_blank" class="btn-primary">
 Inscribirme Ahora
 </a> <div class="card-info">
 ✔ Acceso anual <br>
 ✔ Certificado oficial Delve
-</div> </div> </div> </div> </div> <footer>
+</div> </div> </div> <!-- MAIN --> <div class="course-main"> <div class="section"> <h2>Contenido del Curso</h2> <div class="module"> <h3>
+Módulo 1: Introducción a Algoritmos
+</h3> <p>
+Aprenderás qué es un algoritmo y cómo
+                                analizar su complejidad.
+</p> </div> <div class="module"> <h3>
+Módulo 2: Arrays y Listas
+</h3> <p>
+Conocerás arrays y listas enlazadas.
+</p> </div> </div> <br> <h2>Conoce al profesor</h2> <div class="profesor-card"> <div class="profesor-img"> <img src="/assets/mentores/diego_angulo.png" alt="Diego Angulo"> </div> <div class="profesor-info"> <h3>Diego Angulo</h3> <p>
+Matemático aplicado a la Informática,
+                                graduado del MIPT (Rusia).
+</p> </div> </div> <br><br> <h2>Cursos relacionados</h2> <div class="course-grid"> <div class="recommended-course-card"> <img src="/assets/cursos/calculo_para_ia.png" alt="Cálculo para IA"> <h3>
+Cálculo para Inteligencia Artificial
+</h3> <p class="professor">
+Prof. Oscar Contreras
+</p> <a href="/cai" class="btn">
+Ver programa
+</a> </div> <div class="recommended-course-card"> <img src="/assets/cursos/fundamentos_de_deep_learning.png" alt="Deep Learning"> <h3>
+Fundamentos de Deep Learning
+</h3> <p class="professor">
+Prof. Oscar Contreras
+</p> <a href="/fdl" class="btn">
+Ver programa
+</a> </div> </div> </div> </div> </div> <footer>
 © 2026 Delve Educación
 </footer> <script type="module">const e=document.getElementById("hamburger"),t=document.getElementById("nav-links");e&&t&&e.addEventListener("click",()=>{t.classList.toggle("active")});</script> </body> </html>
