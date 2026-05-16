@@ -1,85 +1,93 @@
 <!DOCTYPE html><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Delve Educación</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><style>body{margin:0;font-family:Inter,sans-serif;background:#0f172a;color:#fff}nav{position:fixed;top:0;width:100%;background:#0f172ae6;backdrop-filter:blur(10px);display:flex;justify-content:space-between;align-items:center;padding:20px 40px;box-sizing:border-box;z-index:1000}nav ul{list-style:none;display:flex;gap:30px;margin:0;padding:0;align-items:center}nav a{text-decoration:none;color:#fff;font-weight:500;transition:.3s}nav a:hover{color:#38bdf8}.logo img{height:35px;width:auto;display:block}.hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer}.hamburger span{width:25px;height:3px;background:#fff;border-radius:3px}.container{max-width:1200px;margin:0 auto;padding:110px 20px 80px}.course-layout{display:grid;grid-template-columns:2fr 1fr;gap:40px;align-items:start}.course-header{grid-column:1}.course-header h1{font-size:2.8rem;margin-bottom:15px}.meta{color:#94a3b8;margin-bottom:25px}.dot{margin:0 8px}.description{color:#cbd5e1;line-height:1.7;font-size:1.05rem}.aprendizaje{grid-column:1}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}.col p{line-height:1.7;color:#cbd5e1}.course-card{background:#1e293b;border-radius:20px;overflow:hidden;position:sticky;top:120px;padding:20px;transition:.3s ease;grid-column:2;grid-row:1 / span 3}.course-card:hover{transform:translateY(-5px);background:#273449}.course-card img{width:100%;height:220px;object-fit:cover;border-radius:14px}.card-content{padding-top:20px}.professor{color:#94a3b8;margin-bottom:20px}.btn-primary{display:block;text-align:center;padding:14px;background:#38bdf8;color:#0f172a;border-radius:12px;text-decoration:none;font-weight:600;margin-bottom:25px;transition:.3s ease}.btn-primary:hover{transform:translateY(-3px)}.card-info{color:#94a3b8;line-height:1.6}.course-main{grid-column:1}.section h2{margin-bottom:25px}.module{background:#1e293b;padding:20px;border-radius:12px;margin-bottom:20px;transition:.3s ease}.module:hover{background:#273449}.module h3{margin-top:0}.module p{color:#94a3b8;line-height:1.7}.profesor-card{display:flex;align-items:center;gap:60px;margin-top:30px}.profesor-img img{width:320px;border-radius:20px}.profesor-info p{color:#94a3b8;line-height:1.7}.course-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:40px}.recommended-course-card{background:#1e293b;padding:20px;border-radius:20px;transition:.3s ease}.recommended-course-card:hover{transform:translateY(-5px);background:#273449}.recommended-course-card img{width:100%;height:220px;object-fit:cover;border-radius:14px}.btn{display:inline-block;margin-top:20px;padding:10px 20px;background:#fff;color:#000;border-radius:10px;text-decoration:none;font-weight:600}footer{text-align:center;padding:60px 20px;color:#94a3b8;margin-top:80px}p{text-align:justify}@media(max-width:900px){.course-layout{grid-template-columns:1fr}.course-header{grid-column:1;grid-row:1}.course-card{grid-column:1;grid-row:2;position:static;top:0;margin-top:20px}.aprendizaje{grid-column:1;grid-row:3}.course-main{grid-column:1;grid-row:4}.grid{grid-template-columns:1fr;gap:20px}.course-grid{grid-template-columns:1fr}.profesor-card{flex-direction:column;text-align:center}.profesor-img img{width:100%;max-width:300px}nav{padding:20px}nav ul{position:absolute;top:80px;right:0;background:#0f172a;flex-direction:column;width:220px;padding:30px;gap:20px;display:none;box-shadow:-10px 10px 30px #0000004d;border-radius:12px 0 0 12px}nav ul.active{display:flex}.hamburger{display:flex}}
-</style></head> <body> <nav> <div class="logo"> <a href="/"> <img src="/assets/logo.png" alt="Delve Educación"> </a> </div> <ul id="nav-links"> <li><a href="/ellms">Programas</a></li> <li><a href="/cursos">Cursos</a></li> <li><a href="/nosotros">Nosotros</a></li> <li><a href="/contacto">Contacto</a></li> </ul> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> </nav> <div class="container"> <div class="course-layout"> <!-- HEADER --> <div class="course-header"> <h1>Cálculo para Inteligencia Artificial</h1> <div class="meta">
+</style></head> <body> <nav> <div class="logo"> <a href="/"> <img src="/assets/logo.png" alt="Delve Educación"> </a> </div> <ul id="nav-links"> <li><a href="/ellms">Programas</a></li> <li><a href="/cursos">Cursos</a></li> <li><a href="/nosotros">Nosotros</a></li> <li><a href="/contacto">Contacto</a></li> </ul> <div class="hamburger" id="hamburger"> <span></span> <span></span> <span></span> </div> </nav> <div class="container"> <div class="course-layout"> <!-- HEADER --> <div class="course-header"> <h1>Fundamentos de Deep Learning</h1> <div class="meta">
 Básico
 <span class="dot">•</span>
 5 horas
 </div> <p class="description">
-En este curso se aprenderán los fundamentos del cálculo y su aplicación en
-                        el Machine Learning.
-</p> </div> <div class="course-card"> <img src="/assets/cursos/calculo_para_ia.png" alt="Cálculo para Inteligencia artificial"> <div class="card-content"> <p class="professor">Profesor: Oscar Contreras</p> <a href="https://forms.gle/fknvV9x2rLHyrF4N7" target="_blank" class="btn-primary">Inscribirme Ahora</a> <div class="card-info">
+Descubre cómo funcionan las redes neuronales desde los fundamentos hasta aplicaciones prácticas.
+</p> </div> <div class="course-card"> <img src="/assets/cursos/fundamentos_de_deep_learning.png" alt="Deep Learning"> <div class="card-content"> <p class="professor">Profesor: Oscar Contreras</p> <!--<div class="price">20 USD</div>--> <a href="https://forms.gle/fknvV9x2rLHyrF4N7" target="_blank" class="btn-primary">Inscribirme Ahora </a> <div class="card-info">
 ✔ Acceso anual <br>
-✔ Certificado oficial Delve
-</div> </div> </div> <!-- APRENDIZAJE --> <section class="aprendizaje"> <h2>¿Qué aprenderás?</h2> <div class="grid"> <div class="col"> <p>
-Aprenderás los fundamentos del cálculo y las
-                                    funciones.
+✔ Certificado oficial Delve <br> </div> </div> </div> <!-- APRENDIZAJE --> <section class="aprendizaje"> <h2>¿Qué aprenderás?</h2> <div class="grid"> <div class="col"> <p>
+•  Aprenderás los fundamentos de las redes
+                                    neuronales.
 </p> <p>
-Aplicación de derivadas en la resolución de
-                                    problemas prácticos.
-</p> </div> <div class="col"> <p>Herramientas computacionales con Python.</p> <p>
-Optimización de funciones en el contexto del
-                                    Machine Learning.
+• Entenderás los conceptos clave del Deep
+                                    Learning y sus aplicaciones.
+</p> </div> <div class="col"> <p>• Dominarás la matemática de una neurona
+                                    artificial.</p> <p>
+• Explorarás cómo fluye la información en una
+                                    red (forward propagation).
 </p> </div> <div class="col"> <p>
-Cálculo y análisis de derivadas y
-                                    gradientes.
+• Comprenderás cómo aprenden las redes con
+                                    backpropagation y optimización.
 </p> <p>
-Implementación del algoritmo de
-                                    Backpropagation.
+• Implementarás redes neuronales con Keras y
+                                    PyTorch.
 </p> </div> </div> </section> <!-- CARD --> <!-- MAIN --> <div class="course-main"> <div class="section"> <h2>Contenido del Curso</h2> <div class="module"> <h3>
-Módulo 1: Fundamentos del Cálculo y de las
-                                Funciones
+Módulo 1: Fundamentos Conceptuales de Deep
+                                Learning
 </h3> <p>
-En este módulo aprenderás los principios básicos
-                                del cálculo y las funciones, analizando su
-                                comportamiento y representación gráfica con
-                                Python.
+En este módulo se presentarán los conceptos
+                                básicos del Deep Learning, incluyendo qué son
+                                las redes neuronales, sus aplicaciones,
+                                diferencias entre neuronas naturales y
+                                artificiales, y una introducción a los modelos
+                                como la regresión logística.
 </p> </div> <div class="module"> <h3>
-Módulo 2: Funciones Univariables y
-                                Multivariables
+Módulo 2: Modelado Matemático de Neuronas
+                                Artificiales
 </h3> <p>
-Explorarás funciones de una y varias variables,
-                                comprendiendo su dominio, rango, composición y
-                                aplicaciones prácticas.
-</p> </div> <div class="module"> <h3>Módulo 3: Derivadas y Gradientes</h3> <p>
-Verás cómo calcular derivadas y gradientes para
-                                analizar el cambio, la optimización y los
-                                extremos de funciones matemáticas.
+Se explorará el funcionamiento interno de las
+                                neuronas artificiales desde una perspectiva
+                                matemática, abarcando funciones de activación
+                                como la sigmoidal, su implementación práctica, y
+                                cómo se construyen redes feedforward.
 </p> </div> <div class="module"> <h3>
-Módulo 4: Optimización en el Contexto del
-                                Machine Learning
+Módulo 3: Propagación hacia Adelante (Forward
+                                Propagation)
 </h3> <p>
-Aprenderás a aplicar el cálculo de gradientes
-                                para optimizar funciones y reducir el error en
-                                modelos de aprendizaje automático.
+Este módulo se enfocará en cómo fluye la
+                                información a través de una red neuronal,
+                                cubriendo la propagación hacia adelante, las
+                                expresiones matemáticas involucradas, y el
+                                entrenamiento básico de una red.
 </p> </div> <div class="module"> <h3>
-Módulo 5: Backpropagation y Aplicaciones en
-                                Inteligencia Artificial
+Módulo 4: Propagación hacia Atrás (Backward
+                                Propagation)
 </h3> <p>
-En este módulo explorarás el algoritmo de
-                                retropropagación y su papel en el entrenamiento
-                                de redes neuronales dentro de la inteligencia
-                                artificial.
+Se explicará cómo las redes neuronales aprenden
+                                mediante la retropropagación del error,
+                                abordando funciones de pérdida, descenso del
+                                gradiente y otros métodos de optimización para
+                                ajustar los pesos de la red.
+</p> </div> <div class="module"> <h3>
+Módulo 5: Implementación de Redes Neuronales en
+                                Keras y PyTorch
+</h3> <p>
+En este módulo final se aplicará lo aprendido
+                                para implementar redes neuronales reales
+                                utilizando las librerías Keras y PyTorch,
+                                incluyendo exploración de arquitecturas
+                                alternativas y un cierre del curso.
 </p> </div> </div> <br> <h2>Descripción</h2> <p class="description">
-Explora los fundamentos del cálculo aplicados al mundo
-                        del Machine Learning y la inteligencia artificial.
-                        Aprende a analizar funciones, derivadas y gradientes, y
-                        utiliza Python para representar y comprender su
-                        comportamiento. Domina las bases matemáticas que
-                        impulsan los algoritmos de optimización y descubre cómo
-                        el backpropagation permite entrenar redes neuronales de
-                        manera eficiente. Conecta la teoría del cálculo con su
-                        aplicación práctica en modelos inteligentes y desarrolla
-                        una comprensión sólida del corazón matemático de la IA.
-</p> <br> <h2>Conoce al profesor</h2> <div class="profesor-card"> <div class="profesor-img"> <img src="/assets/mentores/oscar_contreras.png" alt="Oscar Contreras"> </div> <div class="profesor-info"> <h3>Oscar Contreras</h3> <p class="profesor-roles">
+Explora el poder del Deep Learning con este curso
+                        diseñado para llevarte desde los conceptos fundamentales
+                        hasta la implementación de redes neuronales con Keras y
+                        PyTorch. A lo largo del curso comprenderás cómo
+                        funcionan las redes neuronales desde cero, dominarás los
+                        principios matemáticos que las sustentan, y aprenderás a
+                        entrenarlas eficazmente utilizando técnicas modernas de
+                        propagación hacia adelante y hacia atrás. Este curso es
+                        ideal para quienes buscan iniciarse en el mundo de Deep
+                        Learning o fortalecer su base técnica con un enfoque
+                        claro, práctico y orientado a resultados reales.
+</p> <br> <h2>Conoce al profesor</h2> <div class="profesor-card"> <div class="profesor-img"> <img src="/assets/mentores/oscar_contreras.png" alt="Nicolás Bohorquez"> </div> <div class="profesor-info"> <h3>Oscar Contrerass</h3> <p class="profesor-roles">
 Realizó su licenciatura en Ingeniería de
                                 Sistemas y posteriormente obtuvo una Maestría en
                                 Informática Avanzada por la Universidad de
                                 Brístol (Reino Unido). Cuenta con amplia
                                 experiencia en Ingeniería de Software e
                                 Ingeniería de Datos.
-</p> </div> </div> <br><br> <h2>Cursos relacionados</h2> <div class="course-grid"> <div class="recommended-course-card"> <img src="/assets/cursos/fundamentos_de_deep_learning.png" alt="Fundamentos de Deep Learning" class="course-image"> <h3>
-Fundamentos de <br>Deep Learning
-</h3> <p class="professor">Prof. Oscar Contreras</p> <a href="/fdl" class="btn">Ver programa</a> </div> <div class="recommended-course-card"> <img src="/assets/cursos/deep_learning_para_computer_vision.png" alt="Deep Learning para Computer Vision" class="course-image"> <h3>
-Deep Learning <br> para Computer Vision
-</h3> <p class="professor">Prof. Erick Maraz</p> <a href="/dlxcv" class="btn">Ver programa</a> </div> </div> </div> </div> </div> <footer>
+</p> </div> </div> <br><br> <h2>Cursos relacionados</h2> <div class="course-grid"> <div class="recommended-course-card"> <img src="/assets/cursos/introduccion_a_computer_vision.png" alt="Introducción a Computer Vision" class="course-image"> <h3>Introducción<br>a Computer Vision</h3> <p class="professor">Prof. Emily Rivera</p> <a href="/icv" class="btn">Ver programa</a> </div> <div class="recommended-course-card"> <img src="/assets/cursos/deep_learning_para_computer_vision.png" alt="Deep Learning" class="course-image"> <h3>Deep Learning <br>para Computer Vision</h3> <p class="professor">Prof. Erick Maraz</p> <a href="/dlxcv" class="btn">Ver programa</a> </div> </div> </div> </div> </div> <footer>
 © 2026 Delve Educación
 </footer> <script type="module">const e=document.getElementById("hamburger"),t=document.getElementById("nav-links");e&&t&&e.addEventListener("click",()=>{t.classList.toggle("active")});</script> </body> </html>
