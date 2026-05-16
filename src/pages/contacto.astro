@@ -223,6 +223,17 @@ const year = new Date().getFullYear();
                 height: 35px;
                 opacity: 0.9;
             }
+            footer {
+                margin-top: 80px;
+                padding: 40px 20px;
+                text-align: center;
+                color: #94a3b8;
+                font-size: 0.9rem;
+            }
+            .footer-year {
+                text-align: center;
+                margin-top: 10px; /* opcional */
+            }
         </style>
     </head>
 
@@ -255,8 +266,9 @@ const year = new Date().getFullYear();
                 <div class="founder-text">
                     <h2>Contáctanos</h2>
                     <p>
-                        Puedes enviarnos un mensaje para conocer más sobre nuestras iniciativas,
-                        explorar oportunidades de colaboración o resolver cualquier duda.
+                        Puedes enviarnos un mensaje para conocer más sobre
+                        nuestras iniciativas, explorar oportunidades de
+                        colaboración o resolver cualquier duda.
                     </p>
 
                     <a
@@ -283,12 +295,15 @@ const year = new Date().getFullYear();
 
             <div class="social-icons">
                 <a href="https://facebook.com"><img src="/facebook.webp" /></a>
-                <a href="https://instagram.com"><img src="/instagram.webp" /></a>
+                <a href="https://instagram.com"><img src="/instagram.webp" /></a
+                >
                 <a href="https://tiktok.com"><img src="/tiktok.webp" /></a>
                 <a href="https://linkedin.com"><img src="/linkedin.webp" /></a>
             </div>
 
-            <p>© {year} Delve Educación</p>
+            <div class="footer-year">
+                <p>© {year} Delve Educación</p>
+            </div>
         </footer>
 
         <!-- SCRIPT (FUERA) -->

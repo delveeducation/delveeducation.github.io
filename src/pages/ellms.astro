@@ -14,6 +14,10 @@ const year = new Date().getFullYear();
         />
 
         <style>
+            * {
+                box-sizing: border-box;
+            }
+
             body {
                 margin: 0;
                 font-family: "Inter", sans-serif;
@@ -21,8 +25,7 @@ const year = new Date().getFullYear();
                 color: white;
             }
 
-            /* NAVBAR ORIGINAL */
-
+            /* NAV */
             nav {
                 position: fixed;
                 top: 0;
@@ -33,7 +36,6 @@ const year = new Date().getFullYear();
                 justify-content: space-between;
                 align-items: center;
                 padding: 20px 40px;
-                box-sizing: border-box;
                 z-index: 1000;
             }
 
@@ -50,177 +52,17 @@ const year = new Date().getFullYear();
                 text-decoration: none;
                 color: white;
                 font-weight: 500;
-                transition: 0.3s;
             }
 
             nav a:hover {
                 color: #38bdf8;
             }
 
-            .nav-btn {
-                padding: 8px 16px;
-                background: white;
-                color: black !important;
-                border-radius: 8px;
-                font-weight: 600;
-            }
-
             .logo img {
                 height: 35px;
-                width: auto;
-                display: block;
             }
 
-            /* CONTENIDO */
-
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 90px 20px 80px 20px;
-            }
-
-            .course-layout {
-                display: grid;
-                grid-template-columns: 2fr 1fr;
-                column-gap: 60px;
-                row-gap: 20px;
-                align-items: start;
-            }
-
-            .course-header h1 {
-                font-size: 2.8rem;
-                margin-bottom: 15px;
-            }
-
-            .meta {
-                color: #94a3b8;
-                margin-bottom: 25px;
-                font-size: 0.95rem;
-            }
-
-            .dot {
-                margin: 0 8px;
-            }
-
-            .description {
-                color: #cbd5e1;
-                line-height: 1.7;
-                margin-bottom: 0px;
-                font-size: 1.05rem;
-            }
-
-            .section h2 {
-                margin-bottom: 25px;
-            }
-
-            .module {
-                background: #1e293b;
-                padding: 20px;
-                border-radius: 12px;
-                margin-bottom: 20px;
-                transition: 0.3s ease;
-            }
-
-            .module:hover {
-                background: #273449;
-            }
-
-            .module h3 {
-                margin: 0 0 8px 0;
-            }
-
-            .module p {
-                margin: 0;
-                color: #94a3b8;
-            }
-
-            /* CARD DERECHA */
-
-            .course-card {
-                background: #1e293b;
-                border-radius: 20px;
-                overflow: hidden;
-                position: sticky;
-                top: 120px;
-                padding: 20px;
-                transition: 0.3s ease;
-                grid-column: 2;
-                grid-row: 1 / span 2;
-            }
-
-            .course-card img {
-                width: 100%;
-                height: 220px;
-                object-fit: cover;
-            }
-
-            .course-card:hover {
-                transform: translateY(-5px);
-                background: #273449;
-            }
-
-            .course-card h3 {
-                margin-bottom: 15px;
-            }
-
-            .recommended-course-card {
-                background: #1e293b;
-                border-radius: 20px;
-                overflow: hidden;
-                position: sticky;
-                top: 300px;
-            }
-
-            .recommended-course-card img {
-                width: 100%;
-                height: 220px;
-                object-fit: cover;
-            }
-
-            .card-content {
-                padding: 20px;
-            }
-
-            .professor {
-                color: #94a3b8;
-                margin-bottom: 20px;
-            }
-
-            .price {
-                font-size: 2rem;
-                font-weight: 700;
-                margin-bottom: 20px;
-            }
-
-            .btn-primary {
-                display: block;
-                text-align: center;
-                padding: 14px;
-                background: #38bdf8;
-                color: #0f172a;
-                border-radius: 12px;
-                text-decoration: none;
-                font-weight: 600;
-                margin-bottom: 25px;
-                transition: 0.3s ease;
-            }
-
-            .btn-primary:hover {
-                transform: translateY(-3px);
-            }
-
-            .card-info {
-                color: #94a3b8;
-                font-size: 0.9rem;
-                line-height: 1.6;
-            }
-
-            footer {
-                text-align: center;
-                padding: 60px 20px;
-                color: #94a3b8;
-                margin-top: 80px;
-            }
+            /* HAMBURGER */
             .hamburger {
                 display: none;
                 flex-direction: column;
@@ -233,42 +75,158 @@ const year = new Date().getFullYear();
                 height: 3px;
                 background: white;
                 border-radius: 3px;
-                transition: 0.3s;
             }
-            /* RESPONSIVE */
 
+            /* CONTAINER */
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 110px 20px 80px;
+            }
+
+            /* GRID PRINCIPAL (CLEAN) */
+            .course-layout {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                grid-template-areas:
+                    "header card"
+                    "main card";
+                gap: 50px;
+                align-items: start;
+            }
+
+            .course-header {
+                grid-area: header;
+            }
+
+            .course-main {
+                grid-area: main;
+            }
+
+            .course-card {
+                grid-area: card;
+                background: #1e293b;
+                border-radius: 20px;
+                padding: 20px;
+                position: sticky;
+                top: 120px;
+                height: fit-content;
+            }
+
+            .course-card img {
+                width: 100%;
+                border-radius: 12px;
+                height: 220px;
+                object-fit: cover;
+            }
+            .course-card {
+                position: sticky;
+                top: 120px;
+            }
+
+            @media (max-width: 900px) {
+                .course-card {
+                    position: static; /* mejor que relative aquí */
+                }
+            }
+            /* TEXTOS */
+            .meta {
+                color: #94a3b8;
+                margin-bottom: 20px;
+            }
+
+            .description {
+                color: #cbd5e1;
+                line-height: 1.7;
+            }
+
+            /* MODULES */
+            .module {
+                background: #1e293b;
+                padding: 20px;
+                border-radius: 12px;
+                margin-bottom: 20px;
+            }
+
+            .module p {
+                color: #94a3b8;
+                line-height: 1.6;
+            }
+
+            /* PROFESORES */
+            .profesor-card {
+                display: flex;
+                gap: 40px;
+                margin-bottom: 40px;
+            }
+
+            .profesor-img img {
+                width: 180px;
+                border-radius: 16px;
+            }
+
+            .profesor-roles {
+                color: #cbd5e1;
+                line-height: 1.6;
+            }
+
+            /* GRID APRENDIZAJE */
+            .aprendizaje {
+                margin-bottom: 60px;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+
+            .col p {
+                margin-bottom: 10px;
+                color: #cbd5e1;
+            }
+
+            /* BOTONES */
+            .btn-primary {
+                display: block;
+                text-align: center;
+                padding: 14px;
+                background: #00ffee;
+                color: #0f172a;
+                border-radius: 12px;
+                text-decoration: none;
+                font-weight: 600;
+                margin: 20px 0;
+            }
+
+            /* RESPONSIVE */
             @media (max-width: 900px) {
                 .course-layout {
                     grid-template-columns: 1fr;
+                    grid-template-areas:
+                        "header"
+                        "card"
+                        "main";
                 }
 
-                .course-card {
-                    grid-column: auto;
-                    grid-row: auto;
-                    position: static;
+                .grid {
+                    grid-template-columns: 1fr;
                 }
 
-                .recommended-course-card {
-                    position: relative;
-                    top: 0;
-                }
-
-                nav {
-                    padding: 20px;
+                .profesor-card {
+                    flex-direction: column;
                 }
 
                 nav ul {
+                    display: none;
                     position: absolute;
                     top: 80px;
                     right: 0;
                     background: #0f172a;
                     flex-direction: column;
-                    width: 220px;
-                    padding: 30px;
-                    gap: 20px;
-                    display: none;
-                    box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.3);
-                    border-radius: 12px 0 0 12px;
+                    padding: 20px;
+                    width: 200px;
+                    border-radius: 10px;
                 }
 
                 nav ul.active {
@@ -280,259 +238,18 @@ const year = new Date().getFullYear();
                 }
             }
 
-            .relacionados {
-                padding: 80px 20px;
-                background-color: #f8fafc;
-            }
-
-            .relacionados h2 {
+            footer {
                 text-align: center;
-                font-size: 2rem;
-                margin-bottom: 50px;
-                color: #0f172a;
-            }
-
-            .cursos-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 40px;
-                max-width: 1000px;
-                margin: 0 auto;
-            }
-
-            .curso-card {
-                background: white;
-                border-radius: 14px;
-                padding: 20px;
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-                transition: transform 0.3s ease;
-            }
-
-            .curso-card:hover {
-                transform: translateY(-6px);
-            }
-
-            .curso-card img {
-                width: 100%;
-                height: 220px;
-                object-fit: cover;
-                border-radius: 10px;
-                margin-bottom: 20px;
-            }
-
-            .curso-card h3 {
-                font-size: 1.2rem;
-                margin-bottom: 10px;
-                color: #1e293b;
-            }
-
-            .curso-card p {
-                font-size: 0.95rem;
-                color: #475569;
-                margin-bottom: 20px;
-            }
-
-            .curso-card .btn {
-                display: inline-block;
-                background-color: #38bdf8;
-                color: white;
-                padding: 10px 18px;
-                border-radius: 8px;
-                text-decoration: none;
-                font-size: 0.9rem;
-                font-weight: 600;
-            }
-
-            .curso-card .btn:hover {
-                background-color: #0ea5e9;
-            }
-
-            /* Responsive */
-            @media (max-width: 768px) {
-                .cursos-grid {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            /* PROFESOR SECTION */
-
-            .profesor {
-                margin-top: 100px;
-            }
-
-            .profesor-title {
-                font-size: 2.3rem;
-                margin-bottom: 50px;
-            }
-
-            .profesor-card {
-                display: flex;
-                align-items: center;
-                gap: 60px;
-                padding: 10px 0;
-            }
-
-            .profesor-img img {
-                width: 220px;
-                border-radius: 20px;
-                object-fit: cover;
-            }
-
-            .profesor-info h3 {
-                font-size: 1.8rem;
-                margin-bottom: 20px;
-            }
-
-            .profesor-roles {
-                color: #cbd5e1;
-                margin-bottom: 20px;
-                line-height: 1.6;
-            }
-
-            .profesor-info p {
+                padding: 60px 20px;
                 color: #94a3b8;
-                margin-bottom: 15px;
-                line-height: 1.7;
-            }
-
-            /* RESPONSIVE */
-
-            @media (max-width: 900px) {
-                .profesor-card {
-                    flex-direction: column;
-                    text-align: center;
-                }
-
-                .profesor-img img {
-                    width: 100%;
-                    max-width: 300px;
-                }
-            }
-
-            .aprendizaje {
-                background: transparent; /* Mantiene tu background actual */
-                color: #ffffff;
-                max-width: 1200px;
-                margin: auto;
-            }
-
-            .grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 40px;
-            }
-
-            .col p {
-                line-height: 1.6;
-                margin-bottom: 18px;
-            }
-
-            /* Responsive */
-            @media (max-width: 900px) {
-                .grid {
-                    grid-template-columns: 1fr;
-                    gap: 20px;
-                }
-
-                .aprendizaje h2 {
-                    font-size: 2rem;
-                    margin-top: 5px;
-                }
-            }
-
-            .course-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-                margin-top: 60px;
-            }
-
-            @media (max-width: 1100px) {
-                .course-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
-
-            @media (max-width: 600px) {
-                .course-grid {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            .recommended-course-card {
-                background: #1e293b;
-                padding: 20px;
-                border-radius: 20px;
-                transition: 0.3s ease;
-            }
-
-            .recommended-course-card:hover {
-                transform: translateY(-5px);
-                background: #273449;
-            }
-
-            .recommended-course-card h3 {
-                margin-bottom: 15px;
-            }
-
-            .btn {
-                display: inline-block;
-                margin-top: 20px;
-                padding: 10px 20px;
-                background: white;
-                color: black;
-                border-radius: 10px;
-                text-decoration: none;
-                font-weight: 600;
-            }
-
-            .course-type {
-                display: inline-block;
-                margin-top: 15px; /* 👈 separa del botón */
-                margin-bottom: 5px;
-                padding: 6px 14px;
-                font-size: 0.75rem;
-                font-weight: 600;
-                border-radius: 20px;
-                background: rgba(56, 189, 248, 0.2);
-                color: #38bdf8;
-                letter-spacing: 0.5px;
-                border: 1px solid rgba(56, 189, 248, 0.4);
-            }
-
-            @media (max-width: 900px) {
-                .course-layout {
-                    grid-template-columns: 1fr;
-                }
-
-                .course-card {
-                    grid-row: 2;
-                    position: relative;
-                    top: 0;
-                    margin-bottom: 10px;
-                }
-
-                .course-main {
-                    grid-row: 3;
-                }
-            }
-
-            p {
-                text-align: justify;
-            }
-
-            .course-header {
-                grid-column: 1;
             }
         </style>
     </head>
 
     <body>
-        <!-- NAVBAR IGUAL AL HOME -->
         <nav>
             <div class="logo">
-                <a href="/"><img src="/assets/logo.png"/></a
-                >
+                <a href="/"><img src="/assets/logo.png" /></a>
             </div>
 
             <ul id="nav-links">
@@ -543,34 +260,45 @@ const year = new Date().getFullYear();
             </ul>
 
             <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
         </nav>
 
         <div class="container">
-            <!-- HEADER DEL CURSO -->
             <div class="course-layout">
+                <!-- HEADER -->
                 <div class="course-header">
-                    <h3 style="color: #00FFEE;">PROGRAMA</h3>
-                    <h1 style="color: #00FFEE;">Especialista en LLMs</h1>
+                    <h3 style="color:#00FFEE;">PROGRAMA</h3>
+                    <h1 style="color:#00FFEE;">Especialista en LLMs</h1>
 
                     <div class="meta">
-                        De Fundamentos a Aplicaciones Reales<span class="dot"
-                            >•</span
-                        > 4 Semanas
+                        De Fundamentos a Aplicaciones Reales • 4 Semanas
                     </div>
 
                     <p class="description">
-                        Aprende a construir aplicaciones modernas con LLMs,
-                        sistemas RAG y técnicas avanzadas de optimización e
-                        inferencia.
+                        Aprende a construir aplicaciones modernas con LLMs, RAG
+                        y optimización avanzada.
                     </p>
                 </div>
 
-                <!-- GRID -->
+                <!-- CARD -->
+                <div class="course-card">
+                    <img src="/assets/cursos/ellms_web.png" />
 
+                    <p style="color:#94a3b8;">
+                        Profesores: Martin Arispe, Camilo Bolaños, Edison
+                        Bejarano y Fernando Silva
+                    </p>
+
+                    <a href="#" class="btn-primary">Inscribirme Ahora</a>
+
+                    <p style="color:#94a3b8; font-size: 0.9rem;">
+                        ✔ Acceso anual <br />
+                        ✔ Certificado oficial
+                    </p>
+                </div>
+
+                <!-- MAIN -->
                 <div class="course-main">
                     <section class="aprendizaje">
                         <h2>¿Qué aprenderás?</h2>
@@ -578,69 +306,67 @@ const year = new Date().getFullYear();
                         <div class="grid">
                             <div class="col">
                                 <p>
-                                    Fundamentos de Large Language Models (LLMs)
+                                    • Fundamentos de Large Language Models
+                                    (LLMs)
                                 </p>
-                                <p>Arquitectura Transformer</p>
+                                <p>• Arquitectura Transformer</p>
                             </div>
 
                             <div class="col">
-                                <p>Prompt Engineering aplicado</p>
-                                <p>Sistemas RAG de alto rendimiento</p>
+                                <p>• Prompt Engineering aplicado</p>
+                                <p>• Sistemas RAG de alto rendimiento</p>
                             </div>
 
                             <div class="col">
-                                <p>Fine-tuning y evaluación de modelos</p>
-                                <p>Cuantización e inferencia eficiente</p>
+                                <p>• Fine-tuning y evaluación de modelos</p>
+                                <p>• Cuantización e inferencia eficiente</p>
                             </div>
                         </div>
                     </section>
 
-                    <div class="section">
-                        <h2>Contenido del programa</h2>
+                    <h2>Contenido</h2>
 
-                        <div class="module">
-                            <h3>Bloque 1: Fundamentos de LLMs</h3>
-                            <p>
-                                Comprenderás cómo funcionan los Large Language
-                                Models desde la arquitectura Transformer y los
-                                mecanismos de self-attention hasta conceptos
-                                fundamentales como embeddings, tokenización y
-                                prompting moderno.
-                            </p>
-                        </div>
-
-                        <div class="module">
-                            <h3>Bloque 2: LLMs Locales</h3>
-                            <p>
-                                Aprenderás a ejecutar modelos open-source de
-                                forma local utilizando herramientas modernas
-                                para construir aplicaciones prácticas como
-                                chatbots, sistemas de clasificación, asistentes
-                                inteligentes y generación automática de texto.
-                            </p>
-                        </div>
-
-                        <div class="module">
-                            <h3>Bloque 3: LLMs Avanzado</h3>
-                            <p>
-                                Explorarás técnicas avanzadas para optimizar y
-                                adaptar modelos de lenguaje utilizando
-                                cuantización, LoRA, QLoRA, fine-tuning eficiente
-                                e inferencia optimizada para producción.
-                            </p>
-                        </div>
-
-                        <div class="module">
-                            <h3>Bloque 4: Aplicaciones con LLMs</h3>
-                            <p>
-                                Aplicarás los conceptos aprendidos mediante
-                                ejercicios guiados, implementación de proyectos
-                                prácticos y resolución de casos reales
-                                utilizando sistemas modernos basados en LLMs.
-                            </p>
-                        </div>
+                    <div class="module">
+                        <h3>Bloque 1: Fundamentos de LLMs</h3>
+                        <p>
+                            Comprenderás cómo funcionan los Large Language
+                            Models desde la arquitectura Transformer y los
+                            mecanismos de self-attention hasta conceptos
+                            fundamentales como embeddings, tokenización y
+                            prompting moderno.
+                        </p>
                     </div>
 
+                    <div class="module">
+                        <h3>Bloque 2: LLMs Locales</h3>
+                        <p>
+                            Aprenderás a ejecutar modelos open-source de forma
+                            local utilizando herramientas modernas para
+                            construir aplicaciones prácticas como chatbots,
+                            sistemas de clasificación, asistentes inteligentes y
+                            generación automática de texto.
+                        </p>
+                    </div>
+
+                    <div class="module">
+                        <h3>Bloque 3: LLMs Avanzado</h3>
+                        <p>
+                            Explorarás técnicas avanzadas para optimizar y
+                            adaptar modelos de lenguaje utilizando cuantización,
+                            LoRA, QLoRA, fine-tuning eficiente e inferencia
+                            optimizada para producción.
+                        </p>
+                    </div>
+
+                    <div class="module">
+                        <h3>Bloque 4: Aplicaciones con LLMs</h3>
+                        <p>
+                            Aplicarás los conceptos aprendidos mediante
+                            ejercicios guiados, implementación de proyectos
+                            prácticos y resolución de casos reales utilizando
+                            sistemas modernos basados en LLMs.
+                        </p>
+                    </div>
                     <br />
                     <h2>Descripción</h2>
                     <p class="description">
@@ -658,7 +384,7 @@ const year = new Date().getFullYear();
                     </p>
 
                     <br />
-
+                    <br />
                     <h2>Metodología</h2>
                     <p class="description">
                         El programa se desarrolla bajo una metodología de
@@ -670,9 +396,8 @@ const year = new Date().getFullYear();
                         dudas y desarrollo de proyectos guiados.
                     </p>
 
-                    <br />
-
-                    <h2>Conoce a los profesores</h2>
+                    <br /><br />
+                    <h2>Profesores</h2>
                     <div class="profesor-card">
                         <div class="profesor-img">
                             <img
@@ -696,7 +421,6 @@ const year = new Date().getFullYear();
                             </p>
                         </div>
                     </div>
-
                     <div class="profesor-card">
                         <div class="profesor-img">
                             <img
@@ -765,44 +489,20 @@ const year = new Date().getFullYear();
                         </div>
                     </div>
                 </div>
-
-                <!-- DERECHA -->
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/ellms_web.png"
-                        alt="Deep Learning"
-                    />
-
-                    <div class="card-content">
-                        <p class="professor">
-                            Profesores: Martin Arispe, Camilo Bolaños, Edison
-                            Bejarano y Fernando Silva
-                        </p>
-
-                        <!--<div class="price">20 USD</div>-->
-
-                        <a href="#" class="btn-primary"> Inscribirme Ahora </a>
-
-                        <div class="card-info">
-                            ✔ Acceso anual <br />
-                            ✔ Certificado oficial Delve <br />
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-
-        <footer>
-            © {year} Delve Educación
-        </footer>
-        <script>
-            const hamburger = document.getElementById("hamburger");
-            const navLinks = document.getElementById("nav-links");
-
-            hamburger.addEventListener("click", () => {
-                navLinks.classList.toggle("active");
-            });
-        </script>
     </body>
+
+    <footer>
+        © {year} Delve Educación
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("nav-links");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    </script>
 </html>

@@ -39,6 +39,22 @@ const year = new Date().getFullYear();
                 text-align: justify;
             }
 
+            .btn {
+                display: inline-block;
+                margin-top: 30px;
+                padding: 14px 28px;
+                background: rgb(136, 255, 96);
+                color: black;
+                border-radius: 12px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: 0.3s ease;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px);
+            }
+
             nav {
                 position: fixed;
                 top: 0;
@@ -79,9 +95,9 @@ const year = new Date().getFullYear();
             }
 
             .founder {
-                margin-top: 80px;
+                margin-top: 100px;
                 padding: 60px;
-                background: #191e2d;
+                background: #14202e;
                 border-radius: 20px;
                 display: flex;
                 align-items: center;
@@ -102,6 +118,7 @@ const year = new Date().getFullYear();
             .founder-text p {
                 color: #cbd5e1;
                 line-height: 1.6;
+                margin-bottom: 25px;
             }
 
             .founder-image {
@@ -130,10 +147,6 @@ const year = new Date().getFullYear();
             }
 
             @media (max-width: 768px) {
-                nav {
-                    padding: 20px;
-                }
-
                 nav ul {
                     position: absolute;
                     top: 80px;
@@ -144,6 +157,7 @@ const year = new Date().getFullYear();
                     padding: 30px;
                     gap: 20px;
                     display: none;
+                    border-radius: 12px 0 0 12px;
                 }
 
                 nav ul.active {
@@ -172,7 +186,54 @@ const year = new Date().getFullYear();
                 font-size: 0.9rem;
             }
 
+            .social-icons {
+                display: flex;
+                justify-content: center;
+                gap: 25px;
+                margin-bottom: 20px;
+            }
 
+            .social-icons img {
+                width: 24px;
+                height: 24px;
+                opacity: 0.8;
+                transition: 0.3s ease;
+            }
+
+            .social-icons img:hover {
+                opacity: 1;
+                transform: translateY(-3px);
+            }
+
+            .accelerated {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+
+            .accelerated-text {
+                color: #94a3b8;
+                font-size: 0.85rem;
+                text-transform: uppercase;
+            }
+
+            .accelerated-logo {
+                height: 35px;
+                opacity: 0.9;
+            }
+            footer {
+                margin-top: 80px;
+                padding: 40px 20px;
+                text-align: center;
+                color: #94a3b8;
+                font-size: 0.9rem;
+            }
+            .footer-year {
+                text-align: center;
+                margin-top: 10px; /* opcional */
+            }
         </style>
     </head>
 
@@ -199,7 +260,7 @@ const year = new Date().getFullYear();
             </div>
         </nav>
 
-        <!-- CONTENIDO -->
+        <!-- CONTENT -->
         <div class="container">
             <div class="founder">
                 <div class="founder-text">
@@ -219,8 +280,8 @@ const year = new Date().getFullYear();
             </div>
         </div>
 
-        <!-- FOOTER (FUERA DEL CONTAINER) -->
-         <footer>
+        <!-- FOOTER (FUERA) -->
+        <footer>
             <div class="accelerated">
                 <p class="accelerated-text">Acelerados por:</p>
                 <img src="/aceleratec.svg" class="accelerated-logo" />
@@ -228,15 +289,17 @@ const year = new Date().getFullYear();
 
             <div class="social-icons">
                 <a href="https://facebook.com"><img src="/facebook.webp" /></a>
-                <a href="https://instagram.com"><img src="/instagram.webp" /></a>
+                <a href="https://instagram.com"><img src="/instagram.webp" /></a
+                >
                 <a href="https://tiktok.com"><img src="/tiktok.webp" /></a>
                 <a href="https://linkedin.com"><img src="/linkedin.webp" /></a>
             </div>
 
-            <p>© {year} Delve Educación</p>
+            <p class="footer-year">© {year} Delve Educación</p>
+            
         </footer>
 
-        <!-- SCRIPT (FUERA DEL CONTAINER) -->
+        <!-- SCRIPT (FUERA) -->
         <script>
             const hamburger = document.getElementById("hamburger");
             const navLinks = document.getElementById("nav-links");
