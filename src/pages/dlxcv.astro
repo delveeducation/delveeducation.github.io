@@ -1,623 +1,285 @@
 ---
-const year = new Date().getFullYear();
+import Layout from '../layouts/Layout.astro';
+
+const course = {
+  title: 'Deep Learning para Computer Vision',
+  subtitle: 'Aprende a crear modelos de visión por computadora con Deep Learning y Transfer Learning.',
+  level: 'Intermedio',
+  hours: '5 horas',
+  area: 'Inteligencia Artificial',
+  tagClass: 'tag-ai',
+  image: '/assets/cursos/deep_learning_para_computer_vision.png',
+};
+
+const professor = {
+  name: 'Erick Maraz',
+  image: '/assets/mentores/erick_maraz.jpeg',
+  initials: 'EM',
+  bio: 'Realizó su licenciatura en Ingeniería Electromecánica en la UPB y posteriormente obtuvo una maestría en Ingeniería Eléctrica y Electrónica en la École Polytechnique Fédérale de Lausanne (EPFL), Suiza, como becario de la Fundación Simón I. Patiño.',
+  tags: ["Deep Learning", "Computer Vision", "EPFL Suiza"],
+};
+
+const learnings = ["Aplicaciones clave de Visión por Computador", "Implementación de una CNN en PyTorch", "Fundamentos de Redes Neuronales Convolucionales (CNNs)", "Transfer Learning de modelos preentrenados", "Preparación y preprocesamiento de datos visuales", "Tendencias y desafíos en Computer Vision"];
+
+const modules = [
+  {
+    num: "01",
+    title: "Introducción a Computer Vision con Deep Learning",
+    desc: "Explora los fundamentos y la relevancia de la visión por computadora y cómo el Deep Learning la ha transformado.",
+    topics: ["Historia de Computer Vision", "El rol del Deep Learning", "Aplicaciones en industria", "Datasets y benchmarks"],
+  },
+  {
+    num: "02",
+    title: "Fundamentos de Redes Convolucionales (CNNs)",
+    desc: "Profundiza en la teoría y funcionamiento de las redes convolucionales, incluyendo convoluciones y pooling.",
+    topics: ["Operación de convolución", "Capas de pooling", "Funciones de activación en CNNs", "Arquitectura general de una CNN"],
+  },
+  {
+    num: "03",
+    title: "Implementación de una CNN desde Cero",
+    desc: "Aprende a construir e implementar una red convolucional usando PyTorch con arquitecturas como LeNet y ResNet.",
+    topics: ["Construcción con PyTorch", "Arquitectura LeNet", "Arquitectura ResNet", "Entrenamiento y evaluación"],
+  },
+  {
+    num: "04",
+    title: "Transfer Learning y Modelos Pre Entrenados",
+    desc: "Aborda el uso de modelos preentrenados y técnicas de Transfer Learning para mejorar el desempeño.",
+    topics: ["¿Qué es Transfer Learning?", "Fine-tuning de modelos", "VGG, ResNet, EfficientNet", "Data augmentation"],
+  },
+  {
+    num: "05",
+    title: "Tendencias y Desafíos en Computer Vision",
+    desc: "Analiza las últimas tendencias, desafíos y oportunidades en visión por computadora.",
+    topics: ["Vision Transformers (ViT)", "Modelos eficientes para móviles", "Desafíos éticos en CV", "Próximas fronteras"],
+  },
+];
+
+const related = [
+  {
+    title: "Introducción a Computer Vision",
+    professor: "Emily Rivera",
+    href: "/cursos/introduccion-a-computer-vision",
+    image: "/assets/cursos/introduccion_a_computer_vision.png",
+    tagClass: "tag-ai",
+    tag: "IA",
+  },
+  {
+    title: "Fundamentos de Deep Learning",
+    professor: "Oscar Contreras",
+    href: "/cursos/fundamentos-de-deep-learning",
+    image: "/assets/cursos/fundamentos_de_deep_learning.png",
+    tagClass: "tag-ai",
+    tag: "IA",
+  },
+];
 ---
-
-<html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <title>Delve Educación</title>
-
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-            rel="stylesheet"
-        />
-
-        <style is:global>
-            body {
-                margin: 0;
-                font-family: "Inter", sans-serif;
-                background: #0f172a;
-                color: white;
-            }
-
-            nav {
-                position: fixed;
-                top: 0;
-                width: 100%;
-                background: rgba(15, 23, 42, 0.9);
-                backdrop-filter: blur(10px);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 20px 40px;
-                box-sizing: border-box;
-                z-index: 1000;
-            }
-
-            nav ul {
-                list-style: none;
-                display: flex;
-                gap: 30px;
-                margin: 0;
-                padding: 0;
-                align-items: center;
-            }
-
-            nav a {
-                text-decoration: none;
-                color: white;
-                font-weight: 500;
-                transition: 0.3s;
-            }
-
-            nav a:hover {
-                color: #38bdf8;
-            }
-
-            .logo img {
-                height: 35px;
-                width: auto;
-                display: block;
-            }
-
-            .hamburger {
-                display: none;
-                flex-direction: column;
-                gap: 6px;
-                cursor: pointer;
-            }
-
-            .hamburger span {
-                width: 25px;
-                height: 3px;
-                background: white;
-                border-radius: 3px;
-            }
-
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 110px 20px 80px 20px;
-            }
-
-            .course-layout {
-                display: grid;
-                grid-template-columns: 2fr 1fr;
-                gap: 40px;
-                align-items: start;
-            }
-
-            .course-header {
-                grid-column: 1;
-            }
-
-            .course-header h1 {
-                font-size: 2.8rem;
-                margin-bottom: 15px;
-            }
-
-            .meta {
-                color: #94a3b8;
-                margin-bottom: 25px;
-            }
-
-            .dot {
-                margin: 0 8px;
-            }
-
-            .description {
-                color: #cbd5e1;
-                line-height: 1.7;
-                font-size: 1.05rem;
-            }
-
-            .aprendizaje {
-                grid-column: 1;
-            }
-
-            .grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 40px;
-            }
-
-            .col p {
-                line-height: 1.7;
-                color: #cbd5e1;
-            }
-
-            .course-card {
-                background: #1e293b;
-                border-radius: 20px;
-                overflow: hidden;
-                position: sticky;
-                top: 120px;
-                padding: 20px;
-                transition: 0.3s ease;
-                grid-column: 2;
-                grid-row: 1 / span 3;
-            }
-
-            .course-card:hover {
-                transform: translateY(-5px);
-                background: #273449;
-            }
-
-            .course-card img {
-                width: 100%;
-                height: 220px;
-                object-fit: cover;
-                border-radius: 14px;
-            }
-
-            .card-content {
-                padding-top: 20px;
-            }
-
-            .professor {
-                color: #94a3b8;
-                margin-bottom: 20px;
-            }
-
-            .btn-primary {
-                display: block;
-                text-align: center;
-                padding: 14px;
-                background: #38bdf8;
-                color: #0f172a;
-                border-radius: 12px;
-                text-decoration: none;
-                font-weight: 600;
-                margin-bottom: 25px;
-                transition: 0.3s ease;
-            }
-
-            .btn-primary:hover {
-                transform: translateY(-3px);
-            }
-
-            .card-info {
-                color: #94a3b8;
-                line-height: 1.6;
-            }
-
-            .course-main {
-                grid-column: 1;
-            }
-
-            .section h2 {
-                margin-bottom: 25px;
-            }
-
-            .module {
-                background: #1e293b;
-                padding: 20px;
-                border-radius: 12px;
-                margin-bottom: 20px;
-                transition: 0.3s ease;
-            }
-
-            .module:hover {
-                background: #273449;
-            }
-
-            .module h3 {
-                margin-top: 0;
-            }
-
-            .module p {
-                color: #94a3b8;
-                line-height: 1.7;
-            }
-
-            .profesor-card {
-                display: flex;
-                align-items: center;
-                gap: 60px;
-                margin-top: 30px;
-            }
-
-            .profesor-img img {
-                width: 320px;
-                border-radius: 20px;
-            }
-
-            .profesor-info p {
-                color: #94a3b8;
-                line-height: 1.7;
-            }
-
-            .course-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-                margin-top: 40px;
-            }
-
-            .recommended-course-card {
-                background: #1e293b;
-                padding: 20px;
-                border-radius: 20px;
-                transition: 0.3s ease;
-            }
-
-            .recommended-course-card:hover {
-                transform: translateY(-5px);
-                background: #273449;
-            }
-
-            .recommended-course-card img {
-                width: 100%;
-                height: 220px;
-                object-fit: cover;
-                border-radius: 14px;
-            }
-
-            .btn {
-                display: inline-block;
-                margin-top: 20px;
-                padding: 10px 20px;
-                background: white;
-                color: black;
-                border-radius: 10px;
-                text-decoration: none;
-                font-weight: 600;
-            }
-
-            footer {
-                text-align: center;
-                padding: 60px 20px;
-                color: #94a3b8;
-                margin-top: 80px;
-            }
-
-            p {
-                text-align: justify;
-            }
-
-            @media (max-width: 900px) {
-                .course-layout {
-                    grid-template-columns: 1fr;
-                }
-
-                .course-header {
-                    grid-column: 1;
-                    grid-row: 1;
-                }
-
-                .course-card {
-                    grid-column: 1;
-                    grid-row: 2;
-                    position: static;
-                    top: 0;
-                    margin-top: 20px;
-                }
-
-                .aprendizaje {
-                    grid-column: 1;
-                    grid-row: 3;
-                }
-
-                .course-main {
-                    grid-column: 1;
-                    grid-row: 4;
-                }
-
-                .grid {
-                    grid-template-columns: 1fr;
-                    gap: 20px;
-                }
-
-                .course-grid {
-                    grid-template-columns: 1fr;
-                }
-
-                .profesor-card {
-                    flex-direction: column;
-                    text-align: center;
-                }
-
-                .profesor-img img {
-                    width: 100%;
-                    max-width: 300px;
-                }
-
-                nav {
-                    padding: 20px;
-                }
-
-                nav ul {
-                    position: absolute;
-                    top: 80px;
-                    right: 0;
-                    background: #0f172a;
-                    flex-direction: column;
-                    width: 220px;
-                    padding: 30px;
-                    gap: 20px;
-                    display: none;
-                    box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.3);
-                    border-radius: 12px 0 0 12px;
-                }
-
-                nav ul.active {
-                    display: flex;
-                }
-
-                .hamburger {
-                    display: flex;
-                }
-            }
-        </style>
-    </head>
-
-    <body>
-        <nav>
-            <div class="logo">
-                <a href="/">
-                    <img src="/assets/logo.png" alt="Delve Educación" />
-                </a>
-            </div>
-
-            <ul id="nav-links">
-                <li><a href="/ellms">Programas</a></li>
-                <li><a href="/cursos">Cursos</a></li>
-                <li><a href="/nosotros">Nosotros</a></li>
-                <li><a href="/contacto">Contacto</a></li>
-            </ul>
-
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-
-        <div class="container">
-            <div class="course-layout">
-                <!-- HEADER -->
-                <div class="course-header">
-                    <h1>Cálculo para Inteligencia Artificial</h1>
-
-                    <div class="meta">
-                        Básico
-                        <span class="dot">•</span>
-                        5 horas
-                    </div>
-
-                    <p class="description">
-                        Aprende a desarrollar modelos de Deep Learning para
-                        visión por computadora, desde CNNs hasta Transfer
-                        Learning.
-                    </p>
-                </div>
-
-                 <div class="course-card">
-                    <img
-                        src="/assets/cursos/deep_learning_para_computer_vision.png"
-                        alt="Deep Learning"
-                    />
-
-                    <div class="card-content">
-                        <p class="professor">Profesor: Erick Maraz</p>
-
-                        <!--<div class="price">20 USD</div>-->
-
-                        <a
-						href="https://forms.gle/fknvV9x2rLHyrF4N7"
-						target="_blank"
-						class="btn-primary">Inscribirme Ahora </a>
-
-                        <div class="card-info">
-                            ✔ Acceso anual <br />
-                            ✔ Certificado oficial Delve <br />
-                        </div>
-                    </div>
-                </div>
-
-                <!-- APRENDIZAJE -->
-                <section class="aprendizaje">
-                    <h2>¿Qué aprenderás?</h2>
-
-                    <div class="grid">
-                            <div class="col">
-                                <p>
-                                    • Aplicaciones clave de Vision por Computador.
-                                </p>
-                                <p>
-                                    • Implementación de una CNN en PyTorch.
-                                </p>
-                            </div>
-
-                            <div class="col">
-                                <p>• Fundamentos de Redes Neuronales
-                                    Convolucionales (CNNs).</p>
-                                <p>
-                                    • Transfer Learning de modelos preentrenados.
-                                </p>
-                            </div>
-
-                            <div class="col">
-                                <p>
-                                    • Preparación y preprocesamiento de datos
-                                    visuales.
-                                </p>
-                                <p>
-                                    • Tendencias y desafíos en Computer Vision.
-                                </p>
-                            </div>
-                        </div>
-                </section>
-
-                <!-- CARD -->
-
-                <!-- MAIN -->
-                <div class="course-main">
-                    <div class="section">
-                        <h2>Contenido del Curso</h2>
-
-                        <div class="module">
-                            <h3>
-                                Módulo 1: Introducción a Computer Vision con
-                                Deep Learning
-                            </h3>
-                            <p>
-                                Explora los fundamentos y la relevancia de la
-                                visión por computadora, sus aplicaciones clave y
-                                cómo el Deep Learning ha transformado esta área.
-                            </p>
-                        </div>
-
-                        <div class="module">
-                            <h3>
-                                Módulo 2: Fundamentos de Redes Convolucionales
-                                (CNNs)
-                            </h3>
-                            <p>
-                                Profundiza en la teoría y funcionamiento de las
-                                redes convolucionales, incluyendo su
-                                arquitectura, componentes y operaciones
-                                fundamentales como convoluciones y pooling.
-                            </p>
-                        </div>
-
-                        <div class="module">
-                            <h3>
-                                Módulo 3: Implementación de una CNN desde Cero
-                            </h3>
-                            <p>
-                                Aprende a construir e implementar una red
-                                convolucional desde cero utilizando PyTorch,
-                                revisando arquitecturas clásicas como LeNet y
-                                ResNet.
-                            </p>
-                        </div>
-
-                        <div class="module">
-                            <h3>
-                                Módulo 4: Transfer Learning y Modelos Pre
-                                Entrenados
-                            </h3>
-                            <p>
-                                Aborda el uso de modelos preentrenados y
-                                técnicas de Transfer Learning para mejorar el
-                                desempeño y acelerar el desarrollo de soluciones
-                                en visión por computadora.
-                            </p>
-                        </div>
-
-                        <div class="module">
-                            <h3>
-                                Módulo 5: Tendencias y Desafíos en Computer
-                                Vision
-                            </h3>
-                            <p>
-                                Analiza las últimas tendencias, desafíos y
-                                oportunidades en visión por computadora,
-                                incluyendo aplicaciones móviles y nuevos
-                                frameworks.
-                            </p>
-                        </div>
-                    </div>
-
-
-
-
-                    <br />
-
-                    <h2>Descripción</h2>
-                    <p class="description">
-                        Domina los fundamentos del Deep Learning aplicado a
-                        Computer Vision con este curso intensivo. Aprenderás
-                        desde los conceptos clave de visión por computador y
-                        redes convolucionales (CNNs), hasta la implementación
-                        práctica de modelos con PyTorch. Explora técnicas como
-                        data augmentation, transfer learning y descubre las
-                        tendencias actuales en modelos eficientes. Ideal para
-                        quienes ya conocen los fundamentos de Deep Learning y
-                        quieren aplicarlos en tareas visuales reales.
-                    </p>
-
-                    <br />
-
-                    <h2>Conoce al profesor</h2>
-
-                    <div class="profesor-card">
-                        <div class="profesor-img">
-                            <img
-                                src="/assets/mentores/erick_maraz.jpeg"
-                                alt="Erick Maraz"
-                            />
-                        </div>
-
-                        <div class="profesor-info">
-                            <h3>Erick Maraz</h3>
-
-                            <p class="profesor-roles">
-                                Realizó su licenciatura en Ingeniería
-                                Electromecánica en la UPB y posteriormente
-                                obtuvo una maestría en Ingeniería Eléctrica y
-                                Electrónica en la École Polytechnique Fédérale
-                                de Lausanne (EPFL), Suiza, como becario de la
-                                Fundación Simón I. Patiño.
-                            </p>
-                        </div>
-                    </div>
-
-                    <br /><br />
-
-                    <h2>Cursos relacionados</h2>
-
-                    <div class="course-grid">
-                            <div class="recommended-course-card">
-                                <img
-                                    src="/assets/cursos/introduccion_a_computer_vision.png"
-                                    alt="Introducción a Computer Vision"
-                                    class="course-image"
-                                />
-
-                                <h3>Introducción<br />a Computer Vision</h3>
-                                <p class="professor">Prof. Emili Rivera</p>
-
-                                <a href="/icv" class="btn">Ver programa</a>
-                            </div>
-
-                            <div class="recommended-course-card">
-                                <img
-                                    src="/ejemplo_nn.jpg"
-                                    alt="Deep Learning"
-                                    class="course-image"
-                                />
-
-                                <h3>Self-Supervised <br />Learning</h3>
-                                <p class="professor">Prof. Imanol Estepa</p>
-
-                                <a href="/ssl" class="btn">Ver programa</a>
-                            </div>
-                        </div>
-
-
-
-                </div>
-            </div>
+<Layout title={course.title} description={course.subtitle}>
+  <div class="breadcrumb"><a href="/">Inicio</a><span>›</span><a href="/cursos">Cursos</a><span>›</span><span class="bc-cur">{course.title}</span></div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-meta">
+        <span class={`tag ${course.tagClass}`}>{course.area}</span>
+        <span class="level-badge">{course.level}</span>
+        <span class="dur-badge">⏱ {course.hours}</span>
+      </div>
+      <h1>{course.title}</h1>
+      <p class="hero-desc">{course.subtitle}</p>
+      <div class="hero-stats">
+        <div class="hs"><span class="hs-n">{modules.length}</span><span class="hs-l">Módulos</span></div>
+        <div class="hs-div"></div>
+        <div class="hs"><span class="hs-n">{course.hours}</span><span class="hs-l">Duración</span></div>
+        <div class="hs-div"></div>
+        <div class="hs"><span class="hs-n">Español</span><span class="hs-l">Idioma</span></div>
+        <div class="hs-div"></div>
+        <div class="hs"><span class="hs-n">✓</span><span class="hs-l">Certificado</span></div>
+      </div>
+      <div class="hero-actions">
+        <a href="https://forms.gle/fknvV9x2rLHyrF4N7" target="_blank" class="btn-primary btn-lg">Inscribirme ahora</a>
+        <a href="#modulos" class="btn-secondary">Ver contenido →</a>
+      </div>
+      <div class="trust-row"><span>✔ Acceso anual</span><span>✔ Certificado oficial Delve</span><span>✔ Aprende a tu ritmo</span></div>
+    </div>
+    <div class="hero-right">
+      <div class="course-img-card">
+        <img src={course.image} alt={course.title} />
+        <div class="img-overlay"><span class="overlay-tag">{course.area}</span></div>
+      </div>
+      <div class="floating-cta">
+        <div class="fca-price-row"><span class="fca-price">$9<span>/mes</span></span><span class="fca-note">Con Acceso Founder</span></div>
+        <a href="https://forms.gle/fknvV9x2rLHyrF4N7" target="_blank" class="btn-primary fca-btn">Inscribirme ahora</a>
+        <div class="fca-includes">
+          <div class="fca-inc-title">Acceso Founder incluye:</div>
+          <ul><li>Este curso + 19 más</li><li>Certificados verificables</li><li>Sesiones en vivo mensuales</li></ul>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <footer>
-            © {year} Delve Educación
-        </footer>
+  <section class="section learnings-section">
+    <div class="learnings-inner">
+      <div><span class="label">Resultados de aprendizaje</span><h2 class="section-title">Lo que aprenderás</h2></div>
+      <div class="learnings-grid">
+        {learnings.map(item => (<div class="learning-item"><span class="l-check">→</span><span>{item}</span></div>))}
+      </div>
+    </div>
+  </section>
 
-        <script>
-            const hamburger = document.getElementById("hamburger");
+  <section class="section modules-section" id="modulos">
+    <span class="label">Plan de estudio</span>
+    <h2 class="section-title">Contenido del curso</h2>
+    <div class="modules-list">
+      {modules.map(mod => (
+        <div class="module-item">
+          <div class="mod-header">
+            <div class="mod-num-wrap"><span class="mod-num">{mod.num}</span></div>
+            <div class="mod-title-wrap"><h3>{mod.title}</h3><p class="mod-desc">{mod.desc}</p></div>
+            <button class="mod-toggle" aria-label="Expandir">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="mod-topics">
+            <ul>{mod.topics.map(t => (<li><span class="topic-arrow">→</span>{t}</li>))}</ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
 
-            const navLinks = document.getElementById("nav-links");
+  <section class="section professor-section">
+    <span class="label">Quién enseña</span>
+    <h2 class="section-title">Conoce al profesor</h2>
+    <div class="prof-card">
+      <div class="prof-img-wrap">
+        <img src={professor.image} alt={professor.name} onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="prof-avatar-fallback">{professor.initials}</div>
+      </div>
+      <div class="prof-info">
+        <div class="prof-name-row"><h3>{professor.name}</h3><span class={`tag ${course.tagClass}`}>{course.area}</span></div>
+        <p class="prof-bio">{professor.bio}</p>
+        <div class="prof-tags">{professor.tags.map(t => <span class="prof-tag">{t}</span>)}</div>
+      </div>
+    </div>
+  </section>
 
-            if (hamburger && navLinks) {
-                hamburger.addEventListener("click", () => {
-                    navLinks.classList.toggle("active");
-                });
-            }
-        </script>
-    </body>
-</html>
+  <section class="section related-section">
+    <span class="label">Continúa aprendiendo</span>
+    <h2 class="section-title">Cursos relacionados</h2>
+    <div class="related-grid">
+      {related.map(c => (
+        <a href={c.href} class="related-card">
+          <div class="rel-img"><img src={c.image} alt={c.title} loading="lazy" /></div>
+          <div class="rel-body"><span class={`tag ${c.tagClass}`}>{c.tag}</span><h3>{c.title}</h3><p>Prof. {c.professor}</p><span class="rel-cta">Ver curso →</span></div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section bottom-cta-section">
+    <div class="bottom-cta">
+      <h2>¿Listo para dominar Deep Learning para visión?</h2>
+      <p>Únete al Acceso Founder y obtén este curso y 19 más por $9/mes.</p>
+      <div class="bottom-btns">
+        <a href="https://forms.gle/fknvV9x2rLHyrF4N7" target="_blank" class="btn-primary btn-lg">Inscribirme ahora</a>
+        <a href="/cursos" class="btn-secondary">Ver todos los cursos</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .breadcrumb{display:flex;align-items:center;gap:8px;padding:18px var(--px);font-size:12px;color:var(--text-muted);border-bottom:0.5px solid var(--border)}
+  .breadcrumb a{color:var(--text-muted);transition:color .15s}.breadcrumb a:hover{color:var(--accent)}.bc-cur{color:var(--text-secondary)}
+  .hero{display:grid;grid-template-columns:1fr 420px;gap:56px;padding:64px var(--px) 72px;border-bottom:0.5px solid var(--border);align-items:start}
+  .hero-meta{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+  .level-badge{font-size:12px;color:var(--accent);background:var(--accent-dim);border:0.5px solid var(--accent-border);padding:3px 12px;border-radius:20px;font-weight:500}
+  .dur-badge{font-size:12px;color:var(--text-muted);border:0.5px solid var(--border);padding:3px 12px;border-radius:20px}
+  .hero-content h1{font-family:var(--font-display);font-size:52px;font-weight:800;letter-spacing:-2px;color:#fff;line-height:1.05;margin-bottom:20px}
+  .hero-content h1 em{color:var(--accent);font-style:normal}
+  .hero-desc{font-size:16px;color:var(--text-secondary);line-height:1.75;font-weight:300;margin-bottom:32px;max-width:520px}
+  .hero-stats{display:flex;align-items:center;margin-bottom:36px;background:rgba(255,255,255,.03);border:0.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;width:fit-content}
+  .hs{display:flex;flex-direction:column;align-items:center;padding:16px 24px;gap:4px}
+  .hs-n{font-family:var(--font-display);font-size:22px;font-weight:700;color:#fff}
+  .hs-l{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+  .hs-div{width:0.5px;height:40px;background:var(--border)}
+  .hero-actions{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+  .btn-lg{padding:15px 32px;font-size:15px}
+  .trust-row{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--text-muted)}
+  .hero-right{display:flex;flex-direction:column;gap:16px}
+  .course-img-card{border-radius:var(--radius-xl);overflow:hidden;border:0.5px solid var(--border);position:relative}
+  .course-img-card img{width:100%;height:240px;object-fit:cover;display:block}
+  .img-overlay{position:absolute;bottom:12px;left:12px}
+  .overlay-tag{background:rgba(5,10,20,.75);backdrop-filter:blur(8px);border:0.5px solid var(--border-hover);border-radius:20px;padding:5px 14px;font-size:12px;color:rgba(255,255,255,.7)}
+  .floating-cta{background:rgba(255,255,255,.03);border:0.5px solid rgba(255,255,255,.1);border-radius:var(--radius-xl);padding:24px}
+  .fca-price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
+  .fca-price{font-family:var(--font-display);font-size:36px;font-weight:800;color:#fff}
+  .fca-price span{font-size:16px;font-weight:400;color:var(--text-muted)}.fca-note{font-size:12px;color:var(--text-muted)}
+  .fca-btn{display:block;text-align:center;width:100%;padding:13px;margin-bottom:20px;font-size:14px}
+  .fca-includes{border-top:0.5px solid var(--border);padding-top:16px}
+  .fca-inc-title{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+  .fca-includes ul{display:flex;flex-direction:column;gap:6px}
+  .fca-includes li{font-size:13px;color:var(--text-secondary);display:flex;gap:8px;align-items:center}
+  .fca-includes li::before{content:'→';color:var(--accent);font-size:11px}
+  .section{padding:72px var(--px)}
+  .learnings-section{background:rgba(255,255,255,.01);border-bottom:0.5px solid var(--border)}
+  .learnings-inner{display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start}
+  .learnings-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .learning-item{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.03);border:0.5px solid var(--border);border-radius:var(--radius-md);padding:14px 16px;font-size:13px;color:var(--text-secondary);line-height:1.5}
+  .l-check{color:var(--accent);flex-shrink:0;font-size:12px;margin-top:1px}
+  .modules-section{border-bottom:0.5px solid var(--border)}
+  .modules-list{display:flex;flex-direction:column;gap:0}
+  .module-item{border:0.5px solid var(--border);border-radius:var(--radius-lg);margin-bottom:10px;overflow:hidden;transition:border-color .15s}
+  .module-item:hover{border-color:var(--border-hover)}.module-item.open{border-color:var(--accent-border)}
+  .mod-header{display:grid;grid-template-columns:64px 1fr 40px;gap:20px;align-items:center;padding:22px 24px;cursor:pointer;background:rgba(255,255,255,.02);transition:background .15s}
+  .mod-header:hover{background:rgba(255,255,255,.04)}
+  .mod-num-wrap{width:44px;height:44px;border-radius:var(--radius-md);background:var(--accent-dim);border:0.5px solid var(--accent-border);display:flex;align-items:center;justify-content:center}
+  .mod-num{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--accent)}
+  .mod-title-wrap h3{font-family:var(--font-display);font-size:16px;font-weight:700;color:#fff;margin-bottom:4px}
+  .mod-desc{font-size:13px;color:var(--text-secondary);line-height:1.5}
+  .mod-toggle{background:none;border:0.5px solid var(--border);color:var(--text-muted);width:32px;height:32px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;justify-self:end;cursor:pointer}
+  .module-item.open .mod-toggle svg{transform:rotate(180deg)}
+  .mod-topics{display:none;padding:0 24px 20px 88px;border-top:0.5px solid var(--border);background:rgba(255,255,255,.01)}
+  .module-item.open .mod-topics{display:block}
+  .mod-topics ul{display:flex;flex-direction:column;gap:0;padding-top:16px}
+  .mod-topics li{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-secondary);padding:8px 0;border-bottom:0.5px solid rgba(255,255,255,.04)}
+  .mod-topics li:last-child{border-bottom:none}.topic-arrow{color:var(--accent);font-size:11px;flex-shrink:0}
+  .professor-section{background:rgba(255,255,255,.01);border-bottom:0.5px solid var(--border)}
+  .prof-card{display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:start;background:rgba(255,255,255,.03);border:0.5px solid var(--border);border-radius:var(--radius-xl);padding:36px}
+  .prof-img-wrap{width:160px;height:160px;border-radius:var(--radius-lg);overflow:hidden;border:0.5px solid var(--border);position:relative}
+  .prof-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+  .prof-avatar-fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:var(--accent-dim);font-family:var(--font-display);font-size:32px;font-weight:700;color:var(--accent)}
+  .prof-name-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+  .prof-name-row h3{font-family:var(--font-display);font-size:22px;font-weight:700;color:#fff}
+  .prof-bio{font-size:14px;color:var(--text-secondary);line-height:1.75;margin-bottom:20px;font-weight:300}
+  .prof-tags{display:flex;gap:8px;flex-wrap:wrap}
+  .prof-tag{font-size:12px;color:var(--text-secondary);background:rgba(255,255,255,.05);border:0.5px solid var(--border-hover);padding:4px 12px;border-radius:20px}
+  .related-section{border-bottom:0.5px solid var(--border)}
+  .related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .related-card{background:var(--bg-surface);border:0.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .15s}
+  .related-card:hover{border-color:var(--accent-border);transform:translateY(-2px)}
+  .rel-img{height:140px;overflow:hidden}.rel-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+  .related-card:hover .rel-img img{transform:scale(1.04)}
+  .rel-body{padding:18px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .rel-body h3{font-family:var(--font-display);font-size:15px;font-weight:700;color:#fff;line-height:1.3}
+  .rel-body p{font-size:12px;color:var(--text-muted);flex:1}.rel-cta{font-size:12px;color:var(--accent)}
+  .bottom-cta-section{padding-top:0;padding-bottom:80px}
+  .bottom-cta{background:linear-gradient(135deg,rgba(61,255,182,.05) 0%,rgba(139,92,246,.05) 100%);border:0.5px solid var(--accent-border);border-radius:var(--radius-xl);padding:56px;text-align:center}
+  .bottom-cta h2{font-family:var(--font-display);font-size:34px;font-weight:700;color:#fff;letter-spacing:-1px;margin-bottom:12px}
+  .bottom-cta p{font-size:16px;color:var(--text-secondary);margin-bottom:32px;font-weight:300}
+  .bottom-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  @media(max-width:1024px){.hero{grid-template-columns:1fr;gap:40px}.hero-right{order:-1}.learnings-inner{grid-template-columns:1fr;gap:24px}.prof-card{grid-template-columns:1fr}.prof-img-wrap{width:100px;height:100px}}
+  @media(max-width:768px){.hero-content h1{font-size:36px;letter-spacing:-1.5px}.learnings-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr}.mod-header{grid-template-columns:48px 1fr 36px;gap:12px;padding:16px}.mod-topics{padding-left:16px}.bottom-cta{padding:36px 24px}.bottom-cta h2{font-size:24px}.hero-stats{width:100%}.hs{padding:12px 16px}}
+</style>
+
+<script>
+  document.querySelectorAll('.mod-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.closest('.module-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.module-item').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+  document.querySelector('.module-item')?.classList.add('open');
+</script>
+

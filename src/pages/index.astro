@@ -1,882 +1,752 @@
 ---
-const year = new Date().getFullYear();
+import Layout from '../layouts/Layout.astro';
+
+const stats = [
+  { num: '20+', label: 'Cursos DeepTech' },
+  { num: '15+', label: 'Mentores internacionales' },
+  { num: '3',   label: 'Áreas de especialización' },
+];
+
+const courses = [
+  {
+    tag: 'Inteligencia Artificial',
+    tagClass: 'tag-ai',
+    title: 'Especialista en LLMs e IA Generativa',
+    desc: 'Construye tus primeras aplicaciones con modelos de lenguaje. De cero a producción en 8 semanas.',
+    meta: '8 semanas · Asincrónico + en vivo',
+    href: '/cursos',
+  },
+  {
+    tag: 'Computación Cuántica',
+    tagClass: 'tag-quantum',
+    title: 'Fundamentos de Quantum Computing',
+    desc: 'Prepárate para la próxima revolución tecnológica. Qubits, algoritmos cuánticos y aplicaciones reales.',
+    meta: '6 semanas · Asincrónico',
+    href: '/cursos',
+  },
+  {
+    tag: 'Programación',
+    tagClass: 'tag-dev',
+    title: 'Python para DeepTech',
+    desc: 'Las bases de programación para entrar al mundo de la IA y la ciencia de datos.',
+    meta: '4 semanas · Asincrónico',
+    href: '/cursos',
+  },
+];
+
+const plans = [
+  {
+    name: 'Free',
+    sub: 'Empieza sin costo',
+    price: '$0',
+    period: '',
+    features: ['2 cursos introductorios', 'Comunidad WhatsApp', 'Webinar mensual gratuito'],
+    cta: 'Empezar gratis',
+    href: 'https://forms.gle/fknvV9x2rLHyrF4N7',
+    featured: false,
+  },
+  {
+    name: 'Acceso Founder',
+    sub: 'Precio de lanzamiento',
+    price: '$9',
+    period: '/mes',
+    features: ['20 cursos asincrónicos', 'Certificados verificables', 'Sesiones en vivo mensuales', 'Comunidad Pro'],
+    cta: 'Suscribirme',
+    href: 'https://forms.gle/fknvV9x2rLHyrF4N7',
+    featured: true,
+    badge: 'Más popular',
+  },
+  {
+    name: 'Especialista LLMs',
+    sub: 'Programa intensivo',
+    price: '$149',
+    period: ' único',
+    features: ['3 cursos especializados', '4 sesiones en vivo', 'Certificado verificable', 'Acceso de por vida'],
+    cta: 'Ver programa',
+    href: '/programas',
+    featured: false,
+  },
+];
+
+const mentors = [
+  { initials: 'AA', name: 'Adrián Arnaiz',    role: 'IA Research',  color: 'var(--accent)' },
+  { initials: 'AR', name: 'Adriana Romero',   role: 'ML Engineer',  color: 'var(--purple)' },
+  { initials: 'ER', name: 'Emily Rivera',     role: 'DeepTech',     color: 'var(--blue)' },
+  { initials: 'DS', name: 'Danae Sanchez',    role: 'Data Science', color: '#FCD34D' },
+  { initials: 'MA', name: 'Martin Arispe',    role: 'Quantum',      color: '#FCA5A5' },
+  { initials: 'JG', name: 'Juan Guillermo',   role: 'AI Engineer',  color: 'var(--accent)' },
+  { initials: 'JP', name: 'Juan P. Morales',  role: 'ML Research',  color: 'var(--purple)' },
+];
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Delve Educación</title>
-
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-			rel="stylesheet"
-		/>
-
-		<style>
-			body {
-				margin: 0;
-				font-family: "Inter", sans-serif;
-				background: #0f172a;
-				color: white;
-			}
-
-			.container {
-				max-width: 1100px;
-				margin: 0 auto;
-				padding: 100px 20px;
-				text-align: center;
-			}
-
-			h1 {
-				font-size: 3rem;
-				margin-bottom: 20px;
-			}
-
-			p {
-				font-size: 1.2rem;
-				color: #cbd5e1;
-			}
-
-			.btn {
-				display: inline-block;
-				margin-top: 30px;
-				padding: 14px 28px;
-				background: white;
-				color: black;
-				border-radius: 12px;
-				text-decoration: none;
-				font-weight: 600;
-				transition: 0.3s ease;
-			}
-
-			.btn:hover {
-				transform: translateY(-3px);
-			}
-
-			nav {
-				position: fixed;
-				top: 0;
-				width: 100%;
-				background: rgba(15, 23, 42, 0.9);
-				backdrop-filter: blur(10px);
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				padding: 20px 40px;
-				box-sizing: border-box;
-				z-index: 1000;
-			}
-
-			nav ul {
-				list-style: none;
-				display: flex;
-				gap: 30px;
-				margin: 0;
-				padding: 0;
-			}
-
-			nav a {
-				text-decoration: none;
-				color: white;
-				font-weight: 500;
-			}
-
-			.logo img {
-				height: 35px;
-				width: auto;
-				display: block;
-			}
-
-			.founder {
-				margin-top: 100px;
-				padding: 60px;
-				background: #192231;
-				border-radius: 20px;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				gap: 50px;
-			}
-
-			.founder-text {
-				flex: 1;
-				text-align: left;
-			}
-
-			.founder-text h2 {
-				font-size: 2rem;
-				margin-bottom: 20px;
-			}
-
-			.founder-text p {
-				color: #cbd5e1;
-				line-height: 1.6;
-			}
-
-			.founder-image {
-				flex: 1;
-				text-align: center;
-			}
-
-			.founder-image img {
-				max-width: 100%;
-				border-radius: 16px;
-			}
-
-			.carousel-section {
-				margin-top: 120px;
-				text-align: center;
-			}
-
-			.carousel-section h2 {
-				font-size: 2rem;
-				margin-bottom: 40px;
-			}
-
-			.carousel {
-				overflow: hidden;
-				width: 100%;
-			}
-
-			.carousel-track {
-				display: flex;
-				gap: 40px;
-				width: max-content;
-				animation: scroll 25s linear infinite;
-			}
-
-			.slide {
-				min-width: 200px;
-				text-align: center;
-			}
-
-			.slide img {
-				width: 200px;
-				height: 200px;
-				object-fit: cover;
-				border-radius: 5px;
-			}
-
-			.slide p {
-				margin-top: 15px;
-				color: #cbd5e1;
-			}
-
-			@keyframes scroll {
-				0% {
-					transform: translateX(0);
-				}
-				100% {
-					transform: translateX(-50%);
-				}
-			}
-
-			.offer-section {
-				margin-top: 120px;
-				text-align: center;
-			}
-
-			.offer-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-				gap: 30px;
-			}
-
-			.offer-card {
-				display: block;
-				background: #1e293b;
-				padding: 40px 30px;
-				border-radius: 20px;
-				text-decoration: none;
-				color: white;
-				transition: 0.3s ease;
-			}
-
-			.offer-card:hover {
-				transform: translateY(-6px);
-				background: #273449;
-			}
-
-			.hamburger {
-				display: none;
-				flex-direction: column;
-				gap: 6px;
-				cursor: pointer;
-			}
-
-			.hamburger span {
-				width: 25px;
-				height: 3px;
-				background: white;
-				border-radius: 3px;
-			}
-
-			.btn {
-                display: inline-block;
-                margin-top: 30px;
-                padding: 14px 28px;
-                background: rgb(136, 255, 96);
-                color: black;
-                border-radius: 12px;
-                text-decoration: none;
-                font-weight: 600;
-                transition: 0.3s ease;
-            }
-
-			@media (max-width: 768px) {
-				nav ul {
-					position: absolute;
-					top: 80px;
-					right: 0;
-					background: #0f172a;
-					flex-direction: column;
-					width: 220px;
-					padding: 30px;
-					display: none;
-				}
-
-				nav ul.active {
-					display: flex;
-				}
-
-				.hamburger {
-					display: flex;
-				}
-
-				.founder {
-					flex-direction: column;
-					text-align: center;
-				}
-
-				.founder-text {
-					text-align: center;
-				}
-			}
-
-			footer {
-				margin-top: 80px;
-				padding: 40px 20px;
-				text-align: center;
-				color: #94a3b8;
-				font-size: 0.9rem;
-			}
-		</style>
-	</head>
-
-	<body>
-		<!-- NAV -->
-		<nav>
-			<div class="logo">
-				<a href="/"><img src="/assets/logo.png" /></a>
-			</div>
-
-			<ul id="nav-links">
-				<li><a href="/ellms">Programas</a></li>
-				<li><a href="/cursos">Cursos</a></li>
-				<li><a href="/nosotros">Nosotros</a></li>
-				<li><a href="/contacto">Contacto</a></li>
-			</ul>
-
-			<div class="hamburger" id="hamburger">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-		</nav>
-
-		<!-- CONTENT -->
-		<div class="container">
-			<h1>Impulsamos el Futuro DeepTech 🚀</h1>
-
-			<a href="https://forms.gle/fknvV9x2rLHyrF4N7" class="btn">
-				Empezar
-			</a>
-
-			<div class="founder">
-				<div class="founder-text">
-					<h2>Aprovecha nuestro acceso Founder 🚀</h2>
-					<p>
-						Sé parte de la primera generación de Delve Educación y
-						accede a contenido exclusivo, mentorías directas y
-						beneficios especiales diseñados para quienes quieren
-						liderar el futuro DeepTech desde hoy.
-					</p>
-
-					<a href="https://forms.gle/fknvV9x2rLHyrF4N7" class="btn">
-				Solicitar Acceso Founder
-			</a>
-
-
-					
-				</div>
-
-				<div class="founder-image">
-					<img
-						src="/assets/flame_dt_2.png"
-						alt="Acceso Founder Delve"
-					/>
-				</div>
-			</div>
-
-			<div class="carousel-section">
-				<h2>Nuestros Profesores</h2>
-				<p class="founders-subtitle">
-					Mentores y especialistas que han impulsado nuestra comunidad
-					desde la etapa de Saturdays AI La Paz hasta la consolidación
-					de Delve Educación.
-				</p>
-
-				<div class="carousel">
-					<div class="carousel-track">
-						<!-- Slide 2 -->
-						<div class="slide">
-							<img
-								src="/assets/mentores/adrian_arnaiz.jpg"
-								alt="Adrian Arnaiz"
-							/>
-							<p>Adrián Arnaiz</p>
-							<img
-								src="/assets/mentores/adrian_arnaiz_logo.png"
-								alt="Adrian Arnaiz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<!-- Slide 3 -->
-						<div class="slide">
-							<img
-								src="/assets/mentores/adriana_romero.jpeg"
-								alt="Adriana Romero"
-							/>
-							<p>Adriana Romero</p>
-							<img
-								src="/assets/mentores/adriana_romero_logo.png"
-								alt="Adriana Romero logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/emily_rivera.png"
-								alt="Emily Rivera"
-							/>
-							<p>Emily Rivera</p>
-							<img
-								src="/assets/mentores/diego_angulo_logo.png"
-								alt="Emily Rivera logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-						<!-- DUPLICADOS para efecto infinito -->
-						<div class="slide">
-							<img
-								src="/assets/mentores/camilo_bolanios.png"
-								alt="Camilo Bolaños"
-							/>
-							<p>Camilo Bolaños</p>
-							<img
-								src="/assets/mentores/camilo_bolanios_logo.png"
-								alt="Camilo Bolaños logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/danae_sanchez.jpg"
-								alt="Danae Sanchez"
-							/>
-							<p>Danae Sanchez</p>
-							<img
-								src="/assets/mentores/danae_sanchez_logo.png"
-								alt="Danae Sanchez logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/diego_angulo.png"
-								alt="Diego Angulo"
-							/>
-							<p>Diego Angulo</p>
-							<img
-								src="/assets/mentores/diego_angulo_logo.png"
-								alt="Diego Angulo logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/erick_maraz.jpeg"
-								alt="Erick Maraz"
-							/>
-							<p>Erick Maraz</p>
-							<img
-								src="/assets/mentores/erick_maraz_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/felipe_san_martin.jpeg"
-								alt="Erick Maraz"
-							/>
-							<p>Felipe San Martin</p>
-							<img
-								src="/assets/mentores/felipe_san_martin_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/hodei_calvo.jpeg"
-								alt="Erick Maraz"
-							/>
-							<p>Hodei Calvo</p>
-							<img
-								src="/assets/mentores/hodei_calvo_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/jaume_brossa.png"
-								alt="Jaume Brossa"
-							/>
-							<p>Jaume Brossa</p>
-							<img
-								src="/assets/mentores/jaume_brossa_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/juan_gomez_romero.jpg"
-								alt="Juan Gomez Romero"
-							/>
-							<p>Juan Gomez R.</p>
-							<img
-								src="/assets/mentores/juan_gomez_romero_logo.png"
-								alt="Juan Gomez Romero logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-						<div class="slide">
-							<img
-								src="/assets/mentores/juan_guillermo.jpg"
-								alt="Juan Guillermo"
-							/>
-							<p>Juan Guillermo</p>
-							<img
-								src="/assets/mentores/juan_guillermo_logo.png"
-								alt="Juan Guillermo logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/juan_pablo_morales.jpg"
-								alt="Juan Pablo Morales"
-							/>
-							<p>Juan Pablo Morales</p>
-							<img
-								src="/assets/mentores/juan_pablo_morales_logo.png"
-								alt="Juan Pablo Morales logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/martin_arispe.jpg"
-								alt="Martin Arispe"
-							/>
-							<p>Martin Arispe</p>
-							<img
-								src="/assets/mentores/martin_arispe_logo.png"
-								alt="Martin Arispe logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/merce_vintro.png"
-								alt="Merce Vintro"
-							/>
-							<p>Merce Vintro</p>
-							<img
-								src="/assets/mentores/merce_vintro_logo.png"
-								alt="Merce Vintro logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-						<div class="slide">
-							<img
-								src="/assets/mentores/oscar_contreras.png"
-								alt="Oscar Contreras"
-							/>
-							<p>Oscar Contreras</p>
-							<img
-								src="/assets/mentores/oscar_contreras_logo.png"
-								alt="Oscar Contreras logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/pau_fargas.jpg"
-								alt="Pau Fargas"
-							/>
-							<p>Pau Fargas</p>
-							<img
-								src="/assets/mentores/pau_fargas_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/jaume_brossa.png"
-								alt="Jaume Brossa"
-							/>
-							<p>Jaume Brossa</p>
-							<img
-								src="/assets/mentores/jaume_brossa_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/jaume_brossa.png"
-								alt="Jaume Brossa"
-							/>
-							<p>Jaume Brossa</p>
-							<img
-								src="/assets/mentores/jaume_brossa_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/juan_gomez_romero.jpg"
-								alt="Juan Gomez Romero"
-							/>
-							<p>Juan Gomez R.</p>
-							<img
-								src="/assets/mentores/juan_gomez_romero_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/adrian_arnaiz.jpg"
-								alt="Adrian Arnaiz"
-							/>
-							<p>Adrián Arnaiz</p>
-							<img
-								src="/assets/mentores/adrian_arnaiz_logo.png"
-								alt="Adrian Arnaiz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<!-- Slide 3 -->
-						<div class="slide">
-							<img
-								src="/assets/mentores/adriana_romero.jpeg"
-								alt="Adriana Romero"
-							/>
-							<p>Adriana Romero</p>
-							<img
-								src="/assets/mentores/adriana_romero_logo.png"
-								alt="Adriana Romero logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/emily_rivera.png"
-								alt="Emily Rivera"
-							/>
-							<p>Emily Rivera</p>
-							<img
-								src="/assets/mentores/diego_angulo_logo.png"
-								alt="Emily Rivera logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-						<!-- DUPLICADOS para efecto infinito -->
-						<div class="slide">
-							<img
-								src="/assets/mentores/camilo_bolanios.png"
-								alt="Camilo Bolaños"
-							/>
-							<p>Camilo Bolaños</p>
-							<img
-								src="/assets/mentores/camilo_bolanios_logo.png"
-								alt="Camilo Bolaños logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/danae_sanchez.jpg"
-								alt="Danae Sanchez"
-							/>
-							<p>Danae Sanchez</p>
-							<img
-								src="/assets/mentores/danae_sanchez_logo.png"
-								alt="Danae Sanchez logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/diego_angulo.png"
-								alt="Diego Angulo"
-							/>
-							<p>Diego Angulo</p>
-							<img
-								src="/assets/mentores/diego_angulo_logo.png"
-								alt="Diego Angulo logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/erick_maraz.jpeg"
-								alt="Erick Maraz"
-							/>
-							<p>Erick Maraz</p>
-							<img
-								src="/assets/mentores/erick_maraz_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/felipe_san_martin.jpeg"
-								alt="Erick Maraz"
-							/>
-							<p>Felipe San Martin</p>
-							<img
-								src="/assets/mentores/felipe_san_martin_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/hodei_calvo.jpeg"
-								alt="Erick Maraz"
-							/>
-							<p>Hodei Calvo</p>
-							<img
-								src="/assets/mentores/hodei_calvo_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/jaume_brossa.png"
-								alt="Jaume Brossa"
-							/>
-							<p>Jaume Brossa</p>
-							<img
-								src="/assets/mentores/jaume_brossa_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/juan_gomez_romero.jpg"
-								alt="Juan Gomez Romero"
-							/>
-							<p>Juan Gomez R.</p>
-							<img
-								src="/assets/mentores/juan_gomez_romero_logo.png"
-								alt="Juan Gomez Romero logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-						<div class="slide">
-							<img
-								src="/assets/mentores/juan_guillermo.jpg"
-								alt="Juan Guillermo"
-							/>
-							<p>Juan Guillermo</p>
-							<img
-								src="/assets/mentores/juan_guillermo_logo.png"
-								alt="Juan Guillermo logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/juan_pablo_morales.jpg"
-								alt="Juan Pablo Morales"
-							/>
-							<p>Juan Pablo Morales</p>
-							<img
-								src="/assets/mentores/juan_pablo_morales_logo.png"
-								alt="Juan Pablo Morales logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/martin_arispe.jpg"
-								alt="Martin Arispe"
-							/>
-							<p>Martin Arispe</p>
-							<img
-								src="/assets/mentores/martin_arispe_logo.png"
-								alt="Martin Arispe logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/merce_vintro.png"
-								alt="Merce Vintro"
-							/>
-							<p>Merce Vintro</p>
-							<img
-								src="/assets/mentores/merce_vintro_logo.png"
-								alt="Merce Vintro logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-						<div class="slide">
-							<img
-								src="/assets/mentores/oscar_contreras.png"
-								alt="Oscar Contreras"
-							/>
-							<p>Oscar Contreras</p>
-							<img
-								src="/assets/mentores/oscar_contreras_logo.png"
-								alt="Oscar Contreras logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/pau_fargas.jpg"
-								alt="Pau Fargas"
-							/>
-							<p>Pau Fargas</p>
-							<img
-								src="/assets/mentores/pau_fargas_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/jaume_brossa.png"
-								alt="Jaume Brossa"
-							/>
-							<p>Jaume Brossa</p>
-							<img
-								src="/assets/mentores/jaume_brossa_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-
-						<div class="slide">
-							<img
-								src="/assets/mentores/juan_gomez_romero.jpg"
-								alt="Juan Gomez Romero"
-							/>
-							<p>Juan Gomez R.</p>
-							<img
-								src="/assets/mentores/juan_gomez_romero_logo.png"
-								alt="Erick Maraz logo"
-								style="width: 100px; height: auto;"
-							/>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="offer-section">
-				<h2>Explora nuestra oferta educativa</h2>
-
-				<div class="offer-grid">
-					<a href="/cursos" class="offer-card">
-						<h3>Programación</h3>
-						<p>Domina las bases para las tecnologías Deep Tech.</p>
-					</a>
-
-					<a href="/cursos" class="offer-card">
-						<h3>Inteligencia Artificial</h3>
-						<p>
-							Aprende los fundamentos y las aplicaciones modernas
-							de IA.
-						</p>
-					</a>
-
-					<a href="/cursos" class="offer-card">
-						<h3>Computación Cuántica</h3>
-						<p>
-							Prepárate para la siguiente revolución tecnológica.
-						</p>
-					</a>
-				</div>
-			</div>
-		</div>
-		<!-- FOOTER FUERA -->
-	</body>
-	<footer>
-		<p>© {year} Delve Educación</p>
-	</footer>
-
-	<!-- SCRIPT FUERA -->
-	<script>
-		const hamburger = document.getElementById("hamburger");
-		const navLinks = document.getElementById("nav-links");
-
-		hamburger.addEventListener("click", () => {
-			navLinks.classList.toggle("active");
-		});
-	</script>
-</html>
+<Layout title="Domina las tecnologías DeepTech">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        DeepTech en español · Latinoamérica
+      </div>
+      <h1>Domina las tecnologías<br />que <em>cambian el mundo</em></h1>
+      <p>IA, computación cuántica y programación avanzada.<br />Con mentores que trabajan en empresas top globales.</p>
+      <div class="hero-btns">
+        <a href="https://forms.gle/fknvV9x2rLHyrF4N7" target="_blank" class="btn-primary">
+          Acceso Founder — $9/mes
+        </a>
+        <a href="/cursos" class="btn-secondary">Ver cursos →</a>
+      </div>
+      <div class="hero-stats">
+        {stats.map(s => (
+          <div class="stat">
+            <div class="stat-num">{s.num}</div>
+            <div class="stat-label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- DeepTech visual -->
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 520 480" xmlns="http://www.w3.org/2000/svg" class="deeptech-svg">
+        <defs>
+          <radialGradient id="glow-green" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#3DFFB6" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#3DFFB6" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="glow-purple" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#A78BFA" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="glow-blue" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="blur-sm">
+            <feGaussianBlur stdDeviation="1.5"/>
+          </filter>
+        </defs>
+
+        <!-- Background glow blobs -->
+        <ellipse cx="260" cy="200" rx="200" ry="180" fill="url(#glow-green)"/>
+        <ellipse cx="380" cy="340" rx="140" ry="120" fill="url(#glow-purple)"/>
+        <ellipse cx="140" cy="360" rx="120" ry="100" fill="url(#glow-blue)"/>
+
+        <!-- Grid lines -->
+        {Array.from({length: 9}, (_, i) => (
+          <line x1={i * 65} y1="0" x2={i * 65} y2="480" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        ))}
+        {Array.from({length: 8}, (_, i) => (
+          <line x1="0" y1={i * 68} x2="520" y2={i * 68} stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        ))}
+
+        <!-- ── NEURAL NETWORK ── -->
+        <!-- Connection lines layer 1→2 -->
+        <g stroke="rgba(61,255,182,0.12)" stroke-width="1">
+          <line x1="80" y1="140" x2="200" y2="100"/>
+          <line x1="80" y1="140" x2="200" y2="180"/>
+          <line x1="80" y1="140" x2="200" y2="260"/>
+          <line x1="80" y1="220" x2="200" y2="100"/>
+          <line x1="80" y1="220" x2="200" y2="180"/>
+          <line x1="80" y1="220" x2="200" y2="260"/>
+          <line x1="80" y1="300" x2="200" y2="100"/>
+          <line x1="80" y1="300" x2="200" y2="180"/>
+          <line x1="80" y1="300" x2="200" y2="260"/>
+        </g>
+        <!-- Highlighted connections -->
+        <g stroke="rgba(61,255,182,0.35)" stroke-width="1.5">
+          <line x1="80" y1="220" x2="200" y2="180"/>
+          <line x1="200" y1="180" x2="320" y2="200"/>
+        </g>
+
+        <!-- Connection lines layer 2→3 -->
+        <g stroke="rgba(167,139,250,0.12)" stroke-width="1">
+          <line x1="200" y1="100" x2="320" y2="140"/>
+          <line x1="200" y1="100" x2="320" y2="200"/>
+          <line x1="200" y1="100" x2="320" y2="260"/>
+          <line x1="200" y1="180" x2="320" y2="140"/>
+          <line x1="200" y1="180" x2="320" y2="200"/>
+          <line x1="200" y1="180" x2="320" y2="260"/>
+          <line x1="200" y1="260" x2="320" y2="140"/>
+          <line x1="200" y1="260" x2="320" y2="200"/>
+          <line x1="200" y1="260" x2="320" y2="260"/>
+        </g>
+
+        <!-- Connection lines layer 3→4 -->
+        <g stroke="rgba(96,165,250,0.15)" stroke-width="1">
+          <line x1="320" y1="140" x2="440" y2="200"/>
+          <line x1="320" y1="200" x2="440" y2="200"/>
+          <line x1="320" y1="260" x2="440" y2="200"/>
+        </g>
+        <line x1="320" y1="200" x2="440" y2="200" stroke="rgba(96,165,250,0.5)" stroke-width="2"/>
+
+        <!-- Layer 1: Input nodes -->
+        <g>
+          <circle cx="80" cy="140" r="18" fill="rgba(5,10,20,0.9)" stroke="rgba(61,255,182,0.6)" stroke-width="1.5"/>
+          <text x="80" y="145" text-anchor="middle" fill="#3DFFB6" font-size="11" font-family="monospace">x₁</text>
+
+          <circle cx="80" cy="220" r="18" fill="rgba(5,10,20,0.9)" stroke="rgba(61,255,182,0.8)" stroke-width="2"/>
+          <circle cx="80" cy="220" r="10" fill="rgba(61,255,182,0.15)"/>
+          <text x="80" y="225" text-anchor="middle" fill="#3DFFB6" font-size="11" font-family="monospace">x₂</text>
+
+          <circle cx="80" cy="300" r="18" fill="rgba(5,10,20,0.9)" stroke="rgba(61,255,182,0.5)" stroke-width="1.5"/>
+          <text x="80" y="305" text-anchor="middle" fill="#3DFFB6" font-size="11" font-family="monospace">x₃</text>
+        </g>
+
+        <!-- Layer 2: Hidden 1 -->
+        <g>
+          <circle cx="200" cy="100" r="18" fill="rgba(5,10,20,0.9)" stroke="rgba(167,139,250,0.5)" stroke-width="1.5"/>
+          <text x="200" y="105" text-anchor="middle" fill="#A78BFA" font-size="10" font-family="monospace">h₁</text>
+
+          <circle cx="200" cy="180" r="20" fill="rgba(5,10,20,0.9)" stroke="rgba(167,139,250,0.9)" stroke-width="2"/>
+          <circle cx="200" cy="180" r="11" fill="rgba(167,139,250,0.18)"/>
+          <text x="200" y="185" text-anchor="middle" fill="#A78BFA" font-size="10" font-family="monospace">h₂</text>
+
+          <circle cx="200" cy="260" r="18" fill="rgba(5,10,20,0.9)" stroke="rgba(167,139,250,0.5)" stroke-width="1.5"/>
+          <text x="200" y="265" text-anchor="middle" fill="#A78BFA" font-size="10" font-family="monospace">h₃</text>
+        </g>
+
+        <!-- Layer 3: Hidden 2 -->
+        <g>
+          <circle cx="320" cy="140" r="18" fill="rgba(5,10,20,0.9)" stroke="rgba(167,139,250,0.45)" stroke-width="1.5"/>
+          <text x="320" y="145" text-anchor="middle" fill="#A78BFA" font-size="10" font-family="monospace">h₄</text>
+
+          <circle cx="320" cy="200" r="20" fill="rgba(5,10,20,0.9)" stroke="rgba(167,139,250,0.85)" stroke-width="2"/>
+          <circle cx="320" cy="200" r="11" fill="rgba(167,139,250,0.15)"/>
+          <text x="320" y="205" text-anchor="middle" fill="#A78BFA" font-size="10" font-family="monospace">h₅</text>
+
+          <circle cx="320" cy="260" r="18" fill="rgba(5,10,20,0.9)" stroke="rgba(167,139,250,0.45)" stroke-width="1.5"/>
+          <text x="320" y="265" text-anchor="middle" fill="#A78BFA" font-size="10" font-family="monospace">h₆</text>
+        </g>
+
+        <!-- Layer 4: Output -->
+        <circle cx="440" cy="200" r="24" fill="rgba(5,10,20,0.9)" stroke="rgba(96,165,250,0.9)" stroke-width="2.5"/>
+        <circle cx="440" cy="200" r="14" fill="rgba(96,165,250,0.15)"/>
+        <text x="440" y="205" text-anchor="middle" fill="#60A5FA" font-size="13" font-family="monospace">ŷ</text>
+
+        <!-- Layer labels -->
+        <text x="80" y="350" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="10" font-family="monospace">Input</text>
+        <text x="200" y="320" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="10" font-family="monospace">Hidden 1</text>
+        <text x="320" y="310" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="10" font-family="monospace">Hidden 2</text>
+        <text x="440" y="246" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="10" font-family="monospace">Output</text>
+
+        <!-- ── FLOATING CARDS ── -->
+        <!-- AI Card -->
+        <g transform="translate(30, 370)">
+          <rect width="140" height="52" rx="8" fill="rgba(61,255,182,0.08)" stroke="rgba(61,255,182,0.25)" stroke-width="1"/>
+          <circle cx="20" cy="26" r="8" fill="rgba(61,255,182,0.15)" cx="18" cy="26"/>
+          <text x="18" y="30" text-anchor="middle" fill="#3DFFB6" font-size="12">🤖</text>
+          <text x="34" y="22" fill="rgba(255,255,255,0.8)" font-size="11" font-family="sans-serif">Inteligencia</text>
+          <text x="34" y="36" fill="rgba(255,255,255,0.8)" font-size="11" font-family="sans-serif">Artificial</text>
+        </g>
+
+        <!-- Quantum Card -->
+        <g transform="translate(190, 390)">
+          <rect width="140" height="52" rx="8" fill="rgba(167,139,250,0.08)" stroke="rgba(167,139,250,0.25)" stroke-width="1"/>
+          <text x="18" y="30" text-anchor="middle" fill="#A78BFA" font-size="12">⚛️</text>
+          <text x="34" y="22" fill="rgba(255,255,255,0.8)" font-size="11" font-family="sans-serif">Computación</text>
+          <text x="34" y="36" fill="rgba(255,255,255,0.8)" font-size="11" font-family="sans-serif">Cuántica</text>
+        </g>
+
+        <!-- Dev Card -->
+        <g transform="translate(350, 370)">
+          <rect width="130" height="52" rx="8" fill="rgba(96,165,250,0.08)" stroke="rgba(96,165,250,0.25)" stroke-width="1"/>
+          <text x="18" y="30" text-anchor="middle" fill="#60A5FA" font-size="12">{'</>'}</text>
+          <text x="34" y="22" fill="rgba(255,255,255,0.8)" font-size="11" font-family="sans-serif">Programación</text>
+          <text x="34" y="36" fill="rgba(255,255,255,0.8)" font-size="11" font-family="sans-serif">Avanzada</text>
+        </g>
+
+        <!-- Animated pulse on active node -->
+        <circle cx="200" cy="180" r="28" fill="none" stroke="rgba(167,139,250,0.2)" stroke-width="1">
+          <animate attributeName="r" values="20;34;20" dur="3s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite"/>
+        </circle>
+
+        <circle cx="440" cy="200" r="32" fill="none" stroke="rgba(96,165,250,0.2)" stroke-width="1">
+          <animate attributeName="r" values="24;40;24" dur="2.5s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.4;0;0.4" dur="2.5s" repeatCount="indefinite"/>
+        </circle>
+
+        <!-- Floating data particles -->
+        <circle cx="145" cy="155" r="2.5" fill="rgba(61,255,182,0.6)">
+          <animate attributeName="cy" values="155;148;155" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="265" cy="170" r="2" fill="rgba(167,139,250,0.6)">
+          <animate attributeName="cy" values="170;163;170" dur="2.8s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="385" cy="175" r="2.5" fill="rgba(96,165,250,0.6)">
+          <animate attributeName="cy" values="175;168;175" dur="2.3s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.6;1;0.6" dur="2.3s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+    </div>
+  </section>
+
+  <!-- CURSOS DESTACADOS -->
+  <section class="section courses-section">
+    <span class="label">Oferta educativa</span>
+    <h2 class="section-title">Cursos destacados</h2>
+    <div class="courses-grid">
+      {courses.map(c => (
+        <a href={c.href} class="course-card">
+          <span class={`tag ${c.tagClass}`}>{c.tag}</span>
+          <h3>{c.title}</h3>
+          <p>{c.desc}</p>
+          <div class="course-meta">
+            <span>{c.meta}</span>
+            <span class="course-link">Ver curso →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+    <div class="courses-cta">
+      <a href="/cursos" class="btn-secondary">Ver todos los cursos</a>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section pricing-section">
+    <span class="label">Planes</span>
+    <h2 class="section-title">Elige tu acceso</h2>
+    <div class="pricing-grid">
+      {plans.map(p => (
+        <div class:list={['price-card', { featured: p.featured }]}>
+          {p.badge && <span class="badge">{p.badge}</span>}
+          <h3>{p.name}</h3>
+          <p class="plan-sub">{p.sub}</p>
+          <div class="price">
+            {p.price}<span>{p.period}</span>
+          </div>
+          <ul class="price-features">
+            {p.features.map(f => <li>{f}</li>)}
+          </ul>
+          <a
+            href={p.href}
+            class:list={[p.featured ? 'btn-primary' : 'btn-secondary', 'plan-btn']}
+            target={p.href.startsWith('http') ? '_blank' : undefined}
+          >
+            {p.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- MENTORES -->
+  <section class="section mentors-section">
+    <span class="label">Quiénes enseñan</span>
+    <h2 class="section-title">Mentores internacionales</h2>
+    <div class="mentors-row">
+      {mentors.map(m => (
+        <div class="mentor-chip">
+          <div class="mentor-avatar" style={`color: ${m.color}`}>{m.initials}</div>
+          <div>
+            <div class="mentor-name">{m.name}</div>
+            <div class="mentor-role">{m.role}</div>
+          </div>
+        </div>
+      ))}
+      <a href="/nosotros" class="mentor-chip mentor-more">
+        <div class="mentor-avatar" style="color: var(--accent)">+8</div>
+        <div>
+          <div class="mentor-name">Ver todos</div>
+          <div class="mentor-role">los mentores</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- B2B CTA BANNER -->
+  <section class="section b2b-banner">
+    <div class="b2b-inner">
+      <div>
+        <h2>¿Eres empresa, colegio o universidad?</h2>
+        <p>Capacita a tu equipo en DeepTech con programas a medida. Piloto gratuito de 30 días.</p>
+      </div>
+      <a href="/empresas" class="btn-primary">Ver planes institucionales →</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* HERO */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+    border-bottom: 0.5px solid var(--border);
+    min-height: 560px;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    padding: 80px var(--px) 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-dim);
+    border: 0.5px solid var(--accent-border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--accent);
+    margin-bottom: 32px;
+    width: fit-content;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .hero-left h1 {
+    font-family: var(--font-display);
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -2.5px;
+    color: #fff;
+    max-width: 640px;
+    margin-bottom: 24px;
+  }
+
+  .hero-left h1 em {
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  .hero-left > p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 440px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 0.5px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* HERO VISUAL */
+  .hero-visual {
+    position: relative;
+    background: radial-gradient(ellipse at 40% 40%, rgba(61,255,182,0.04) 0%, transparent 65%),
+                radial-gradient(ellipse at 80% 70%, rgba(167,139,250,0.05) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(96,165,250,0.04) 0%, transparent 55%);
+    border-left: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .deeptech-svg {
+    width: 100%;
+    height: 100%;
+    max-width: 520px;
+    padding: 32px;
+  }
+
+  /* COURSES */
+  .section {
+    padding: 72px var(--px);
+  }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .course-card {
+    background: var(--bg-surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .course-card:hover {
+    border-color: var(--accent-border);
+    background: var(--bg-surface-hover);
+  }
+
+  .course-card .tag {
+    margin-bottom: 16px;
+    align-self: flex-start;
+  }
+
+  .course-card h3 {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+
+  .course-card p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 20px;
+  }
+
+  .course-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 0.5px solid var(--border);
+    padding-top: 16px;
+    margin-top: auto;
+  }
+
+  .course-link { color: var(--accent); }
+
+  .courses-cta {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* PRICING */
+  .pricing-section {
+    background: rgba(255, 255, 255, 0.01);
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .price-card {
+    background: var(--bg-surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-card.featured {
+    border-color: var(--accent);
+    background: rgba(61, 255, 182, 0.04);
+  }
+
+  .badge {
+    font-size: 10px;
+    background: var(--accent);
+    color: var(--bg-primary);
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+    align-self: flex-start;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .price-card h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .plan-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .price {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+
+  .price span {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .price-features {
+    flex: 1;
+    margin: 20px 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .price-features li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding: 7px 0;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .price-features li::before {
+    content: '→';
+    color: var(--accent);
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+
+  .plan-btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* MENTORS */
+  .mentors-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .mentor-chip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-surface);
+    border: 0.5px solid var(--border);
+    border-radius: 40px;
+    padding: 8px 16px 8px 8px;
+    transition: border-color 0.15s;
+  }
+
+  .mentor-chip:hover { border-color: var(--border-hover); }
+  .mentor-more { cursor: pointer; }
+
+  .mentor-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .mentor-name {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .mentor-role {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* B2B BANNER */
+  .b2b-banner {
+    padding-top: 0;
+    padding-bottom: 72px;
+  }
+
+  .b2b-inner {
+    background: rgba(61, 255, 182, 0.05);
+    border: 0.5px solid var(--accent-border);
+    border-radius: var(--radius-xl);
+    padding: 40px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .b2b-inner h2 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  .b2b-inner p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 300;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .courses-grid,
+    .pricing-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-visual { display: none; }
+    .hero-left { padding: 64px var(--px) 48px; }
+  }
+
+  @media (max-width: 768px) {
+    .hero-left h1 { font-size: 38px; letter-spacing: -1.5px; }
+    .hero-stats { gap: 28px; }
+    .b2b-inner { flex-direction: column; text-align: center; }
+    .b2b-inner .btn-primary { align-self: stretch; text-align: center; }
+  }
+</style>

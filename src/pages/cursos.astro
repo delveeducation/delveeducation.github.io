@@ -1,586 +1,595 @@
 ---
-const year = new Date().getFullYear();
+import Layout from '../layouts/Layout.astro';
+
+const allCourses = [
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Principiante', title: 'Python Práctico',                      desc: 'Aprende Python desde cero con enfoque práctico y aplicaciones reales.',                              weeks: 5,  format: 'Asincrónico', slug: 'python-practico' },
+  { area: 'dev',     tag: 'Programación',             tagClass: 'tag-dev',     level: 'Intermedio',   title: 'Algoritmos y Estructura de Datos',       desc: 'Las bases algorítmicas que todo profesional de tecnología necesita dominar.',                        weeks: 6,  format: 'Asincrónico', slug: 'algoritmos-y-estructura-de-datos' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Principiante', title: 'Cálculo para Inteligencia Artificial',   desc: 'Las matemáticas que necesitas para entender y construir modelos de IA.',                            weeks: 5,  format: 'Asincrónico', slug: 'calculo-para-ia' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'Fundamentos de Deep Learning',           desc: 'Entiende y construye redes neuronales desde sus fundamentos hasta PyTorch.',                         weeks: 7,  format: 'Asincrónico', slug: 'fundamentos-de-deep-learning' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'Introducción a Computer Vision',         desc: 'Enseña a las computadoras a ver e interpretar el mundo visual.',                                    weeks: 6,  format: 'Asincrónico', slug: 'introduccion-a-computer-vision' },
+  { area: 'quantum', tag: 'Computación Cuántica',    tagClass: 'tag-quantum', level: 'Principiante', title: 'Introducción a Computación Cuántica',    desc: 'Entra al mundo cuántico sin necesitar un doctorado en física.',                                     weeks: 5,  format: 'Asincrónico', slug: 'introduccion-computacion-cuantica' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'Deep Learning para Computer Vision',     desc: 'Arquitecturas avanzadas: YOLO, ResNet, ViT y técnicas de detección en tiempo real.',               weeks: 8,  format: 'Asincrónico', slug: 'deep-learning-computer-vision' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'Knowledge Graphs',                       desc: 'Estructura y razona sobre conocimiento con grafos semánticos y RAG avanzado.',                       weeks: 6,  format: 'Asincrónico', slug: 'knowledge-graphs' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'Large Language Models',                  desc: 'Entiende cómo funcionan los LLMs y aplícalos en aplicaciones reales.',                              weeks: 7,  format: 'Asincrónico', slug: 'large-language-models' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'LLMs Locales',                           desc: 'Corre Llama, Mistral y Phi en tu propia máquina sin depender de APIs externas.',                    weeks: 5,  format: 'Asincrónico', slug: 'large-language-models-locales' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'LLMs Avanzado',                          desc: 'RLHF, DPO, optimización de inferencia y despliegue a escala.',                                      weeks: 8,  format: 'Asincrónico', slug: 'large-language-models-avanzado',  soon: true },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'Self-Supervised Learning',               desc: 'Entrena modelos poderosos sin necesitar datos etiquetados.',                                        weeks: 6,  format: 'Asincrónico', slug: 'self-supervised-learning',         soon: true },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'Computer Vision 3D',                     desc: 'Nubes de puntos, NeRF y Gaussian Splatting para el mundo tridimensional.',                          weeks: 7,  format: 'Asincrónico', slug: 'computer-vision-3d',               soon: true },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'Human Pose Estimation',                  desc: 'Detecta y analiza la pose humana en imágenes y video con deep learning.',                           weeks: 6,  format: 'Asincrónico', slug: 'human-pose-estimation',            soon: true },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'Multimodal AI',                          desc: 'Combina texto, imagen y audio en modelos de IA unificados.',                                        weeks: 7,  format: 'Asincrónico', slug: 'multimodal-ai',                    soon: true },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'Social Data Science',                    desc: 'Aplica ciencia de datos para entender comportamientos y fenómenos sociales.',                       weeks: 6,  format: 'Asincrónico', slug: 'social-data-science',              soon: true },
+];
+
+const available  = allCourses.filter(c => !c.soon);
+const comingSoon = allCourses.filter(c =>  c.soon);
+
+const countIA      = allCourses.filter(c => c.area  === 'ia').length;
+const countQuantum = allCourses.filter(c => c.area  === 'quantum').length;
+const countDev     = allCourses.filter(c => c.area  === 'dev').length;
+const countPrinc   = allCourses.filter(c => c.level === 'Principiante').length;
+const countInter   = allCourses.filter(c => c.level === 'Intermedio').length;
+const countAvanz   = allCourses.filter(c => c.level === 'Avanzado').length;
 ---
 
-<html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Cursos | Delve Educación</title>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-            rel="stylesheet"
-        />
-        <style>
-            body {
-                margin: 0;
-                font-family: "Inter", sans-serif;
-                background: #0f172a;
-                color: white;
-            }
-
-            .container {
-                max-width: 1100px;
-                margin: 0 auto;
-                padding: 120px 20px 80px 20px;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-                margin-bottom: 20px;
-            }
-
-            p {
-                color: #cbd5e1;
-            }
-
-            .course-grid {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 30px;
-                margin-top: 60px;
-            }
-
-            @media (max-width: 1100px) {
-                .course-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
-
-            @media (max-width: 600px) {
-                .course-grid {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            .course-card {
-                background: #1e293b;
-                padding: 20px;
-                border-radius: 20px;
-                transition: 0.3s ease;
-            }
-
-            .course-card:hover {
-                transform: translateY(-5px);
-                background: #273449;
-            }
-
-            .course-card h3 {
-                margin-bottom: 15px;
-            }
-
-            .btn {
-                display: inline-block;
-                margin-top: 20px;
-                padding: 10px 20px;
-                background: white;
-                color: black;
-                border-radius: 10px;
-                text-decoration: none;
-                font-weight: 600;
-            }
-
-            .course-type-AI {
-                display: inline-block;
-                margin-top: 15px; /* 👈 separa del botón */
-                margin-bottom: 5px;
-                padding: 6px 14px;
-                font-size: 0.75rem;
-                font-weight: 600;
-                border-radius: 20px;
-                background: rgba(56, 189, 248, 0.2);
-                color: #ffffff;
-                letter-spacing: 0.5px;
-                border: 1px solid rgba(56, 189, 248, 0.4);
-            }
-
-            .course-type-programming {
-                display: inline-block;
-                margin-top: 15px; /* 👈 separa del botón */
-                margin-bottom: 5px;
-                padding: 6px 14px;
-                font-size: 0.75rem;
-                font-weight: 600;
-                border-radius: 20px;
-                background: rgba(56, 189, 248, 0.2);
-                color: #ffffff;
-                letter-spacing: 0.5px;
-                border: 1px solid rgba(56, 189, 248, 0.4);
-            }
-
-            .course-type-quantum {
-                display: inline-block;
-                margin-top: 15px; /* 👈 separa del botón */
-                margin-bottom: 5px;
-                padding: 6px 14px;
-                font-size: 0.75rem;
-                font-weight: 600;
-                border-radius: 20px;
-                background: rgba(56, 189, 248, 0.2);
-                color: #ffffff;
-                letter-spacing: 0.5px;
-                border: 1px solid rgba(56, 189, 248, 0.4);
-            }
-
-            .course-type-soon {
-                display: inline-block;
-                margin-top: 15px; /* 👈 separa del botón */
-                margin-bottom: 5px;
-                padding: 6px 14px;
-                font-size: 0.75rem;
-                font-weight: 600;
-                border-radius: 20px;
-                background: rgb(216, 216, 0);
-                color: #ffffff;
-                letter-spacing: 0.5px;
-                border: 1px solid rgba(255, 255, 255, 0);
-            }
-
-            nav {
-                position: fixed;
-                top: 0;
-                width: 100%;
-                background: rgba(15, 23, 42, 0.9);
-                backdrop-filter: blur(10px);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 20px 40px;
-                box-sizing: border-box;
-            }
-
-            nav ul {
-                list-style: none;
-                display: flex;
-                gap: 30px;
-                margin: 0;
-            }
-
-            nav a {
-                text-decoration: none;
-                color: white;
-            }
-
-            .logo img {
-                height: 35px;
-            }
-
-            .nav-btn {
-                padding: 8px 16px;
-                background: white;
-                color: black;
-                border-radius: 8px;
-                font-weight: 600;
-            }
-
-            nav a {
-                text-decoration: none;
-                color: white;
-                font-weight: 500;
-                transition: 0.3s;
-            }
-
-            nav a:hover {
-                color: #38bdf8;
-            }
-
-            .nav-btn:link,
-.nav-btn:visited {
-	color: black;
-}
-			/* HAMBURGER */
-
-			.hamburger {
-				display: none;
-				flex-direction: column;
-				gap: 6px;
-				cursor: pointer;
-			}
-
-			.hamburger span {
-				width: 25px;
-				height: 3px;
-				background: white;
-				border-radius: 3px;
-				transition: 0.3s;
-			}
-
-			/* RESPONSIVE */
-
-			@media (max-width: 768px) {
-				nav {
-					padding: 20px;
-				}
-
-				nav ul {
-					position: absolute;
-					top: 80px;
-					right: 0;
-					background: #0f172a;
-					flex-direction: column;
-					width: 220px;
-					padding: 30px;
-					gap: 20px;
-					display: none;
-					box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.3);
-					border-radius: 12px 0 0 12px;
-				}
-
-				nav ul.active {
-					display: flex;
-				}
-
-				.hamburger {
-					display: flex;
-				}
-			}
-
-			@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-            footer {
-                text-align: center;
-                padding: 40px;
-                color: #94a3b8;
-            }
-
-            .course-image {
-                width: 100%;
-                height: 200px; /* 👈 tamaño fijo */
-                object-fit: cover; /* 👈 recorta sin deformar */
-            }
-        </style>
-    </head>
-
-    <body>
-        <nav>
-            <div class="logo">
-                <a href="/"><img src="/assets/logo.png" /></a
-                >
-            </div>
-
-            <ul id="nav-links">
-                <li><a href="/ellms">Programas</a></li>
-                <li><a href="/cursos">Cursos</a></li>
-                <li><a href="/nosotros">Nosotros</a></li>
-                <li><a href="/contacto">Contacto</a></li>
-            </ul>
-
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-
-        <div class="container">
-            <h1>Nuestros Cursos 🚀</h1>
-            <p>Programas diseñados para formar líderes en DeepTech.</p>
-
-            <div class="course-grid">
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/python_practico.png"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Python <br />Práctico</h3>
-                    <p class="professor">Prof. Diego Angulo</p>
-
-                    <a href="/pp" class="btn">Ver curso</a>
-
-                    <span class="course-type-programming">Programación</span>
-                </div>
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/algoritmos_y_estructura_de_datos.png"
-                        alt="Algoritmos y Estructuras de Datos"
-                        class="course-image"
-                    />
-
-                    <h3>Algoritmos y Estructura de Datos</h3>
-                    <p class="professor">Prof. Diego Angulo</p>
-
-                    <a href="/aed" class="btn">Ver curso</a>
-
-                    <span class="course-type-programming">Programación</span>
-                </div>
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/calculo_para_ia.png"
-                        alt="Calculo para Inteligencia Artificial"
-                        class="course-image"
-                    />
-
-                    <h3>Cálculo para Inteligencia Artificial</h3>
-                    <p class="professor">Prof. Oscar Contreras</p>
-
-                    <a href="/cai" class="btn">Ver curso</a>
-
-                    <span class="course-type-AI">Inteligencia Artificial</span>
-                </div>
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/fundamentos_de_deep_learning.png"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Fundamentos de Deep Learning</h3>
-                    <p class="professor">Prof. Oscar Contreras</p>
-
-                    <a href="/fdl" class="btn">Ver curso</a>
-
-                    <span class="course-type-AI">Inteligencia Artificial</span>
-                </div>
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/introduccion_a_computer_vision.png"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Introducción a Computer Vision</h3>
-                    <p class="professor">Prof. Emily Rivera</p>
-
-                    <a href="/icv" class="btn">Ver curso</a>
-
-                    <span class="course-type-AI">Inteligencia Artificial</span>
-                </div>
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/introduccion_a_computacion_cuantica.png"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Introducción a Computación Cuántica</h3>
-                    <p class="professor">Prof. Pau Fargas</p>
-
-                    <a href="/iqc" class="btn">Ver curso</a>
-
-                    <span class="course-type-quantum">Computación Cuántica</span
-                    >
-                </div>
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/deep_learning_para_computer_vision.png"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Deep Learning Computer Vision</h3>
-                    <p class="professor">Prof. Erick Maraz</p>
-
-                    <a href="/dlxcv" class="btn">Ver curso</a>
-
-                    <span class="course-type-AI">Inteligencia Artificial</span>
-                </div>
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/knowledge_graphs.png"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Knowledge Graphs</h3>
-                    <p class="professor">Prof. Martin Arispe</p>
-
-                    <a href="/kg" class="btn">Ver curso</a>
-
-                    <span class="course-type-AI">Inteligencia Artificial</span>
-                </div>
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/large_language_models.png"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Large Language Models</h3>
-                    <p class="professor">Prof. Martin Arispe</p>
-
-                    <a href="/llms" class="btn">Ver curso</a>
-
-                    <span class="course-type-AI">Inteligencia Artificial</span>
-                </div>
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/large_language_models_locales.png"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Large Language Models Locales</h3>
-                    <p class="professor">Prof. Camilo Bolaños</p>
-
-                    <a href="/llml" class="btn">Ver curso</a>
-
-                    <span class="course-type-AI">Inteligencia Artificial</span>
-                </div>
-
-                <!-- -->
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/large_language_models_avanzado.png"
-                        alt="Large Language Models Avanzado"
-                        class="course-image"
-                    />
-
-                    <h3>Large Language Models Avanzado</h3>
-                    <p class="professor">Prof. Edison Bejarano</p>
-
-                    <!--<a href="/llma" class="btn">Ver curso</a>-->
-                    <span>Muy Pronto</span>
-
-                    <span class="course-type-AI">Inteligencia Artificial</span>
-                </div>
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/self_supervised_learning.png"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Self-Supervised Learning</h3>
-                    <p class="professor">Prof. Imanol Estepa</p>
-
-                    <span>Muy Pronto</span>
-
-                    <span class="course-type-AI">Inteligencia Artificial</span>
-                </div>
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/computer_vision_3d.png"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Computer Vision 3D</h3>
-                    <p class="professor">Prof. Emily Rivera</p>
-
-                    <span>Muy Pronto</span>
-
-                    <span class="course-type-AI">Inteligencia Artificial</span>
-                </div>
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/human_pose_estimation.png"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Human Pose Estimation</h3>
-                    <p class="professor">Prof. Emily Rivera</p>
-
-                    <span>Muy Pronto</span>
-
-                    <span class="course-type-AI">Inteligencia Artificial</span>
-                </div>
-
-                <div class="course-card">
-                    <img
-                        src="/assets/cursos/multimodal_ai.png"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Multimodal AI</h3>
-                    <p class="professor">Prof. Artemis Llabrés</p>
-
-                    <span>Muy Pronto</span>
-
-                    <span class="course-type-AI">Inteligencia Artificial</span>
-                </div>
-
-                <div class="course-card">
-                    <img
-                        src="/ejemplo_nn.jpg"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Social Data Science</h3>
-                    <p class="professor">Prof. Alex Ojeda</p>
-
-                    <span>Muy Pronto</span>
-
-                    <span class="course-type-AI">Inteligencia Artificial</span>
-                </div>
-
-                <!--
-
-                <div class="course-card">
-                    <img
-                        src="/ejemplo_nn.jpg"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Tensor Networks</h3>
-                    <p class="professor">Prof. ?????</p>
-
-                    <a href="/fdl" class="btn">Ver curso</a>
-
-                    <span class="course-type">Computación Cuántica</span>
-                </div>
-
-
-
-                <div class="course-card">
-                    <img
-                        src="/ejemplo_nn.jpg"
-                        alt="Deep Learning"
-                        class="course-image"
-                    />
-
-                    <h3>Procesamiento de Información Cuántica</h3>
-                    <p class="professor">Prof. ?????</p>
-
-                    <a href="/fdl" class="btn">Ver curso</a>
-
-                    <span class="course-type">Computación Cuántica</span>
-                </div>
-
-
-
-
- -->
-            </div>
+<Layout title="Cursos DeepTech" description="Explora todos los cursos de IA, Computación Cuántica y Programación de Delve Educación.">
+
+  <div class="page-header">
+    <span class="label">Catálogo completo</span>
+    <h1>Todos los cursos <em>DeepTech</em></h1>
+    <p>{allCourses.length} cursos · Actualizado 2026</p>
+  </div>
+
+  <!-- Pill filters -->
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="ia">Inteligencia Artificial</button>
+    <button class="filter-btn" data-filter="quantum">Computación Cuántica</button>
+    <button class="filter-btn" data-filter="dev">Programación</button>
+    <button class="filter-btn" data-filter="Principiante">Principiante</button>
+    <button class="filter-btn" data-filter="Intermedio">Intermedio</button>
+    <button class="filter-btn" data-filter="Avanzado">Avanzado</button>
+  </div>
+
+  <div class="body-layout">
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar">
+
+      <div class="sidebar-block">
+        <h3>Área</h3>
+        <label class="check-item">
+          <input type="checkbox" class="sb-cb" data-area="ia" checked />
+          <span class="check-label">Inteligencia Artificial</span>
+          <span class="count">{countIA}</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" class="sb-cb" data-area="quantum" checked />
+          <span class="check-label">Computación Cuántica</span>
+          <span class="count">{countQuantum}</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" class="sb-cb" data-area="dev" checked />
+          <span class="check-label">Programación</span>
+          <span class="count">{countDev}</span>
+        </label>
+      </div>
+
+      <div class="sidebar-block">
+        <h3>Nivel</h3>
+        <label class="check-item">
+          <input type="checkbox" class="sb-cb" data-level="Principiante" checked />
+          <span class="check-label">Principiante</span>
+          <span class="count">{countPrinc}</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" class="sb-cb" data-level="Intermedio" checked />
+          <span class="check-label">Intermedio</span>
+          <span class="count">{countInter}</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" class="sb-cb" data-level="Avanzado" checked />
+          <span class="check-label">Avanzado</span>
+          <span class="count">{countAvanz}</span>
+        </label>
+      </div>
+
+      <div class="sidebar-block">
+        <h3>Disponibilidad</h3>
+        <label class="check-item">
+          <input type="checkbox" class="sb-cb" data-status="available" checked />
+          <span class="dot dot-green"></span>
+          <span class="check-label">Disponibles</span>
+          <span class="count">{available.length}</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" class="sb-cb" data-status="coming_soon" checked />
+          <span class="dot dot-gray"></span>
+          <span class="check-label">Muy pronto</span>
+          <span class="count">{comingSoon.length}</span>
+        </label>
+      </div>
+
+      <div class="sidebar-promo">
+        <p class="promo-title">Acceso Founder</p>
+        <p class="promo-desc">Todos los cursos por $9/mes. Oferta de lanzamiento.</p>
+        <a href="https://forms.gle/fknvV9x2rLHyrF4N7" target="_blank" class="btn-primary promo-btn">
+          Ver plan →
+        </a>
+      </div>
+
+    </aside>
+
+    <!-- ── COURSE LIST ── -->
+    <div class="course-list">
+
+      <!-- Featured banner -->
+      <a href="/programas" class="featured-banner">
+        <div>
+          <span class="feat-badge">Programa estrella</span>
+          <h3>Especialista en LLMs</h3>
+          <p>8 semanas · 3 cursos + 4 sesiones en vivo · Certificado verificable</p>
         </div>
+        <div class="featured-right">
+          <div class="feat-price">$149 <span>pago único</span></div>
+          <span class="feat-cta">Ver programa →</span>
+        </div>
+      </a>
 
-        <footer>
-            © {year} Delve Educación
-        </footer>
+      <!-- Available courses -->
+      {available.map(c => (
+        <a
+          href={`/cursos/${c.slug}`}
+          class="course-card"
+          data-area={c.area}
+          data-level={c.level}
+          data-status="available"
+        >
+          <div class="card-top">
+            <span class={`tag ${c.tagClass}`}>{c.tag}</span>
+            <span class="level-lbl">{c.level}</span>
+          </div>
+          <h3>{c.title}</h3>
+          <p>{c.desc}</p>
+          <div class="card-footer">
+            <div class="card-meta">
+              <span>{c.weeks} semanas</span>
+              <span>{c.format}</span>
+            </div>
+            <span class="card-cta">Ver curso →</span>
+          </div>
+        </a>
+      ))}
 
+      <!-- Coming soon divider -->
+      <div class="coming-header" id="coming-header">
+        <h2>Próximamente</h2>
+        <span>{comingSoon.length} cursos en desarrollo</span>
+      </div>
 
-			<script>
-				const hamburger = document.getElementById("hamburger");
-				const navLinks = document.getElementById("nav-links");
+      <!-- Coming soon courses -->
+      {comingSoon.map(c => (
+        <div
+          class="course-card coming"
+          data-area={c.area}
+          data-level={c.level}
+          data-status="coming_soon"
+        >
+          <div class="card-top">
+            <span class={`tag ${c.tagClass}`}>{c.tag}</span>
+            <span class="level-lbl">{c.level}</span>
+          </div>
+          <h3>{c.title}</h3>
+          <p>{c.desc}</p>
+          <div class="card-footer">
+            <div class="card-meta">
+              <span>{c.weeks} semanas</span>
+              <span>{c.format}</span>
+            </div>
+            <span class="soon-badge">Muy pronto</span>
+          </div>
+        </div>
+      ))}
 
-				hamburger.addEventListener("click", () => {
-					navLinks.classList.toggle("active");
-				});
-			</script>
-    </body>
-</html>
+    </div>
+  </div>
+
+</Layout>
+
+<!-- ═══════════════════════ STYLES ═══════════════════════ -->
+<style>
+  .page-header {
+    padding: 56px var(--px) 28px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .page-header h1 {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.05;
+  }
+  .page-header h1 em { color: var(--accent); font-style: normal; }
+  .page-header > p   { font-size: 14px; color: var(--text-muted); }
+
+  /* ── PILL FILTERS ── */
+  .filters {
+    display: flex;
+    gap: 8px;
+    padding: 20px var(--px);
+    flex-wrap: wrap;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .filter-btn {
+    font-size: 12px;
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 0.5px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .filter-btn:hover  { border-color: var(--border-hover); color: #fff; }
+  .filter-btn.active { background: var(--accent-dim); border-color: var(--accent-border); color: var(--accent); }
+
+  /* ── LAYOUT ── */
+  .body-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 32px;
+    padding: 32px var(--px) 72px;
+    align-items: start;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar { position: sticky; top: 80px; }
+
+  .sidebar-block {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .sidebar-block h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  /* ── CHECKBOX ITEMS ── */
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 4px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.12s;
+    user-select: none;
+  }
+  .check-item:hover { background: rgba(255,255,255,0.04); }
+
+  /* Custom checkbox */
+  .sb-cb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 3px;
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .sb-cb:hover:not(:checked) { border-color: rgba(61,255,182,0.45); }
+  .sb-cb:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .sb-cb:checked::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 0px;
+    width: 5px;
+    height: 8px;
+    border: 2px solid #050A14;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+  }
+
+  .check-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    flex: 1;
+  }
+
+  /* Dim row when unchecked */
+  .check-item:has(.sb-cb:not(:checked)) .check-label,
+  .check-item:has(.sb-cb:not(:checked)) .count,
+  .check-item:has(.sb-cb:not(:checked)) .dot {
+    opacity: 0.35;
+  }
+
+  .count {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-left: auto;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot-green { background: var(--accent); }
+  .dot-gray  { background: rgba(255,255,255,0.25); }
+
+  /* ── SIDEBAR PROMO ── */
+  .sidebar-promo {
+    background: var(--accent-dim);
+    border: 0.5px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin-top: 8px;
+  }
+  .promo-title { font-size: 14px; color: var(--accent); font-weight: 500; margin-bottom: 6px; }
+  .promo-desc  { font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px; }
+  .promo-btn   { display: block; text-align: center; font-size: 13px; padding: 10px; }
+
+  /* ── COURSE LIST ── */
+  .course-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    align-content: start;
+  }
+
+  /* Featured banner */
+  .featured-banner {
+    grid-column: 1 / -1;
+    background: rgba(61,255,182,0.04);
+    border: 0.5px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    transition: background 0.15s;
+  }
+  .featured-banner:hover { background: rgba(61,255,182,0.07); }
+
+  .feat-badge {
+    display: inline-block;
+    font-size: 10px;
+    background: var(--accent);
+    color: var(--bg-primary);
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .featured-banner h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .featured-banner p { font-size: 13px; color: var(--text-secondary); }
+  .featured-right    { text-align: right; flex-shrink: 0; }
+  .feat-price {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .feat-price span { font-size: 13px; font-weight: 400; color: var(--text-muted); }
+  .feat-cta { font-size: 13px; color: var(--accent); }
+
+  /* ── COURSE CARD ── */
+  .course-card {
+    background: var(--bg-surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, transform 0.15s;
+    text-decoration: none;
+  }
+  .course-card:not(.coming):hover {
+    border-color: var(--accent-border);
+    transform: translateY(-2px);
+  }
+  .coming { opacity: 0.55; cursor: default; }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .level-lbl { font-size: 11px; color: var(--text-muted); }
+
+  .course-card h3 {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.35;
+  }
+  .course-card p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 16px;
+  }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 0.5px solid var(--border);
+    padding-top: 14px;
+    margin-top: auto;
+  }
+  .card-meta { display: flex; gap: 14px; }
+  .card-meta span { font-size: 11px; color: var(--text-muted); }
+  .card-cta   { font-size: 12px; color: var(--accent); }
+  .soon-badge {
+    font-size: 11px;
+    color: var(--text-muted);
+    border: 0.5px solid var(--border);
+    padding: 3px 10px;
+    border-radius: 10px;
+  }
+
+  /* ── COMING SOON HEADER ── */
+  .coming-header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 16px 0 4px;
+    border-top: 0.5px solid var(--border);
+    margin-top: 8px;
+  }
+  .coming-header h2 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.4);
+  }
+  .coming-header span { font-size: 13px; color: var(--text-muted); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .body-layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .course-list { grid-template-columns: 1fr; }
+    .featured-banner { flex-direction: column; }
+    .featured-right { text-align: left; }
+  }
+  @media (max-width: 768px) {
+    .page-header h1 { font-size: 32px; }
+  }
+</style>
+
+<!-- ═══════════════════════ SCRIPT ═══════════════════════ -->
+<script>
+  // ── REFERENCES ─────────────────────────────────────────────
+  const cards        = Array.from(document.querySelectorAll('.course-card'));
+  const comingHeader = document.getElementById('coming-header');
+  const filterBtns   = document.querySelectorAll('.filter-btn');
+  const areaCBs      = document.querySelectorAll('.sb-cb[data-area]');
+  const levelCBs     = document.querySelectorAll('.sb-cb[data-level]');
+  const statusCBs    = document.querySelectorAll('.sb-cb[data-status]');
+
+  // ── ACTIVE SETS (start fully open) ─────────────────────────
+  const activeAreas    = new Set(['ia', 'quantum', 'dev']);
+  const activeLevels   = new Set(['Principiante', 'Intermedio', 'Avanzado']);
+  const activeStatuses = new Set(['available', 'coming_soon']);
+
+  // ── RENDER ─────────────────────────────────────────────────
+  function applyFilters() {
+    let anyComingVisible = false;
+
+    cards.forEach(card => {
+      const area   = card.dataset.area   ?? '';
+      const level  = card.dataset.level  ?? '';
+      const status = card.dataset.status ?? '';
+
+      const visible =
+        activeAreas.has(area) &&
+        activeLevels.has(level) &&
+        activeStatuses.has(status);
+
+      card.style.display = visible ? '' : 'none';
+      if (visible && status === 'coming_soon') anyComingVisible = true;
+    });
+
+    if (comingHeader) {
+      comingHeader.style.display = anyComingVisible ? '' : 'none';
+    }
+  }
+
+  // ── SYNC CHECKBOXES → SETS ──────────────────────────────────
+  areaCBs.forEach(cb => {
+    cb.addEventListener('change', () => {
+      const area = cb.dataset.area;
+      cb.checked ? activeAreas.add(area) : activeAreas.delete(area);
+      resetPills();
+      applyFilters();
+    });
+  });
+
+  levelCBs.forEach(cb => {
+    cb.addEventListener('change', () => {
+      const level = cb.dataset.level;
+      cb.checked ? activeLevels.add(level) : activeLevels.delete(level);
+      resetPills();
+      applyFilters();
+    });
+  });
+
+  statusCBs.forEach(cb => {
+    cb.addEventListener('change', () => {
+      const status = cb.dataset.status;
+      cb.checked ? activeStatuses.add(status) : activeStatuses.delete(status);
+      resetPills();
+      applyFilters();
+    });
+  });
+
+  // ── PILL BUTTONS → SETS + CHECKBOXES ───────────────────────
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const f = btn.dataset.filter;
+
+      if (f === 'all') {
+        ['ia','quantum','dev'].forEach(a => activeAreas.add(a));
+        ['Principiante','Intermedio','Avanzado'].forEach(l => activeLevels.add(l));
+        ['available','coming_soon'].forEach(s => activeStatuses.add(s));
+        areaCBs.forEach(cb  => { cb.checked = true; });
+        levelCBs.forEach(cb => { cb.checked = true; });
+        statusCBs.forEach(cb => { cb.checked = true; });
+
+      } else if (['ia','quantum','dev'].includes(f)) {
+        activeAreas.clear();
+        activeAreas.add(f);
+        areaCBs.forEach(cb => { cb.checked = cb.dataset.area === f; });
+
+      } else {
+        activeLevels.clear();
+        activeLevels.add(f);
+        levelCBs.forEach(cb => { cb.checked = cb.dataset.level === f; });
+      }
+
+      applyFilters();
+    });
+  });
+
+  // ── HELPERS ─────────────────────────────────────────────────
+  function resetPills() {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    document.querySelector('.filter-btn[data-filter="all"]')?.classList.add('active');
+  }
+
+  // Initial render
+  applyFilters();
+</script>

@@ -1,0 +1,134 @@
+---
+const navLinks = [
+  { href: '/cursos', label: 'Cursos' },
+  { href: '/programas', label: 'Programas' },
+  { href: '/empresas', label: 'Para Empresas' },
+  { href: '/nosotros', label: 'Nosotros' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="nav">
+  <!--<a href="/" class="logo">Delve<span>.</span></a>-->
+<div class="logo">
+				<a href="/"><img src="/assets/logo.png" width="80"/></a>
+			</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="nav-links" id="navLinks">
+    {navLinks.map(link => (
+      <a
+        href={link.href}
+        class:list={['nav-link', { active: currentPath.startsWith(link.href) }]}
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+
+  <a href="https://forms.gle/fknvV9x2rLHyrF4N7" target="_blank" class="nav-cta">
+    Empezar gratis
+  </a>
+</nav>
+
+<style>
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px var(--px);
+    border-bottom: 0.5px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(5, 10, 20, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+
+  .logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: color 0.15s;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--accent);
+  }
+
+  .nav-cta {
+    background: var(--accent);
+    color: var(--bg-primary);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    transition: opacity 0.15s;
+  }
+
+  .nav-cta:hover { opacity: 0.9; }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    padding: 4px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: 0.2s;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(5, 10, 20, 0.98);
+      flex-direction: column;
+      padding: 24px var(--px);
+      gap: 20px;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: flex; }
+    .nav-cta { display: none; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle?.addEventListener('click', () => {
+    links?.classList.toggle('open');
+  });
+</script>

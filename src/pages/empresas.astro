@@ -1,0 +1,516 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const segments = [
+  {
+    icon: '🏢',
+    name: 'Empresas',
+    desc: 'Capacita a tu equipo técnico y directivo en IA aplicada a tu industria. Contenido personalizado por sector.',
+    price: 'Desde $1,500',
+    period: '/mes',
+    features: ['Diagnóstico inicial de habilidades', 'Cursos personalizados por área', 'Sesiones en vivo con mentores', 'Reporte de progreso mensual', 'Certificados para el equipo'],
+    accentColor: 'var(--accent)',
+    accentBg: 'rgba(61,255,182,0.06)',
+    accentBorder: 'rgba(61,255,182,0.25)',
+    featured: true,
+  },
+  {
+    icon: '🎓',
+    name: 'Universidades',
+    desc: 'Complementa el currículo de carreras de ingeniería con contenido DeepTech actualizado al 2026.',
+    price: 'Desde $800',
+    period: '/mes',
+    features: ['Acceso para todos los estudiantes', 'Soporte a docentes', 'Integración curricular', 'Certificados co-branded', 'Webinars exclusivos'],
+    accentColor: 'var(--purple)',
+    accentBg: 'rgba(139,92,246,0.04)',
+    accentBorder: 'rgba(139,92,246,0.2)',
+    featured: false,
+  },
+  {
+    icon: '🏫',
+    name: 'Colegios privados',
+    desc: 'Diferénciate ofreciendo IA y tecnología avanzada a tus alumnos desde la secundaria.',
+    price: 'Desde $300',
+    period: '/mes',
+    features: ['Cursos adaptados por edad', 'Material para docentes', 'Proyecto final presentable', 'Certificado para alumnos'],
+    accentColor: 'var(--blue)',
+    accentBg: 'rgba(59,130,246,0.04)',
+    accentBorder: 'rgba(59,130,246,0.2)',
+    featured: false,
+  },
+];
+
+const steps = [
+  { num: '1', title: 'Reunión inicial', desc: 'Entendemos tus objetivos y el nivel actual del equipo' },
+  { num: '2', title: 'Piloto 30 días', desc: 'Acceso gratuito para validar la experiencia de aprendizaje' },
+  { num: '3', title: 'Programa a medida', desc: 'Diseñamos el plan de capacitación según tus necesidades' },
+  { num: '4', title: 'Contrato y escala', desc: 'Implementamos, medimos resultados y escalamos' },
+];
+
+const proofPoints = [
+  { num: '15+', label: 'Mentores con experiencia en empresas tech globales' },
+  { num: '100%', label: 'Contenido en español con contexto latinoamericano' },
+  { num: '3', label: 'Especializaciones únicas en DeepTech en la región' },
+];
+---
+
+<Layout title="Para Empresas y Universidades" description="Capacita a tu equipo en IA y DeepTech. Programas para empresas, universidades y colegios en Latinoamérica. Piloto gratuito de 30 días.">
+
+  <!-- HERO -->
+  <section class="b-hero">
+    <div class="b-hero-content">
+      <span class="label">Para organizaciones</span>
+      <h1>Capacita a tu equipo en<br /><em>IA y DeepTech</em></h1>
+      <p>Programas de formación en Inteligencia Artificial, Computación Cuántica y Programación para empresas, colegios y universidades en Latinoamérica.</p>
+      <div class="hero-btns">
+        <a href="#contacto" class="btn-primary">Solicitar piloto gratuito</a>
+        <a href="#segmentos" class="btn-secondary">Ver planes →</a>
+      </div>
+      <div class="trust-row">
+        <span class="trust-item">✓ Piloto gratuito 30 días</span>
+        <span class="trust-item">✓ Sin compromiso</span>
+        <span class="trust-item">✓ Resultados medibles</span>
+      </div>
+    </div>
+
+    <!-- Contact form -->
+    <div class="contact-card" id="contacto">
+      <h3>Hablemos de tu organización</h3>
+      <form class="contact-form" name="b2b-contact" method="POST" data-netlify="true">
+        <div class="field">
+          <label>Nombre y apellido</label>
+          <input type="text" name="nombre" placeholder="Ej. María González" required />
+        </div>
+        <div class="field">
+          <label>Organización</label>
+          <input type="text" name="organizacion" placeholder="Nombre de empresa o institución" required />
+        </div>
+        <div class="field">
+          <label>Tipo de organización</label>
+          <select name="tipo">
+            <option value="">Selecciona...</option>
+            <option>Empresa privada</option>
+            <option>Universidad</option>
+            <option>Colegio privado</option>
+            <option>Institución pública</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Correo corporativo</label>
+          <input type="email" name="email" placeholder="tu@empresa.com" required />
+        </div>
+        <div class="field">
+          <label>Número de personas a capacitar</label>
+          <select name="personas">
+            <option value="">Selecciona...</option>
+            <option>1 – 10</option>
+            <option>11 – 50</option>
+            <option>51 – 200</option>
+            <option>Más de 200</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary form-submit">
+          Solicitar reunión →
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- SEGMENTS -->
+  <section class="section" id="segmentos">
+    <span class="label">Soluciones por segmento</span>
+    <h2 class="section-title">¿Quién eres?</h2>
+    <div class="seg-grid">
+      {segments.map(s => (
+        <div
+          class:list={['seg-card', { 'seg-featured': s.featured }]}
+          style={`--seg-color: ${s.accentColor}; --seg-bg: ${s.accentBg}; --seg-border: ${s.accentBorder};`}
+        >
+          <div class="seg-icon">{s.icon}</div>
+          <h3>{s.name}</h3>
+          <p>{s.desc}</p>
+          <div class="seg-price">
+            {s.price}<span>{s.period}</span>
+          </div>
+          <ul class="seg-features">
+            {s.features.map(f => <li>{f}</li>)}
+          </ul>
+          <a href="#contacto" class="seg-btn">Solicitar información →</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section how-section">
+    <span class="label">¿Cómo funciona?</span>
+    <h2 class="section-title">En 4 pasos simples</h2>
+    <div class="steps">
+      {steps.map((s, i) => (
+        <div class="step">
+          <div class="step-num">{s.num}</div>
+          {i < steps.length - 1 && <div class="step-line"></div>}
+          <h4>{s.title}</h4>
+          <p>{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- PROOF POINTS -->
+  <section class="section proof-section">
+    <span class="label">Por qué Delve</span>
+    <h2 class="section-title">Lo que nos diferencia</h2>
+    <div class="proof-grid">
+      {proofPoints.map(pp => (
+        <div class="proof-card">
+          <div class="proof-num">{pp.num}</div>
+          <div class="proof-label">{pp.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section final-cta-section">
+    <div class="final-cta">
+      <h2>¿Listo para capacitar a tu equipo?</h2>
+      <p>Piloto gratuito de 30 días. Sin compromiso. Resultados medibles desde el primer mes.</p>
+      <a href="#contacto" class="btn-primary">Solicitar piloto gratis →</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* HERO */
+  .b-hero {
+    padding: 72px var(--px) 64px;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 64px;
+    align-items: start;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .b-hero-content h1 {
+    font-family: var(--font-display);
+    font-size: 50px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: #fff;
+    margin-bottom: 20px;
+    line-height: 1.04;
+  }
+
+  .b-hero-content h1 em { color: var(--accent); font-style: normal; }
+
+  .b-hero-content > p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    font-weight: 300;
+    max-width: 480px;
+  }
+
+  .hero-btns { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+
+  .trust-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* CONTACT FORM */
+  .contact-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: 28px;
+    position: sticky;
+    top: 90px;
+  }
+
+  .contact-card h3 {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .contact-form { display: flex; flex-direction: column; gap: 14px; }
+
+  .field { display: flex; flex-direction: column; gap: 6px; }
+
+  .field label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .field input,
+  .field select {
+    background: rgba(255, 255, 255, 0.04);
+    border: 0.5px solid var(--border-hover);
+    border-radius: 7px;
+    padding: 10px 14px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13px;
+    font-family: var(--font-body);
+    transition: border-color 0.15s;
+  }
+
+  .field input:focus,
+  .field select:focus {
+    outline: none;
+    border-color: rgba(61, 255, 182, 0.4);
+  }
+
+  .field select option { background: #0d1424; }
+
+  .form-submit {
+    width: 100%;
+    text-align: center;
+    padding: 13px;
+    margin-top: 4px;
+    border: none;
+  }
+
+  /* SEGMENTS */
+  .section {
+    padding: 72px var(--px);
+  }
+
+  .seg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .seg-card {
+    background: var(--seg-bg, var(--bg-surface));
+    border: 0.5px solid var(--seg-border, var(--border));
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .seg-icon {
+    font-size: 28px;
+    margin-bottom: 18px;
+  }
+
+  .seg-card h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .seg-card > p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .seg-price {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--seg-color, #fff);
+    margin-bottom: 16px;
+  }
+
+  .seg-price span {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .seg-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 0.5px solid var(--border);
+    padding-top: 14px;
+    margin-bottom: 24px;
+  }
+
+  .seg-features li {
+    font-size: 12px;
+    color: var(--text-secondary);
+    padding: 5px 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .seg-features li::before {
+    content: '→';
+    color: var(--seg-color, var(--accent));
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .seg-btn {
+    font-size: 13px;
+    color: var(--seg-color, var(--accent));
+    margin-top: auto;
+    padding-top: 4px;
+    transition: opacity 0.15s;
+  }
+
+  .seg-btn:hover { opacity: 0.75; }
+
+  /* HOW IT WORKS */
+  .how-section {
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+    background: rgba(255,255,255,0.01);
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .step {
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+  }
+
+  .step-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent-dim);
+    border: 0.5px solid var(--accent-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0 auto 18px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-line {
+    position: absolute;
+    top: 24px;
+    left: calc(50% + 24px);
+    right: calc(-50% + 24px);
+    height: 0.5px;
+    background: var(--border);
+  }
+
+  .step h4 {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .step p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* PROOF */
+  .proof-section { }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .proof-card {
+    background: var(--bg-surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+  }
+
+  .proof-num {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .proof-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* FINAL CTA */
+  .final-cta-section { padding-top: 0; padding-bottom: 72px; }
+
+  .final-cta {
+    background: rgba(61, 255, 182, 0.05);
+    border: 0.5px solid var(--accent-border);
+    border-radius: var(--radius-xl);
+    padding: 48px;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .final-cta p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .b-hero { grid-template-columns: 1fr; gap: 40px; }
+    .contact-card { position: static; }
+  }
+
+  @media (max-width: 900px) {
+    .seg-grid,
+    .proof-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .step-line { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    .b-hero-content h1 { font-size: 36px; }
+    .steps { grid-template-columns: 1fr; }
+    .final-cta { padding: 32px 24px; }
+    .final-cta h2 { font-size: 24px; }
+  }
+</style>

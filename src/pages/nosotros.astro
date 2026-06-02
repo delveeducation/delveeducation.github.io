@@ -1,312 +1,217 @@
 ---
-const year = new Date().getFullYear();
+import Layout from '../layouts/Layout.astro';
+
+const mentors = [
+  { initials: 'AA', name: 'Adrián Arnaiz',       role: 'IA Research',         color: 'var(--accent)' },
+  { initials: 'AR', name: 'Adriana Romero',       role: 'ML Engineer',         color: 'var(--purple)' },
+  { initials: 'ER', name: 'Emily Rivera',         role: 'DeepTech',            color: 'var(--blue)' },
+  { initials: 'CB', name: 'Camilo Bolaños',       role: 'Data Science',        color: '#FCD34D' },
+  { initials: 'DS', name: 'Danae Sanchez',        role: 'AI Research',         color: '#FCA5A5' },
+  { initials: 'DA', name: 'Diego Angulo',         role: 'ML Engineering',      color: 'var(--accent)' },
+  { initials: 'EM', name: 'Erick Maraz',          role: 'Deep Learning',       color: 'var(--purple)' },
+  { initials: 'FS', name: 'Felipe San Martin',    role: 'AI Product',          color: 'var(--blue)' },
+  { initials: 'HC', name: 'Hodei Calvo',          role: 'Quantum Computing',   color: '#FCD34D' },
+  { initials: 'JB', name: 'Jaume Brossa',         role: 'AI Strategy',         color: '#FCA5A5' },
+  { initials: 'JG', name: 'Juan Gomez R.',        role: 'ML Research',         color: 'var(--accent)' },
+  { initials: 'JGu', name: 'Juan Guillermo',      role: 'NLP Engineer',        color: 'var(--purple)' },
+  { initials: 'JP', name: 'Juan Pablo Morales',   role: 'Data Engineering',    color: 'var(--blue)' },
+  { initials: 'MA', name: 'Martin Arispe',        role: 'Quantum Algorithms',  color: '#FCD34D' },
+  { initials: 'MV', name: 'Merce Vintro',         role: 'AI Ethics',           color: '#FCA5A5' },
+  { initials: 'OC', name: 'Oscar Contreras',      role: 'Computer Vision',     color: 'var(--accent)' },
+  { initials: 'PF', name: 'Pau Fargas',           role: 'Robotics & AI',       color: 'var(--purple)' },
+];
 ---
 
-<html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Delve Educación | DeepTech</title>
+<Layout title="Nosotros" description="Somos un equipo multidisciplinario enfocado en DeepTech, impulsando a Latinoamérica en tecnologías avanzadas.">
 
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-            rel="stylesheet"
-        />
+  <section class="hero-section">
+    <span class="label">Quiénes somos</span>
+    <h1>Somos un equipo <em>DeepTech</em></h1>
+    <p>Un equipo multidisciplinario con un objetivo en común: impulsar a Latinoamérica para que juegue un papel relevante en el desarrollo y aplicación de tecnologías avanzadas.</p>
+    <div class="accel-row">
+      <span>Acelerado por</span>
+      <span class="accel-name">Aceleratec</span>
+    </div>
+  </section>
 
-        <style>
-            body {
-                margin: 0;
-                font-family: "Inter", sans-serif;
-                background: #0f172a;
-                color: white;
-            }
-
-            .container {
-                max-width: 1100px;
-                margin: 0 auto;
-                padding: 100px 20px;
-                text-align: center;
-            }
-
-            h1 {
-                font-size: 3rem;
-                margin-bottom: 20px;
-            }
-
-            p {
-                font-size: 1.2rem;
-                color: #cbd5e1;
-                text-align: justify;
-            }
-
-            .btn {
-                display: inline-block;
-                margin-top: 30px;
-                padding: 14px 28px;
-                background: rgb(136, 255, 96);
-                color: black;
-                border-radius: 12px;
-                text-decoration: none;
-                font-weight: 600;
-                transition: 0.3s ease;
-            }
-
-            .btn:hover {
-                transform: translateY(-3px);
-            }
-
-            nav {
-                position: fixed;
-                top: 0;
-                width: 100%;
-                background: rgba(15, 23, 42, 0.9);
-                backdrop-filter: blur(10px);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 20px 40px;
-                box-sizing: border-box;
-                z-index: 1000;
-            }
-
-            nav ul {
-                list-style: none;
-                display: flex;
-                gap: 30px;
-                margin: 0;
-                padding: 0;
-            }
-
-            nav a {
-                text-decoration: none;
-                color: white;
-                font-weight: 500;
-                transition: 0.3s;
-            }
-
-            nav a:hover {
-                color: #38bdf8;
-            }
-
-            .logo img {
-                height: 35px;
-                width: auto;
-                display: block;
-            }
-
-            .founder {
-                margin-top: 100px;
-                padding: 60px;
-                background: #14202e;
-                border-radius: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 50px;
-            }
-
-            .founder-text {
-                flex: 1;
-                text-align: left;
-            }
-
-            .founder-text h2 {
-                font-size: 2rem;
-                margin-bottom: 20px;
-            }
-
-            .founder-text p {
-                color: #cbd5e1;
-                line-height: 1.6;
-                margin-bottom: 25px;
-            }
-
-            .founder-image {
-                flex: 1;
-                text-align: center;
-            }
-
-            .founder-image img {
-                max-width: 100%;
-                border-radius: 16px;
-            }
-
-            /* HAMBURGER */
-            .hamburger {
-                display: none;
-                flex-direction: column;
-                gap: 6px;
-                cursor: pointer;
-            }
-
-            .hamburger span {
-                width: 25px;
-                height: 3px;
-                background: white;
-                border-radius: 3px;
-            }
-
-            @media (max-width: 768px) {
-                nav ul {
-                    position: absolute;
-                    top: 80px;
-                    right: 0;
-                    background: #0f172a;
-                    flex-direction: column;
-                    width: 220px;
-                    padding: 30px;
-                    gap: 20px;
-                    display: none;
-                    border-radius: 12px 0 0 12px;
-                }
-
-                nav ul.active {
-                    display: flex;
-                }
-
-                .hamburger {
-                    display: flex;
-                }
-
-                .founder {
-                    flex-direction: column;
-                    text-align: center;
-                }
-
-                .founder-text {
-                    text-align: center;
-                }
-            }
-
-            footer {
-                margin-top: 80px;
-                padding: 40px 20px;
-                text-align: center;
-                color: #94a3b8;
-                font-size: 0.9rem;
-            }
-
-            .social-icons {
-                display: flex;
-                justify-content: center;
-                gap: 25px;
-                margin-bottom: 20px;
-            }
-
-            .social-icons img {
-                width: 24px;
-                height: 24px;
-                opacity: 0.8;
-                transition: 0.3s ease;
-            }
-
-            .social-icons img:hover {
-                opacity: 1;
-                transform: translateY(-3px);
-            }
-
-            .accelerated {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 15px;
-                margin-bottom: 30px;
-            }
-
-            .accelerated-text {
-                color: #94a3b8;
-                font-size: 0.85rem;
-                text-transform: uppercase;
-            }
-
-            .accelerated-logo {
-                height: 35px;
-                opacity: 0.9;
-            }
-            footer {
-                margin-top: 80px;
-                padding: 40px 20px;
-                text-align: center;
-                color: #94a3b8;
-                font-size: 0.9rem;
-            }
-            .footer-year {
-                text-align: center;
-                margin-top: 10px; /* opcional */
-            }
-        </style>
-    </head>
-
-    <body>
-        <!-- NAV -->
-        <nav>
-            <div class="logo">
-                <a href="/">
-                    <img src="/assets/logo.png" />
-                </a>
-            </div>
-
-            <ul id="nav-links">
-                <li><a href="/ellms">Programas</a></li>
-                <li><a href="/cursos">Cursos</a></li>
-                <li><a href="/nosotros">Nosotros</a></li>
-                <li><a href="/contacto">Contacto</a></li>
-            </ul>
-
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-
-        <!-- CONTENT -->
-        <div class="container">
-            <div class="founder">
-                <div class="founder-text">
-                    <h2>Somos un equipo DeepTech</h2>
-                    <p>
-                        Somos un equipo multidisciplinario enfocado en deeptech,
-                        donde convergen distintas especialidades con un objetivo
-                        en común: impulsar a Latinoamérica para que juegue un
-                        papel relevante en el desarrollo y aplicación de
-                        tecnologías avanzadas.
-                    </p>
-                </div>
-
-                <div class="founder-image">
-                    <img src="/assets/team_delve.png" alt="Equipo Delve" />
-                </div>
-            </div>
+  <section class="section mentors-section">
+    <span class="label">El equipo docente</span>
+    <h2 class="section-title">Mentores y especialistas</h2>
+    <p class="section-desc">Profesionales que han impulsado nuestra comunidad desde la etapa de Saturdays AI La Paz hasta la consolidación de Delve Educación.</p>
+    <div class="mentors-grid">
+      {mentors.map(m => (
+        <div class="mentor-card">
+          <div class="mentor-av" style={`color: ${m.color}`}>{m.initials}</div>
+          <div class="mentor-name">{m.name}</div>
+          <div class="mentor-role">{m.role}</div>
         </div>
+      ))}
+    </div>
+  </section>
 
-        <!-- FOOTER (FUERA) -->
-        <footer>
-            <div class="accelerated">
-                <p class="accelerated-text">Acelerados por:</p>
-                <img src="/aceleratec.svg" class="accelerated-logo" />
-            </div>
+  <section class="section mission-section">
+    <div class="mission-grid">
+      <div class="mission-card">
+        <span class="mission-icon">🎯</span>
+        <h3>Misión</h3>
+        <p>Democratizar el acceso a educación DeepTech de calidad en Latinoamérica, formando a la próxima generación de líderes tecnológicos de la región.</p>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon">🔭</span>
+        <h3>Visión</h3>
+        <p>Un Latinoamérica donde las empresas y profesionales locales lideren el desarrollo y aplicación de IA, computación cuántica y otras tecnologías avanzadas.</p>
+      </div>
+      <div class="mission-card">
+        <span class="mission-icon">⚡</span>
+        <h3>Por qué existimos</h3>
+        <p>La brecha de habilidades DeepTech en LATAM es real. Hay talento, hay ambición, pero falta formación en español con contexto local y mentores de clase mundial.</p>
+      </div>
+    </div>
+  </section>
 
-            <div class="social-icons">
-                <a href="https://facebook.com"><img src="/facebook.webp" /></a>
-                <a href="https://instagram.com"><img src="/instagram.webp" /></a
-                >
-                <a href="https://tiktok.com"><img src="/tiktok.webp" /></a>
-                <a href="https://linkedin.com"><img src="/linkedin.webp" /></a>
-            </div>
+</Layout>
 
-            <p class="footer-year">© {year} Delve Educación</p>
-            
-        </footer>
+<style>
+  .hero-section {
+    padding: 80px var(--px) 64px;
+    border-bottom: 0.5px solid var(--border);
+    max-width: 680px;
+  }
 
-        <!-- SCRIPT (FUERA) -->
-        <script>
-            const hamburger = document.getElementById("hamburger");
-            const navLinks = document.getElementById("nav-links");
+  .hero-section h1 {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: #fff;
+    margin-bottom: 20px;
+    line-height: 1.05;
+  }
 
-            hamburger.addEventListener("click", () => {
-                navLinks.classList.toggle("active");
-            });
-        </script>
-    </body>
-</html>
+  .hero-section h1 em { color: var(--accent); font-style: normal; }
+
+  .hero-section p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+
+  .accel-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .accel-name {
+    color: var(--text-secondary);
+    border: 0.5px solid var(--border-hover);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .section { padding: 72px var(--px); }
+
+  .section-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    margin-top: -20px;
+    font-weight: 300;
+  }
+
+  .mentors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .mentor-card {
+    background: var(--bg-surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px 16px;
+    text-align: center;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .mentor-card:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-surface-hover);
+  }
+
+  .mentor-av {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 auto 12px;
+  }
+
+  .mentor-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 4px;
+  }
+
+  .mentor-role {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .mission-section {
+    border-top: 0.5px solid var(--border);
+    background: rgba(255,255,255,0.01);
+  }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .mission-card {
+    background: var(--bg-surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+  }
+
+  .mission-icon { font-size: 24px; display: block; margin-bottom: 16px; }
+
+  .mission-card h3 {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .mission-card p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 900px) {
+    .mission-grid { grid-template-columns: 1fr; }
+    .mentors-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section h1 { font-size: 36px; }
+    .hero-section { max-width: 100%; }
+  }
+</style>
