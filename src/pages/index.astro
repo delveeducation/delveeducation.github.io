@@ -11,59 +11,65 @@ const courses = [
   {
     tag: 'Inteligencia Artificial',
     tagClass: 'tag-ai',
-    title: 'Especialista en LLMs e IA Generativa',
+    title: 'Especialista en LLMs',
     desc: 'Construye tus primeras aplicaciones con modelos de lenguaje. De cero a producción en 8 semanas.',
-    meta: '8 semanas · Asincrónico + en vivo',
-    href: '/cursos',
+    meta: '5 horas · Asincrónico + en vivo',
+    href: '/ellms',
   },
   {
     tag: 'Computación Cuántica',
     tagClass: 'tag-quantum',
-    title: 'Fundamentos de Quantum Computing',
+    title: 'Introducción a Computación Cuántica',
     desc: 'Prepárate para la próxima revolución tecnológica. Qubits, algoritmos cuánticos y aplicaciones reales.',
-    meta: '6 semanas · Asincrónico',
-    href: '/cursos',
+    meta: '5 horas · Asincrónico',
+    href: '/iqc',
   },
   {
     tag: 'Programación',
     tagClass: 'tag-dev',
-    title: 'Python para DeepTech',
+    title: 'Python Práctico',
     desc: 'Las bases de programación para entrar al mundo de la IA y la ciencia de datos.',
-    meta: '4 semanas · Asincrónico',
-    href: '/cursos',
+    meta: '5 horas · Asincrónico',
+    href: '/pp',
   },
 ];
 
 const plans = [
   {
-    name: 'Free',
-    sub: 'Empieza sin costo',
-    price: '$0',
-    period: '',
-    features: ['2 cursos introductorios', 'Comunidad WhatsApp', 'Webinar mensual gratuito'],
-    cta: 'Empezar gratis',
+    name: 'Curso individual',
+    sub: 'Entrada sin riesgo',
+    price: '$10',
+    period: ' USD',
+    bob: 'Bs 100',
+    bobPeriod: '',
+    features: ['1 curso completo (5 h)', 'Acceso anual', 'Certificado de finalización'],
+    cta: 'Elegir curso',
     href: 'https://forms.gle/fknvV9x2rLHyrF4N7',
     featured: false,
   },
   {
     name: 'Acceso Founder',
     sub: 'Precio de lanzamiento',
-    price: '$9',
-    period: '/mes',
-    features: ['20 cursos asincrónicos', 'Certificados verificables', 'Sesiones en vivo mensuales', 'Comunidad Pro'],
+    price: '$79',
+    period: ' USD/año',
+    bob: 'Bs 790',
+    bobPeriod: '/año',
+    features: ['Acceso a todos los cursos', 'Nuevos cursos incluidos', 'Acceso anual', 'Certificados de todos los cursos', 'Cupos limitados'],
     cta: 'Suscribirme',
     href: 'https://forms.gle/fknvV9x2rLHyrF4N7',
     featured: true,
     badge: 'Más popular',
   },
   {
-    name: 'Especialista LLMs',
-    sub: 'Programa intensivo',
-    price: '$149',
-    period: ' único',
-    features: ['3 cursos especializados', '4 sesiones en vivo', 'Certificado verificable', 'Acceso de por vida'],
+    name: 'Programa + mentoría',
+    sub: 'Especialización',
+    price: '$99',
+    period: ' USD único',
+    bob: 'Bs 990',
+    bobPeriod: ' pago único',
+    features: ['3 cursos del área elegida', '4 sesiones de mentoría en vivo', 'Proyecto final con feedback', 'Certificado de especialización'],
     cta: 'Ver programa',
-    href: '/programas',
+    href: '/ellms',
     featured: false,
   },
 ];
@@ -91,8 +97,8 @@ const mentors = [
       <h1>Domina las tecnologías<br />que <em>cambian el mundo</em></h1>
       <p>IA, computación cuántica y programación avanzada.<br />Con mentores que trabajan en empresas top globales.</p>
       <div class="hero-btns">
-        <a href="https://forms.gle/fknvV9x2rLHyrF4N7" target="_blank" class="btn-primary">
-          Acceso Founder — $9/mes
+        <a href="https://forms.gle/fknvV9x2rLHyrF4N7" target="_blank" class="btn-primary" id="hero-cta">
+          Acceso Founder — $79 USD/año
         </a>
         <a href="/cursos" class="btn-secondary">Ver cursos →</a>
       </div>
@@ -140,7 +146,6 @@ const mentors = [
           <line x1="0" y1={i * 68} x2="520" y2={i * 68} stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
         ))}
 
-        <!-- ── NEURAL NETWORK ── -->
         <!-- Connection lines layer 1→2 -->
         <g stroke="rgba(61,255,182,0.12)" stroke-width="1">
           <line x1="80" y1="140" x2="200" y2="100"/>
@@ -153,7 +158,6 @@ const mentors = [
           <line x1="80" y1="300" x2="200" y2="180"/>
           <line x1="80" y1="300" x2="200" y2="260"/>
         </g>
-        <!-- Highlighted connections -->
         <g stroke="rgba(61,255,182,0.35)" stroke-width="1.5">
           <line x1="80" y1="220" x2="200" y2="180"/>
           <line x1="200" y1="180" x2="320" y2="200"/>
@@ -184,11 +188,9 @@ const mentors = [
         <g>
           <circle cx="80" cy="140" r="18" fill="rgba(5,10,20,0.9)" stroke="rgba(61,255,182,0.6)" stroke-width="1.5"/>
           <text x="80" y="145" text-anchor="middle" fill="#3DFFB6" font-size="11" font-family="monospace">x₁</text>
-
           <circle cx="80" cy="220" r="18" fill="rgba(5,10,20,0.9)" stroke="rgba(61,255,182,0.8)" stroke-width="2"/>
           <circle cx="80" cy="220" r="10" fill="rgba(61,255,182,0.15)"/>
           <text x="80" y="225" text-anchor="middle" fill="#3DFFB6" font-size="11" font-family="monospace">x₂</text>
-
           <circle cx="80" cy="300" r="18" fill="rgba(5,10,20,0.9)" stroke="rgba(61,255,182,0.5)" stroke-width="1.5"/>
           <text x="80" y="305" text-anchor="middle" fill="#3DFFB6" font-size="11" font-family="monospace">x₃</text>
         </g>
@@ -197,11 +199,9 @@ const mentors = [
         <g>
           <circle cx="200" cy="100" r="18" fill="rgba(5,10,20,0.9)" stroke="rgba(167,139,250,0.5)" stroke-width="1.5"/>
           <text x="200" y="105" text-anchor="middle" fill="#A78BFA" font-size="10" font-family="monospace">h₁</text>
-
           <circle cx="200" cy="180" r="20" fill="rgba(5,10,20,0.9)" stroke="rgba(167,139,250,0.9)" stroke-width="2"/>
           <circle cx="200" cy="180" r="11" fill="rgba(167,139,250,0.18)"/>
           <text x="200" y="185" text-anchor="middle" fill="#A78BFA" font-size="10" font-family="monospace">h₂</text>
-
           <circle cx="200" cy="260" r="18" fill="rgba(5,10,20,0.9)" stroke="rgba(167,139,250,0.5)" stroke-width="1.5"/>
           <text x="200" y="265" text-anchor="middle" fill="#A78BFA" font-size="10" font-family="monospace">h₃</text>
         </g>
@@ -210,11 +210,9 @@ const mentors = [
         <g>
           <circle cx="320" cy="140" r="18" fill="rgba(5,10,20,0.9)" stroke="rgba(167,139,250,0.45)" stroke-width="1.5"/>
           <text x="320" y="145" text-anchor="middle" fill="#A78BFA" font-size="10" font-family="monospace">h₄</text>
-
           <circle cx="320" cy="200" r="20" fill="rgba(5,10,20,0.9)" stroke="rgba(167,139,250,0.85)" stroke-width="2"/>
           <circle cx="320" cy="200" r="11" fill="rgba(167,139,250,0.15)"/>
           <text x="320" y="205" text-anchor="middle" fill="#A78BFA" font-size="10" font-family="monospace">h₅</text>
-
           <circle cx="320" cy="260" r="18" fill="rgba(5,10,20,0.9)" stroke="rgba(167,139,250,0.45)" stroke-width="1.5"/>
           <text x="320" y="265" text-anchor="middle" fill="#A78BFA" font-size="10" font-family="monospace">h₆</text>
         </g>
@@ -230,25 +228,19 @@ const mentors = [
         <text x="320" y="310" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="10" font-family="monospace">Hidden 2</text>
         <text x="440" y="246" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="10" font-family="monospace">Output</text>
 
-        <!-- ── FLOATING CARDS ── -->
-        <!-- AI Card -->
+        <!-- Floating Cards -->
         <g transform="translate(30, 370)">
           <rect width="140" height="52" rx="8" fill="rgba(61,255,182,0.08)" stroke="rgba(61,255,182,0.25)" stroke-width="1"/>
-          <circle cx="20" cy="26" r="8" fill="rgba(61,255,182,0.15)" cx="18" cy="26"/>
           <text x="18" y="30" text-anchor="middle" fill="#3DFFB6" font-size="12">🤖</text>
           <text x="34" y="22" fill="rgba(255,255,255,0.8)" font-size="11" font-family="sans-serif">Inteligencia</text>
           <text x="34" y="36" fill="rgba(255,255,255,0.8)" font-size="11" font-family="sans-serif">Artificial</text>
         </g>
-
-        <!-- Quantum Card -->
         <g transform="translate(190, 390)">
           <rect width="140" height="52" rx="8" fill="rgba(167,139,250,0.08)" stroke="rgba(167,139,250,0.25)" stroke-width="1"/>
           <text x="18" y="30" text-anchor="middle" fill="#A78BFA" font-size="12">⚛️</text>
           <text x="34" y="22" fill="rgba(255,255,255,0.8)" font-size="11" font-family="sans-serif">Computación</text>
           <text x="34" y="36" fill="rgba(255,255,255,0.8)" font-size="11" font-family="sans-serif">Cuántica</text>
         </g>
-
-        <!-- Dev Card -->
         <g transform="translate(350, 370)">
           <rect width="130" height="52" rx="8" fill="rgba(96,165,250,0.08)" stroke="rgba(96,165,250,0.25)" stroke-width="1"/>
           <text x="18" y="30" text-anchor="middle" fill="#60A5FA" font-size="12">{'</>'}</text>
@@ -256,18 +248,17 @@ const mentors = [
           <text x="34" y="36" fill="rgba(255,255,255,0.8)" font-size="11" font-family="sans-serif">Avanzada</text>
         </g>
 
-        <!-- Animated pulse on active node -->
+        <!-- Animated pulses -->
         <circle cx="200" cy="180" r="28" fill="none" stroke="rgba(167,139,250,0.2)" stroke-width="1">
           <animate attributeName="r" values="20;34;20" dur="3s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite"/>
         </circle>
-
         <circle cx="440" cy="200" r="32" fill="none" stroke="rgba(96,165,250,0.2)" stroke-width="1">
           <animate attributeName="r" values="24;40;24" dur="2.5s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.4;0;0.4" dur="2.5s" repeatCount="indefinite"/>
         </circle>
 
-        <!-- Floating data particles -->
+        <!-- Floating particles -->
         <circle cx="145" cy="155" r="2.5" fill="rgba(61,255,182,0.6)">
           <animate attributeName="cy" values="155;148;155" dur="2s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
@@ -307,7 +298,7 @@ const mentors = [
   </section>
 
   <!-- PRICING -->
-  <section class="section pricing-section">
+  <section id="precios" class="section pricing-section">
     <span class="label">Planes</span>
     <h2 class="section-title">Elige tu acceso</h2>
     <div class="pricing-grid">
@@ -317,7 +308,8 @@ const mentors = [
           <h3>{p.name}</h3>
           <p class="plan-sub">{p.sub}</p>
           <div class="price">
-            {p.price}<span>{p.period}</span>
+            <span class="price-amount" data-usd={p.price} data-bob={p.bob}>{p.price}</span>
+            <span class="price-period" data-usd-period={p.period} data-bob-period={p.bobPeriod}>{p.period}</span>
           </div>
           <ul class="price-features">
             {p.features.map(f => <li>{f}</li>)}
@@ -370,6 +362,39 @@ const mentors = [
   </section>
 
 </Layout>
+
+<script>
+  async function detectCountry(): Promise<string | null> {
+    try {
+      const res = await fetch('https://ipapi.co/json/');
+      const data = await res.json();
+      return data.country_code ?? null;
+    } catch {
+      return null;
+    }
+  }
+
+  function applyBolivianPrices() {
+    // Precios en tarjetas
+    document.querySelectorAll('.price-amount').forEach(el => {
+      const bob = el.getAttribute('data-bob');
+      if (bob) el.textContent = bob;
+    });
+
+    document.querySelectorAll('.price-period').forEach(el => {
+      const bobPeriod = el.getAttribute('data-bob-period');
+      if (bobPeriod !== null) el.textContent = bobPeriod;
+    });
+
+    // Botón hero
+    const heroBtn = document.getElementById('hero-cta');
+    if (heroBtn) heroBtn.textContent = 'Acceso Founder — Bs 790/año';
+  }
+
+  detectCountry().then(country => {
+    if (country === 'BO') applyBolivianPrices();
+  });
+</script>
 
 <style>
   /* HERO */
@@ -617,7 +642,7 @@ const mentors = [
     line-height: 1;
   }
 
-  .price span {
+  .price-period {
     font-size: 15px;
     font-weight: 400;
     color: var(--text-muted);

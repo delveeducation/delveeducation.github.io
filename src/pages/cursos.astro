@@ -2,22 +2,22 @@
 import Layout from '../layouts/Layout.astro';
 
 const allCourses = [
-  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Principiante', title: 'Python Práctico',                      desc: 'Aprende Python desde cero con enfoque práctico y aplicaciones reales.',                              weeks: 5,  format: 'Asincrónico', slug: 'python-practico' },
-  { area: 'dev',     tag: 'Programación',             tagClass: 'tag-dev',     level: 'Intermedio',   title: 'Algoritmos y Estructura de Datos',       desc: 'Las bases algorítmicas que todo profesional de tecnología necesita dominar.',                        weeks: 6,  format: 'Asincrónico', slug: 'algoritmos-y-estructura-de-datos' },
-  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Principiante', title: 'Cálculo para Inteligencia Artificial',   desc: 'Las matemáticas que necesitas para entender y construir modelos de IA.',                            weeks: 5,  format: 'Asincrónico', slug: 'calculo-para-ia' },
-  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'Fundamentos de Deep Learning',           desc: 'Entiende y construye redes neuronales desde sus fundamentos hasta PyTorch.',                         weeks: 7,  format: 'Asincrónico', slug: 'fundamentos-de-deep-learning' },
-  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'Introducción a Computer Vision',         desc: 'Enseña a las computadoras a ver e interpretar el mundo visual.',                                    weeks: 6,  format: 'Asincrónico', slug: 'introduccion-a-computer-vision' },
-  { area: 'quantum', tag: 'Computación Cuántica',    tagClass: 'tag-quantum', level: 'Principiante', title: 'Introducción a Computación Cuántica',    desc: 'Entra al mundo cuántico sin necesitar un doctorado en física.',                                     weeks: 5,  format: 'Asincrónico', slug: 'introduccion-computacion-cuantica' },
-  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'Deep Learning para Computer Vision',     desc: 'Arquitecturas avanzadas: YOLO, ResNet, ViT y técnicas de detección en tiempo real.',               weeks: 8,  format: 'Asincrónico', slug: 'deep-learning-computer-vision' },
-  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'Knowledge Graphs',                       desc: 'Estructura y razona sobre conocimiento con grafos semánticos y RAG avanzado.',                       weeks: 6,  format: 'Asincrónico', slug: 'knowledge-graphs' },
-  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'Large Language Models',                  desc: 'Entiende cómo funcionan los LLMs y aplícalos en aplicaciones reales.',                              weeks: 7,  format: 'Asincrónico', slug: 'large-language-models' },
-  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'LLMs Locales',                           desc: 'Corre Llama, Mistral y Phi en tu propia máquina sin depender de APIs externas.',                    weeks: 5,  format: 'Asincrónico', slug: 'large-language-models-locales' },
-  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'LLMs Avanzado',                          desc: 'RLHF, DPO, optimización de inferencia y despliegue a escala.',                                      weeks: 8,  format: 'Asincrónico', slug: 'large-language-models-avanzado',  soon: true },
-  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'Self-Supervised Learning',               desc: 'Entrena modelos poderosos sin necesitar datos etiquetados.',                                        weeks: 6,  format: 'Asincrónico', slug: 'self-supervised-learning',         soon: true },
-  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'Computer Vision 3D',                     desc: 'Nubes de puntos, NeRF y Gaussian Splatting para el mundo tridimensional.',                          weeks: 7,  format: 'Asincrónico', slug: 'computer-vision-3d',               soon: true },
-  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'Human Pose Estimation',                  desc: 'Detecta y analiza la pose humana en imágenes y video con deep learning.',                           weeks: 6,  format: 'Asincrónico', slug: 'human-pose-estimation',            soon: true },
-  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'Multimodal AI',                          desc: 'Combina texto, imagen y audio en modelos de IA unificados.',                                        weeks: 7,  format: 'Asincrónico', slug: 'multimodal-ai',                    soon: true },
-  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'Social Data Science',                    desc: 'Aplica ciencia de datos para entender comportamientos y fenómenos sociales.',                       weeks: 6,  format: 'Asincrónico', slug: 'social-data-science',              soon: true },
+  { area: 'dev',      tag: 'Programación', tagClass: 'tag-dev',      level: 'Principiante', title: 'Python Práctico',                      desc: 'Aprende Python desde cero con enfoque práctico y aplicaciones reales.',                hours: 5,  format: 'Asincrónico', href: '/pp' },
+  { area: 'dev',     tag: 'Programación',             tagClass: 'tag-dev',     level: 'Intermedio',   title: 'Algoritmos y Estructura de Datos',       desc: 'Las bases algorítmicas que todo profesional de tecnología necesita dominar.',          hours: 5,  format: 'Asincrónico', href: '/aed' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Principiante', title: 'Cálculo para Inteligencia Artificial',   desc: 'Las matemáticas que necesitas para entender y construir modelos de IA.',              hours: 5,  format: 'Asincrónico', href: '/cai' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Principiante',   title: 'Fundamentos de Deep Learning',           desc: 'Entiende y construye redes neuronales desde sus fundamentos hasta PyTorch.',           hours: 5,  format: 'Asincrónico', href: '/fdl' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Principiante',   title: 'Introducción a Computer Vision',         desc: 'Enseña a las computadoras a ver e interpretar el mundo visual.',                      hours: 5,  format: 'Asincrónico', href: '/icv' },
+  { area: 'quantum', tag: 'Computación Cuántica',    tagClass: 'tag-quantum', level: 'Principiante', title: 'Introducción a Computación Cuántica',    desc: 'Entra al mundo cuántico sin necesitar un doctorado en física.',                       hours: 5,  format: 'Asincrónico', href: '/iqc' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',     title: 'Deep Learning para Computer Vision',     desc: 'Arquitecturas de redes neuronales para tareas de visión.',   hours: 5,  format: 'Asincrónico', href: '/dlxcv' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'Knowledge Graphs',                       desc: 'Estructura y razona sobre conocimiento con grafos semánticos y RAG.',          hours: 5,  format: 'Asincrónico', href: '/kg' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'Large Language Models',                  desc: 'Entiende cómo funcionan los LLMs y aplícalos en aplicaciones reales.',                hours: 5,  format: 'Asincrónico', href: '/llms' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'LLMs Locales',                           desc: 'Corre Llama y otros LLMs en tu propia máquina sin depender de APIs externas.',      hours: 5,  format: 'Asincrónico', href: '/llml' },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'LLMs Avanzado',                          desc: 'RLHF, DPO, optimización de inferencia y despliegue a escala.',                        hours: 5,  format: 'Asincrónico', href: '#',    soon: true },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'Self-Supervised Learning',               desc: 'Entrena modelos poderosos sin necesitar datos etiquetados.',                          hours: 5,  format: 'Asincrónico', href: '#',    soon: true },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'Computer Vision 3D',                     desc: 'Nubes de puntos, NeRF y Gaussian Splatting para el mundo tridimensional.',             hours: 5,  format: 'Asincrónico', href: '#',    soon: true },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'Human Pose Estimation',                  desc: 'Detecta y analiza la pose humana en imágenes y video con deep learning.',              hours: 5,  format: 'Asincrónico', href: '#',    soon: true },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Avanzado',     title: 'Multimodal AI',                          desc: 'Combina texto, imagen y audio en modelos de IA unificados.',                          hours: 5,  format: 'Asincrónico', href: '#',    soon: true },
+  { area: 'ia',      tag: 'Inteligencia Artificial', tagClass: 'tag-ai',      level: 'Intermedio',   title: 'Social Data Science',                    desc: 'Aplica ciencia de datos para entender comportamientos y fenómenos sociales.',           hours: 5,  format: 'Asincrónico', href: '#',    soon: true },
 ];
 
 const available  = allCourses.filter(c => !c.soon);
@@ -123,14 +123,14 @@ const countAvanz   = allCourses.filter(c => c.level === 'Avanzado').length;
     <div class="course-list">
 
       <!-- Featured banner -->
-      <a href="/programas" class="featured-banner">
+      <a href="/ellms" class="featured-banner">
         <div>
-          <span class="feat-badge">Programa estrella</span>
+          <span class="feat-badge">Programa</span>
           <h3>Especialista en LLMs</h3>
-          <p>8 semanas · 3 cursos + 4 sesiones en vivo · Certificado verificable</p>
+          <p>4 semanas · 3 cursos + 4 sesiones en vivo · Certificado verificable</p>
         </div>
         <div class="featured-right">
-          <div class="feat-price">$149 <span>pago único</span></div>
+          <div class="feat-price">$99 </div>
           <span class="feat-cta">Ver programa →</span>
         </div>
       </a>
@@ -138,7 +138,7 @@ const countAvanz   = allCourses.filter(c => c.level === 'Avanzado').length;
       <!-- Available courses -->
       {available.map(c => (
         <a
-          href={`/cursos/${c.slug}`}
+          href={c.href}
           class="course-card"
           data-area={c.area}
           data-level={c.level}
@@ -152,7 +152,7 @@ const countAvanz   = allCourses.filter(c => c.level === 'Avanzado').length;
           <p>{c.desc}</p>
           <div class="card-footer">
             <div class="card-meta">
-              <span>{c.weeks} semanas</span>
+              <span>{c.hours} horas</span>
               <span>{c.format}</span>
             </div>
             <span class="card-cta">Ver curso →</span>
@@ -182,7 +182,7 @@ const countAvanz   = allCourses.filter(c => c.level === 'Avanzado').length;
           <p>{c.desc}</p>
           <div class="card-footer">
             <div class="card-meta">
-              <span>{c.weeks} semanas</span>
+              <span>{c.hours} semanas</span>
               <span>{c.format}</span>
             </div>
             <span class="soon-badge">Muy pronto</span>
